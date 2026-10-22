@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Category counts badge updater
   function updateCategoryBadges() {
-    const counts = { all: allChannels.length, bollywood: 0, action: 0, premium: 0, classic: 0, comedy: 0 };
+    const counts = { all: allChannels.length, bollywood: 0, south: 0, regional: 0, bhojpuri: 0, action: 0 };
     allChannels.forEach(ch => {
       if (counts[ch.category] !== undefined) counts[ch.category]++;
     });
