@@ -9,10 +9,12 @@ from fastapi.responses import HTMLResponse, Response, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-# Robust BASE_DIR resolution for both local and Vercel serverless functions (e.g. api/index.py)
+# Robust BASE_DIR resolution for both local and Vercel serverless environments
 BASE_DIR = Path(__file__).resolve().parent
-if not (BASE_DIR / "templates").exists() and (BASE_DIR.parent / "templates").exists():
-    BASE_DIR = BASE_DIR.parent
+for candidate in [BASE_DIR, BASE_DIR.parent, Path.cwd(), Path("/var/task")]:
+    if (candidate / "templates").exists() and (candidate / "static").exists():
+        BASE_DIR = candidate
+        break
 
 app = FastAPI(title="StreamBox - Stream Video", redirect_slashes=False)
 
@@ -29,6 +31,7 @@ app.add_middleware(
 static_dir = BASE_DIR / "static"
 if static_dir.exists():
     app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+    app.mount("/api/static", StaticFiles(directory=str(static_dir)), name="api_static")
 
 # Templates configuration
 templates_dir = BASE_DIR / "templates"
@@ -61,6 +64,11 @@ def load_channels():
 
 
 @app.get("/", response_class=HTMLResponse)
+@app.get("/index.html", response_class=HTMLResponse)
+@app.get("/api", response_class=HTMLResponse)
+@app.get("/api/", response_class=HTMLResponse)
+@app.get("/api/index", response_class=HTMLResponse)
+@app.get("/api/index.py", response_class=HTMLResponse)
 async def root(request: Request):
     return templates.TemplateResponse(
         request=request,
@@ -70,6 +78,7 @@ async def root(request: Request):
 
 
 @app.get("/api/stream/default")
+@app.get("/stream/default")
 async def get_default_stream():
     """Returns the default active HLS stream URL for client playback without exposing secrets."""
     return {
@@ -82,6 +91,7 @@ async def get_default_stream():
 
 
 @app.get("/api/channels")
+@app.get("/channels")
 async def get_channels(
     category: str = Query("all", description="Category filter"),
     query: str = Query("", description="Search term"),
@@ -102,6 +112,7 @@ async def get_channels(
 
 
 @app.get("/api/stream/proxy")
+@app.get("/stream/proxy")
 async def stream_proxy(
     request: Request,
     url: str = Query(..., description="Target HLS manifest or segment URL")
