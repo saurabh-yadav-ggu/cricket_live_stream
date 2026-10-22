@@ -3,26 +3,36 @@ import urllib.parse
 from pathlib import Path
 import httpx
 from fastapi import FastAPI, Request, Query, HTTPException
-from fastapi.responses import HTMLResponse, StreamingResponse, Response, JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse, Response, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
+# Robust BASE_DIR resolution for both local and Vercel serverless functions (e.g. api/index.py)
 BASE_DIR = Path(__file__).resolve().parent
+if not (BASE_DIR / "templates").exists() and (BASE_DIR.parent / "templates").exists():
+    BASE_DIR = BASE_DIR.parent
 
-app = FastAPI(title="StreamBox - Stream Video")
+app = FastAPI(title="StreamBox - Stream Video", redirect_slashes=False)
+
+# Enable CORS for cross-origin player requests and preflight checks
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Static files configuration
 static_dir = BASE_DIR / "static"
-static_dir.mkdir(exist_ok=True)
-app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+if static_dir.exists():
+    app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
 
 # Templates configuration
-templates_dir = (
-    BASE_DIR / "templates"
-    if (BASE_DIR / "templates").exists()
-    else (BASE_DIR / "template" if (BASE_DIR / "template").exists() else BASE_DIR / "templates")
-)
-templates_dir.mkdir(exist_ok=True)
+templates_dir = BASE_DIR / "templates"
+if not templates_dir.exists():
+    templates_dir = BASE_DIR / "template"
 templates = Jinja2Templates(directory=str(templates_dir))
 
 # Default user-provided live HLS stream URL (Akamai signed stream)
@@ -171,26 +181,20 @@ async def stream_proxy(url: str = Query(..., description="Target HLS manifest or
             }
         )
     else:
-        # TS segment or binary stream
-        async def stream_chunks():
-            try:
-                async for chunk in upstream_resp.aiter_bytes():
-                    yield chunk
-            finally:
-                await upstream_resp.aclose()
-                await client.aclose()
+        # TS segment or binary stream (buffered for full compatibility with Vercel serverless functions)
+        body_bytes = await upstream_resp.aread()
+        await client.aclose()
 
         headers_out = {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET, OPTIONS",
             "Access-Control-Allow-Headers": "*",
             "Cache-Control": "public, max-age=3600",
+            "Content-Length": str(len(body_bytes)),
         }
-        if "content-length" in upstream_resp.headers:
-            headers_out["Content-Length"] = upstream_resp.headers["content-length"]
 
-        return StreamingResponse(
-            stream_chunks(),
+        return Response(
+            content=body_bytes,
             status_code=upstream_resp.status_code,
             media_type=content_type or "video/MP2T",
             headers=headers_out
