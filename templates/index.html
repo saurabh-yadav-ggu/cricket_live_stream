@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamBox — Every Stream. One Experience.</title>
+  <meta name="description" content="A seamless home for live channels, ultra-low latency interactive feeds, and pristine adaptive 4K playback. Built natively for the modern dark theater canvas.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Video.js 8 Base Stylesheet -->
+  <link rel="stylesheet" href="/static/css/video-js.min.css">
+
+  <!-- ImageKit Prebuilt Video Player Theme Stylesheet (Globo Codex Dark) -->
+  <link rel="stylesheet" href="/static/css/imagekit-theme.css">
+
+  <!-- Codex App Theme Stylesheet -->
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <!-- Video.js 8 Core Engine -->
+  <script src="/static/js/video.min.js"></script>
+
+  <!-- Video.js Quality Levels & HTTP Source Selector Plugins (from ImageKit) -->
+  <script src="/static/js/videojs-contrib-quality-levels.min.js"></script>
+  <script src="/static/js/videojs-http-source-selector.min.js"></script>
+</head>
+<body>
+
+  <!-- ======================================================================
+       NAVBAR (AppBar)
+       ====================================================================== -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <!-- Brand Logo -->
+      <a href="/" class="logo" aria-label="StreamBox Home">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6zm6 3v6l5-3-5-3z"/>
+          </svg>
+        </div>
+        <span class="logo-text">Stream<span>Box</span></span>
+      </a>
+
+      <!-- Center Navigation Pills -->
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#home" class="nav-item active">Home</a>
+        <a href="#explore" class="nav-item">Explore</a>
+        <a href="#live" class="nav-item">Live <span class="live-dot"></span></a>
+        <a href="#about" class="nav-item">About</a>
+      </nav>
+
+      <!-- Right Nav Actions -->
+      <div class="nav-actions">
+        <!-- Stream URL Settings -->
+        <button class="icon-btn" id="streamSettingsNavBtn" title="Update Stream URL / Token" aria-label="Stream Settings">
+          <svg viewBox="0 0 24 24">
+            <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+          </svg>
+        </button>
+
+        <!-- Search Button -->
+        <button class="icon-btn" id="searchBtn" title="Search" aria-label="Search">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+        </button>
+
+        <!-- Cast Button -->
+        <button class="icon-btn" id="castBtn" title="Cast to TV" aria-label="Cast to TV">
+          <svg viewBox="0 0 24 24">
+            <path d="M1 18v3h3c0-1.66-1.34-3-3-3zm0-4v2c2.76 0 5 2.24 5 5h2c0-3.87-3.13-7-7-7zm0-4v2c4.97 0 9 4.03 9 9h2c0-6.08-4.93-11-11-11zm20-7H3c-1.1 0-2 .9-2 2v3h2V5h18v14h-7v2h7c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+          </svg>
+        </button>
+
+        <!-- Watch Now CTA -->
+        <button class="btn-cta-nav" id="watchNowBtn">
+          Watch Now
+        </button>
+
+        <!-- User Profile Avatar -->
+        <div class="user-avatar" title="Account Profile" tabindex="0">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#B3B3B3">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search Drawer Overlay -->
+  <div class="search-drawer" id="searchDrawer">
+    <div class="container">
+      <div class="search-input-box">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="#757575">
+          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search streams, titles, genres, 4K live feeds..." autocomplete="off">
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       HERO BILLBOARD SECTION
+       ====================================================================== -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left Hero Text & Actions -->
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="eyebrow-dot"></span>
+            YOUR ENTERTAINMENT, REIMAGINED
+          </div>
+
+          <h1 class="hero-title">
+            Every Stream.
+            <span class="text-highlight">One Experience.</span>
+          </h1>
+
+          <p class="hero-desc">
+            A seamless home for live channels, ultra-low latency interactive feeds, and pristine adaptive 4K playback. Built natively for the modern dark theater canvas.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="hero-cta-group">
+            <button class="btn-primary" id="startWatchingBtn">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              Start Watching
+            </button>
+            <button class="btn-secondary" id="explorePlayerBtn">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/>
+              </svg>
+              Explore Player
+            </button>
+          </div>
+
+          <!-- Metrics Row -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-val">4K HDR</span>
+              <span class="stat-label">MASTER BITRATE</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-val">&lt; 85ms</span>
+              <span class="stat-label">GLASS-TO-GLASS</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-val">100%</span>
+              <span class="stat-label">AD-FREE HLS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Live Player Card with Prebuilt ImageKit Video.js UI -->
+        <div class="hero-player-wrap">
+          <div class="player-card">
+            
+            <!-- Video Stage with Prebuilt ImageKit Video.js UI -->
+            <div class="player-video-stage" id="heroPlayerContainer" style="aspect-ratio: 16/9; position: relative;">
+              <video
+                id="heroVideoPlayer"
+                class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid"
+                controls
+                preload="auto"
+                playsinline
+                poster="/static/images/cyberpunk_street.jpg">
+                <source src="/api/stream/proxy?url={{ default_stream_url | urlencode }}" type="application/x-mpegURL">
+              </video>
+            </div>
+
+            <!-- Player Meta Panel -->
+            <div class="player-meta-panel">
+              <div class="player-meta-top">
+                <span class="now-streaming-tag">NOW STREAMING • LIVE HLS</span>
+                <span class="quality-badge" id="heroBitrateBadge">1080p50 • Adaptive ABR</span>
+              </div>
+              <h3 class="player-stream-title">Chrono Station • Episode 04</h3>
+              <p class="player-stream-desc" id="heroStreamStats">Live Akamai Stream (HIN) • Low Latency Edge Buffer</p>
+
+              <!-- Footer with Audio Waveform & Status -->
+              <div class="player-sync-footer">
+                <div class="sync-status">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                  </svg>
+                  <span id="heroSyncStatusText">Spatial Stream Synced (Dolby Atmos / Stereo)</span>
+                </div>
+                <div class="sound-wave" title="Audio Stream Synced" id="heroSoundWave">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FEATURED FOR YOU (Content Showcase)
+       ====================================================================== -->
+  <section class="featured-section" id="explore">
+    <div class="container">
+      
+      <!-- Section Header with Category Tabs -->
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-eyebrow">
+            <span class="section-eyebrow-bar"></span>
+            CURATED LINEUP
+          </div>
+          <h2 class="section-title">Featured for You</h2>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs" role="tablist">
+          <button class="filter-tab active" data-filter="all">All Content</button>
+          <button class="filter-tab" data-filter="sci-fi">Sci-Fi</button>
+          <button class="filter-tab" data-filter="thrillers">Thrillers</button>
+          <button class="filter-tab" data-filter="documentaries">Documentaries</button>
+          <button class="filter-tab" data-filter="live">Live Now <span class="live-dot" style="width:5px; height:5px;"></span></button>
+        </div>
+      </div>
+
+      <!-- 3 Content Cards Grid -->
+      <div class="cards-grid">
+        
+        <!-- Card 1: Chrono Station -->
+        <article class="content-card" data-category="sci-fi" data-live="true">
+          <div class="card-thumbnail-wrap">
+            <img src="/static/images/space_station.jpg" alt="Chrono Station" class="card-img" loading="lazy">
+            <span class="card-badge badge-match">98% MATCH</span>
+            <div class="card-progress-bar">
+              <div class="card-progress-fill" style="width: 65%;"></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-line">
+              <div class="card-meta-left">
+                <span class="tag-genre">Sci-Fi</span>
+                <span>•</span>
+                <span>4K HDR</span>
+              </div>
+              <span class="card-duration">2h 14m</span>
+            </div>
+            <h3 class="card-title">Chrono Station</h3>
+            <p class="card-desc">In orbit around Kepler-186f, an isolated crew uncovers an anomaly that fractures spacetime communications.</p>
+          </div>
+        </article>
+
+        <!-- Card 2: Neon Syndicate -->
+        <article class="content-card" data-category="thrillers" data-live="true">
+          <div class="card-thumbnail-wrap">
+            <img src="/static/images/cyberpunk_street.jpg" alt="Neon Syndicate" class="card-img" loading="lazy">
+            <span class="card-badge badge-trending">TRENDING #1</span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-line">
+              <div class="card-meta-left">
+                <span class="tag-genre">Cyberpunk Noir</span>
+                <span>•</span>
+                <span>Ultra HD</span>
+              </div>
+              <span class="card-duration">1h 52m</span>
+            </div>
+            <h3 class="card-title">Neon Syndicate</h3>
+            <p class="card-desc">Underground synthetic cartels battle rogue enforcers across the rain-slicked sectors of Neo-Tokyo.</p>
+          </div>
+        </article>
+
+        <!-- Card 3: Abyssal Light -->
+        <article class="content-card" data-category="documentaries">
+          <div class="card-thumbnail-wrap">
+            <img src="/static/images/bioluminescent_jellyfish.jpg" alt="Abyssal Light" class="card-img" loading="lazy">
+            <span class="card-badge badge-original">STREAMBOX ORIGINAL</span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-line">
+              <div class="card-meta-left">
+                <span class="tag-genre">Docuseries</span>
+                <span>•</span>
+                <span>Dolby Vision</span>
+              </div>
+              <span class="card-duration">58m</span>
+            </div>
+            <h3 class="card-title">Abyssal Light</h3>
+            <p class="card-desc">Explore the midnight zone where life thrives on bio-electric luminescence in perpetual oceanic darkness.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <a href="/" class="logo">
+          <div class="logo-icon" style="width: 22px; height: 22px;">
+            <svg viewBox="0 0 24 24" style="width: 13px; height: 13px;">
+              <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6zm6 3v6l5-3-5-3z"/>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 16px;">Stream<span>Box</span></span>
+        </a>
+        <span class="footer-copyright">© 2026 StreamBox Media Corp. All rights reserved.</span>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer Navigation">
+        <a href="#about" class="footer-link">About</a>
+        <a href="#player" class="footer-link">Player</a>
+        <a href="#privacy" class="footer-link">Privacy</a>
+        <a href="#terms" class="footer-link">Terms</a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       THEATER VIDEO PLAYER MODAL
+       ====================================================================== -->
+  <div class="modal-backdrop" id="videoModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span class="live-dot" style="width: 6px; height: 6px;"></span>
+          <span id="modalTitle">Now Playing • Chrono Station</span>
+        </div>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Preview">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-video-box" style="aspect-ratio: 16/9; position: relative;">
+        <video
+          id="modalVideoPlayer"
+          class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid"
+          controls
+          preload="auto"
+          playsinline
+          poster="/static/images/cyberpunk_street.jpg">
+        </video>
+      </div>
+
+      <div class="modal-playback-controls">
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-tertiary);">
+          <span id="modalLiveStatus" style="color: var(--feedback-live); font-weight: 700;">● LIVE FEED</span>
+          <span id="modalQualityInfo">HLS Adaptive Multi-Bitrate</span>
+          <span>Ultra-Low Latency</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       STREAM CONFIG / TOKEN RENEWAL MODAL
+       ====================================================================== -->
+  <div class="stream-config-modal" id="streamConfigModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="stream-config-card">
+      <div class="stream-config-header">
+        <div style="font-size: 15px; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--brand-red)">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+          </svg>
+          HLS Stream & Token Configuration
+        </div>
+        <button class="modal-close-btn" id="streamConfigCloseBtn" aria-label="Close Configuration">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="stream-config-body">
+        <p style="font-size: 12px; line-height: 1.5; color: var(--text-secondary);">
+          Akamai CDN signed URLs include an expiration timestamp (<code>hdnea=exp=...</code>) and cryptographic HMAC. If a token expires, update it below to refresh the live stream immediately without reloading.
+        </p>
+
+        <label class="stream-input-label" for="streamUrlInput">HLS Stream Manifest URL (Signed or Direct)</label>
+        <textarea id="streamUrlInput" class="stream-input-field" rows="3" spellcheck="false" placeholder="https://.../std_lrh-800300010.m3u8?hdnea=exp=..."></textarea>
+
+        <div style="display: flex; align-items: center; gap: 10px; margin-top: 4px;">
+          <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); cursor: pointer;">
+            <input type="checkbox" id="useProxyCheckbox" checked>
+            <span>Enable Backend Streaming Proxy (Bypasses browser CORS & rewrites child manifests)</span>
+          </label>
+        </div>
+
+        <div class="stream-config-actions">
+          <button class="btn-update-token" id="resetStreamBtn" type="button">Reset to Default</button>
+          <button class="btn-retry" id="applyStreamBtn" type="button">Apply & Play Stream</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Player and Interactivity Controller Script -->
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
