@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "regions": ["bom1"],
+  "builds": [
+    {
+      "source": "main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "main.py"
+    }
+  ]
+}

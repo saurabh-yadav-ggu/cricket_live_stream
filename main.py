@@ -64,7 +64,10 @@ async def get_default_stream():
 
 
 @app.get("/api/stream/proxy")
-async def stream_proxy(url: str = Query(..., description="Target HLS manifest or segment URL")):
+async def stream_proxy(
+    request: Request,
+    url: str = Query(..., description="Target HLS manifest or segment URL")
+):
     """
     High-performance HLS proxy that:
     1. Forwards signed requests to CDN while resolving browser CORS limitations.
@@ -87,6 +90,16 @@ async def stream_proxy(url: str = Query(..., description="Target HLS manifest or
         "Connection": "keep-alive",
     }
 
+    # Forward client IP to help Akamai/CDN authenticate geolocated tokens
+    client_ip = (
+        request.headers.get("x-forwarded-for", "").split(",")[0].strip()
+        or request.headers.get("x-real-ip", "").strip()
+        or (request.client.host if request.client else "")
+    )
+    if client_ip and client_ip not in ("127.0.0.1", "localhost", "::1"):
+        headers["X-Forwarded-For"] = client_ip
+        headers["True-Client-IP"] = client_ip
+
     client = httpx.AsyncClient(verify=False, timeout=15.0, follow_redirects=True)
 
     try:
@@ -106,14 +119,23 @@ async def stream_proxy(url: str = Query(..., description="Target HLS manifest or
 
     # Check for authentication / token expiration
     if upstream_resp.status_code in (401, 403):
-        await upstream_resp.aread()
+        error_body_bytes = await upstream_resp.aread()
         await client.aclose()
+        error_text = error_body_bytes.decode("utf-8", errors="replace")[:500]
+        error_type = upstream_resp.headers.get("x-error-type", "")
         return JSONResponse(
             content={
                 "error": "Signed token expired or stream access forbidden",
-                "error_code": "TOKEN_EXPIRED",
+                "error_code": "TOKEN_EXPIRED" if "token" in error_type.lower() else "ACCESS_FORBIDDEN",
                 "status_code": upstream_resp.status_code,
-                "message": "The authentication token in the signed URL has expired or is invalid.",
+                "upstream_error_type": error_type,
+                "upstream_pop": upstream_resp.headers.get("x-akamai-pop", ""),
+                "message": (
+                    "The authentication token in the signed URL has expired."
+                    if "token" in error_type.lower()
+                    else "Upstream CDN rejected access from this server's region or IP. If deployed on Vercel, Akamai may block US cloud datacenter IPs."
+                ),
+                "details": error_text,
             },
             status_code=upstream_resp.status_code,
             headers={"Access-Control-Allow-Origin": "*"}
