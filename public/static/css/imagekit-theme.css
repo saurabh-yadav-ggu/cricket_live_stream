@@ -1,0 +1,247 @@
+/* ==========================================================================
+   IMAGEKIT VIDEO PLAYER PREBUILT THEME
+   Directly derived from imagekit-video-player/packages/video-player/styles
+   Themed to Globo Codex specifications (#FF0000 accent, #141414 dark base)
+   ========================================================================== */
+
+.video-js {
+  --color-accent: #FF0000;
+  --color-base: #141414;
+  --color-text: #F5F5F5;
+  --color-white: #FFFFFF;
+  --color-tooltip-bg: rgba(0, 0, 0, 0.85);
+  --color-subtitle-bg: rgba(0, 0, 0, 0.8);
+  --color-seek-feedback-bg: rgba(43, 51, 63, 0.7);
+  --color-error-bg: #90a0b3;
+
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  color: var(--color-text);
+  background-color: #000000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-js:focus {
+  outline: none;
+}
+
+/* Center Big Play Button (ImageKit Signature Circle) */
+.video-js .vjs-big-play-button {
+  width: 68px;
+  height: 68px;
+  line-height: 68px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #FFFFFF;
+  font-size: 28px;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.video-js:hover .vjs-big-play-button,
+.video-js .vjs-big-play-button:focus,
+.video-js .vjs-big-play-button:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 28px rgba(255, 0, 0, 0.75);
+  color: #FFFFFF;
+}
+
+.video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+  content: "\f101";
+  font-size: 34px;
+  line-height: 64px;
+}
+
+/* Control Bar (Frosted Glass Floating Bar) */
+.video-js .vjs-control-bar {
+  background: rgba(15, 15, 15, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  height: 48px;
+  padding: 0 8px;
+  align-items: center;
+}
+
+/* Control Icons */
+.video-js .vjs-button > .vjs-icon-placeholder:before {
+  font-size: 1.8em;
+  line-height: 48px;
+  color: var(--color-text);
+  transition: color 0.18s ease;
+}
+
+.video-js .vjs-button:hover > .vjs-icon-placeholder:before {
+  color: var(--color-accent);
+}
+
+/* Play Progress Bar */
+.video-js .vjs-play-progress {
+  background: var(--color-accent);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+.video-js .vjs-play-progress:before {
+  display: none;
+}
+
+/* Progress Slider */
+.video-js .vjs-progress-control {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  transition: height 0.2s ease;
+}
+
+.video-js .vjs-progress-control:hover {
+  height: 8px;
+  top: -8px;
+}
+
+.video-js .vjs-progress-holder {
+  margin: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.video-js .vjs-load-progress {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Live Stream UI (vjs-live-control) */
+.video-js .vjs-live-control {
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-left: 6px;
+}
+
+.video-js .vjs-live-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(255, 0, 0, 0.2);
+  color: #FF3333;
+  border: 1px solid rgba(255, 0, 0, 0.4);
+}
+
+.video-js.vjs-live .vjs-live-display::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #FF0000;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #FF0000;
+  animation: pulseLive 1.4s infinite ease-in-out;
+}
+
+/* Volume Panel */
+.video-js .vjs-volume-panel {
+  display: flex;
+  align-items: center;
+}
+
+.video-js .vjs-volume-bar.vjs-slider-horizontal {
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.video-js .vjs-volume-level {
+  background: var(--color-accent);
+  border-radius: 999px;
+}
+
+/* Quality Level Selector Plugin (HTTP Source Selector from ImageKit) */
+.video-js .vjs-http-source-selector {
+  cursor: pointer;
+  position: relative;
+}
+
+.video-js .vjs-http-source-selector .vjs-menu-button {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.video-js .vjs-menu {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 12px;
+  background: #1E1E1E;
+  border: 1px solid #2A2A2A;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.9);
+  min-width: 130px;
+  z-index: 100;
+}
+
+.video-js .vjs-menu-content {
+  padding: 4px 0;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.video-js .vjs-menu-item {
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #B3B3B3;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.video-js .vjs-menu-item:hover {
+  background: #282828;
+  color: #F5F5F5;
+}
+
+.video-js .vjs-menu-item.vjs-selected {
+  background: rgba(255, 0, 0, 0.2);
+  color: #FF3333;
+  font-weight: 700;
+}
+
+/* Error Display (ImageKit style modal) */
+.video-js .vjs-error-display {
+  background: rgba(10, 10, 10, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.video-js .vjs-error-display .vjs-modal-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  color: #F5F5F5;
+  padding: 24px;
+  line-height: 1.6;
+}
+
+.video-js .vjs-error-display .vjs-modal-dialog-content::before {
+  content: "⚠️";
+  font-size: 36px;
+  margin-bottom: 12px;
+}

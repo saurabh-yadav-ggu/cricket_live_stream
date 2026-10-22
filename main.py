@@ -33,6 +33,19 @@ if static_dir.exists():
     app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
     app.mount("/api/static", StaticFiles(directory=str(static_dir)), name="api_static")
 
+@app.middleware("http")
+async def static_fallback_middleware(request: Request, call_next):
+    path = request.url.path
+    if path.startswith("/static/"):
+        relative_path = path[len("/static/"):]
+        file_path = static_dir / relative_path
+        if file_path.exists() and file_path.is_file():
+            from fastapi.responses import FileResponse
+            import mimetypes
+            content_type, _ = mimetypes.guess_type(str(file_path))
+            return FileResponse(file_path, media_type=content_type or "application/octet-stream")
+    return await call_next(request)
+
 # Templates configuration
 templates_dir = BASE_DIR / "templates"
 if not templates_dir.exists():

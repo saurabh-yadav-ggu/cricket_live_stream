@@ -3,12 +3,12 @@
   "regions": ["bom1"],
   "functions": {
     "api/**/*.py": {
-      "includeFiles": "{templates/**,static/**}"
+      "includeFiles": "{templates/**,static/**,public/**}"
     }
   },
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!static/).*)",
       "destination": "/api/index.py"
     }
   ]
