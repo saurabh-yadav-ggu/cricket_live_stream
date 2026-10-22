@@ -1,0 +1,5502 @@
+[
+  {
+    "id": "00sReplay.us@SD",
+    "name": "00s Replay",
+    "raw_name": "00s Replay",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62ba60f059624e000781c436/colorLogoPNG.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-62ba60f059624e000781c436.m3u8"
+  },
+  {
+    "id": "4everCinema.ua@SD",
+    "name": "4ever Cinema",
+    "raw_name": "4ever Cinema (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/vFOgVbG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/258/index.m3u8"
+  },
+  {
+    "id": "24HourFreeMovies.us@SD",
+    "name": "24 Hour Free Movies",
+    "raw_name": "24 Hour Free Movies (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/iSVnzR1.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://d1j2u714xk898n.cloudfront.net/scheduler/scheduleMaster/145.m3u8"
+  },
+  {
+    "id": "30ATVClassicMovies.us@SD",
+    "name": "30A TV Classic Movies",
+    "raw_name": "30A TV Classic Movies (720p)",
+    "resolution": "720P",
+    "logo": "",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://30a-tv.com/feeds/pzaz/30atvmovies.m3u8"
+  },
+  {
+    "id": "50CentAction.us@SD",
+    "name": "50 Cent Action",
+    "raw_name": "50 Cent Action (720p)",
+    "resolution": "720P",
+    "logo": "https://provider-static.plex.tv/epg/cms/production/bcfb9977-809f-49ae-acc7-430f2c6ffb26/50CentAction_Logo_1500x1000_DarkBG_-_Chris_Connors.png",
+    "category": "action",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-68487fb3f212bedacf5a53e3.m3u8"
+  },
+  {
+    "id": "70sCinema.us@SD",
+    "name": "70s Cinema",
+    "raw_name": "70s Cinema",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/mgXeEE4.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f4d878d3d19b30007d2e782.m3u8"
+  },
+  {
+    "id": "80sRewind.us@SD",
+    "name": "80s Rewind",
+    "raw_name": "80s Rewind",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/nkEeYfI.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5ca525b650be2571e3943c63.m3u8"
+  },
+  {
+    "id": "90sThrowback.us@SD",
+    "name": "90s Throwback",
+    "raw_name": "90s Throwback",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/KoGko6M.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f4d86f519358a00072b978e.m3u8"
+  },
+  {
+    "id": "PlusMaisUm.br@HD",
+    "name": "+MaisUm",
+    "raw_name": "+MaisUm (720p)",
+    "resolution": "720P",
+    "logo": "https://i.ibb.co/ZRDvqJcf/Logo-Mais-Um-original-sem-fundo.png",
+    "category": "premium",
+    "group": "Entertainment;General;Movies;Music",
+    "url": "https://stream.ichibansys.com:3230/hybrid/play.m3u8"
+  },
+  {
+    "id": "ABNBibleMoviesChannel.us@SD",
+    "name": "ABN Bible Movies Channel",
+    "raw_name": "ABN Bible Movies Channel (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/NCqZdaL.png",
+    "category": "movies",
+    "group": "Movies;Religious",
+    "url": "https://mediaserver.abnvideos.com/streams/abnbiblemovies.m3u8"
+  },
+  {
+    "id": "Action24.gr@SD",
+    "name": "Action 24",
+    "raw_name": "Action 24 (1080p) [Not 24/7]",
+    "resolution": "1080P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/8/88/Action24-logo-small.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://actionlive.siliconweb.com/actionabr/actiontv/playlist.m3u8"
+  },
+  {
+    "id": "AdrenalinaPuraTV.us@SD",
+    "name": "Adrenalina Pura TV",
+    "raw_name": "Adrenalina Pura TV (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/Pvid2iH.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-61b793ccf571b80007b7a610.m3u8"
+  },
+  {
+    "id": "AdrenalinaPuraTV.us@Brazil",
+    "name": "Adrenalina Pura TV Brazil",
+    "raw_name": "Adrenalina Pura TV Brazil",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/Pvid2iH.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-61b790b985706b00072cb797.m3u8"
+  },
+  {
+    "id": "Aflam.sa@SD",
+    "name": "Aflam",
+    "raw_name": "Aflam (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/cTLj7Yt.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://shd-amg-fast.edgenextcdn.net/tx001/playlist.m3u8"
+  },
+  {
+    "id": "AfraFilm.ir@SD",
+    "name": "Afra Film",
+    "raw_name": "Afra Film",
+    "resolution": "HD",
+    "logo": "",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://afrafhls.wns.live/hls/stream.m3u8"
+  },
+  {
+    "id": "AlankarTV.in@SD",
+    "name": "Alankar TV",
+    "raw_name": "Alankar TV (720p)",
+    "resolution": "720P",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_ALANKAR/images/LOGO_HD/image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://livetv.tarangplus.in/alankar-origin/live/playlist.m3u8"
+  },
+  {
+    "id": "AlloCine.cm@SD",
+    "name": "Allo Cine",
+    "raw_name": "Allo Cine (1080p)",
+    "resolution": "1080P",
+    "logo": "https://raw.githubusercontent.com/songwenhui239/Songwenhui239/refs/heads/main/Allo%20Cine.jpeg",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://d1yl6bf4hrzbr0.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-5km3zs4zs9sp0/allo.m3u8"
+  },
+  {
+    "id": "AMC.us@EastHD",
+    "name": "AMC",
+    "raw_name": "AMC (United States) (720p)",
+    "resolution": "720P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/AMC_logo_2019.svg/960px-AMC_logo_2019.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://23.239.31.26:8989/amc/index.m3u8"
+  },
+  {
+    "id": "AMCEurope.uk@CzechRepublic",
+    "name": "AMC Europe Czech Republic",
+    "raw_name": "AMC Europe Czech Republic",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/AMC_logo_2019.svg/960px-AMC_logo_2019.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_amc_25p/playlist.m3u8"
+  },
+  {
+    "id": "AMCEurope.uk@Hungary",
+    "name": "AMC Europe Hungary",
+    "raw_name": "AMC Europe Hungary",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/AMC_logo_2019.svg/960px-AMC_logo_2019.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/amc_hun/index.m3u8"
+  },
+  {
+    "id": "AMCLatinAmerica.us@Brazil",
+    "name": "AMC Latin America Brazil",
+    "raw_name": "AMC Latin America Brazil (720p)",
+    "resolution": "720P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/AMC_logo_2019.svg/960px-AMC_logo_2019.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://170.83.49.66:8083/AMCHD/index.m3u8"
+  },
+  {
+    "id": "AmediaHit.ru@SD",
+    "name": "Amedia Hit",
+    "raw_name": "Amedia Hit (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/a8ZBGBw.png",
+    "category": "action",
+    "group": "Movies;Series",
+    "url": "http://stream.mcquack.net/162/index.m3u8"
+  },
+  {
+    "id": "AmericanHorrors.us@SD",
+    "name": "American Horrors",
+    "raw_name": "American Horrors (480p)",
+    "resolution": "480P",
+    "logo": "https://image.roku.com/developer_channels/prod/16f5571a82819e8992a748c70b256cbe63105f4b546b73d129668dc2cb701d91.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://107.167.7.162:8081/playlist/amhor/playlist.m3u8"
+  },
+  {
+    "id": "ArmeniaPremium.am@SD",
+    "name": "Armenia Premium",
+    "raw_name": "Armenia Premium (720p)",
+    "resolution": "720P",
+    "logo": "",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/123/index.m3u8"
+  },
+  {
+    "id": "ARTFLIXMovieClassics.us@SD",
+    "name": "ARTFLIX Movie Classics",
+    "raw_name": "ARTFLIX Movie Classics (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/5pOZQB4.png",
+    "category": "classic",
+    "group": "Classic;Movies",
+    "url": "https://amogonetworx-artflix-1-nl.samsung.wurl.tv/playlist.m3u8"
+  },
+  {
+    "id": "AuroraMediaFilms.gt@SD",
+    "name": "Aurora Media Films",
+    "raw_name": "Aurora Media Films (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/DVC5w6H.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://cdn.streamhispanatv.net:3417/live/auroramflive.m3u8"
+  },
+  {
+    "id": "AVIRewind.us@SD",
+    "name": "AVI Rewind",
+    "raw_name": "AVI Rewind (1080p)",
+    "resolution": "1080P",
+    "logo": "https://zplay.cl/LogosV2/AVIREWINDS_NEW.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "http://45.70.201.81:8000/play/a010/index.m3u8"
+  },
+  {
+    "id": "AXN.br@SD",
+    "name": "AXN",
+    "raw_name": "AXN (Brazil) (720p)",
+    "resolution": "720P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/AXN_logo_%282015%29.svg/960px-AXN_logo_%282015%29.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://170.83.16.50/AXN/index.m3u8"
+  },
+  {
+    "id": "AXNAdria.us@SD",
+    "name": "AXN Adria",
+    "raw_name": "AXN Adria",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/AXN_logo_%282015%29.svg/960px-AXN_logo_%282015%29.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://5.57.74.130:8000/play/a0at/index.m3u8"
+  },
+  {
+    "id": "AXNAsia.sg@Taiwan",
+    "name": "AXN Asia Taiwan",
+    "raw_name": "AXN Asia Taiwan (1080p)",
+    "resolution": "1080P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/AXN_logo_%282015%29.svg/960px-AXN_logo_%282015%29.svg.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "http://125.227.210.55:4050/VideoInput/play.ts"
+  },
+  {
+    "id": "AXNBlack.us@CzechRepublic",
+    "name": "AXN Black Czech Republic",
+    "raw_name": "AXN Black (United States) Czech Republic",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/Peo1QiZ.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_black/playlist.m3u8"
+  },
+  {
+    "id": "AXNBlack.us@Poland",
+    "name": "AXN Black Poland",
+    "raw_name": "AXN Black (United States) Poland (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/Peo1QiZ.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://185.227.34.179:8080/axn-black/index.m3u8"
+  },
+  {
+    "id": "AXNCEE.es@Hungary",
+    "name": "AXN CEE",
+    "raw_name": "AXN CEE",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/AXN_logo_%282015%29.svg/960px-AXN_logo_%282015%29.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/axn_hun/index.m3u8"
+  },
+  {
+    "id": "AXNCEE.es@CzechRepublic",
+    "name": "AXN CEE Czech Republic",
+    "raw_name": "AXN CEE Czech Republic",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/AXN_logo_%282015%29.svg/960px-AXN_logo_%282015%29.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_axn/playlist.m3u8"
+  },
+  {
+    "id": "AXNCEE.es@Romania",
+    "name": "AXN CEE Romania",
+    "raw_name": "AXN CEE Romania",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/AXN_logo_%282015%29.svg/960px-AXN_logo_%282015%29.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://cronos.mangora1.cfd/axy/usergend3h5jkc9rnd.m3u8"
+  },
+  {
+    "id": "AXNCrime.us@SD",
+    "name": "AXN Crime",
+    "raw_name": "AXN Crime",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/AXN_Crime_-_Logo.png/960px-AXN_Crime_-_Logo.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/viasat_film/index.m3u8"
+  },
+  {
+    "id": "AXNLatinAmerica.us@CentralAmerica",
+    "name": "AXN Latin America",
+    "raw_name": "AXN Latin America (1080p)",
+    "resolution": "1080P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/AXN_logo_%282015%29.svg/960px-AXN_logo_%282015%29.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://138.121.15.230:9002/AXN/index.m3u8"
+  },
+  {
+    "id": "AXNLatinAmerica.us@Andes",
+    "name": "AXN Latin America Andes",
+    "raw_name": "AXN Latin America Andes (1080p)",
+    "resolution": "1080P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/AXN_logo_%282015%29.svg/960px-AXN_logo_%282015%29.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://181.78.8.199:8000/play/a0cu/index.m3u8"
+  },
+  {
+    "id": "AXNMovies.pt@SD",
+    "name": "AXN Movies",
+    "raw_name": "AXN Movies (Portugal) (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/tJQckal.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://50.7.120.34:8080/AXN_BLACK/index.m3u8"
+  },
+  {
+    "id": "AXNPoland.pl@SD",
+    "name": "AXN Poland",
+    "raw_name": "AXN Poland (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/i5wOhkf.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://92.114.85.87:8015/play/a00f/index.m3u8"
+  },
+  {
+    "id": "AXNWhite.pl@SD",
+    "name": "AXN White",
+    "raw_name": "AXN White (Poland) (576i)",
+    "resolution": "576I",
+    "logo": "https://i.imgur.com/DaAyLE7.png",
+    "category": "action",
+    "group": "Movies;Series",
+    "url": "http://92.114.85.87:8014/play/a004/index.m3u8"
+  },
+  {
+    "id": "AzCinema.mx@SD",
+    "name": "Az Cinema",
+    "raw_name": "Az Cinema (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/B5UN7C8.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://15.204.196.147:22880/CABLE-MAGES-AZCINEMA/video.m3u8"
+  },
+  {
+    "id": "B4UKadak.in@SD",
+    "name": "B4U Kadak",
+    "raw_name": "B4U Kadak (576p)",
+    "resolution": "576P",
+    "logo": "https://dtil.tmsimg.com/assets/s142695_ld_h15_aa.png?lock=720x540",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://streams.tangotv.in/B4UKADAK/ORIGIN/index.m3u8"
+  },
+  {
+    "id": "B4UMovies.in@India",
+    "name": "B4U Movies",
+    "raw_name": "B4U Movies (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/M9kMFJl.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://streams.tangotv.in/B4UMOVIES/ORIGIN/index.m3u8"
+  },
+  {
+    "id": "BattlestarGalactica.us@SD",
+    "name": "Battlestar Galactica",
+    "raw_name": "Battlestar Galactica",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/69d7ebff029c431826bd328e/colorLogoPNG_1776982986391.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-69d7ebff029c431826bd328e.m3u8"
+  },
+  {
+    "id": "BETCinema.us@SD",
+    "name": "BET Cinema",
+    "raw_name": "BET Cinema",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/58af4c093a41ca9d4ecabe96/colorLogoPNG_1759338280891.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-58af4c093a41ca9d4ecabe96.m3u8"
+  },
+  {
+    "id": "BETComedyMovies.us@SD",
+    "name": "BET Comedy Movies",
+    "raw_name": "BET Comedy Movies",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/68c32d88f56983aba40052bd/colorLogoPNG_1759246622596.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-68c32d88f56983aba40052bd.m3u8"
+  },
+  {
+    "id": "BETVisionaries.us@SD",
+    "name": "BET Visionaries",
+    "raw_name": "BET Visionaries",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/663946c1b18d700008d9c168/colorLogoPNG_1759338795452.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-663946c1b18d700008d9c168.m3u8"
+  },
+  {
+    "id": "BflixMovies.in@SD",
+    "name": "Bflix Movies",
+    "raw_name": "Bflix Movies (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/5CtiQ45.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://103.151.60.162:2122/play/a01e/index.m3u8?hls"
+  },
+  {
+    "id": "BhojpuriCinema.in@SD",
+    "name": "Bhojpuri Cinema",
+    "raw_name": "Bhojpuri Cinema (720p)",
+    "resolution": "720P",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_BHOJPURI_CINEMA/images/LOGO_HD/image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://live-bhojpuri.akamaized.net/liveabr/playlist.m3u8"
+  },
+  {
+    "id": "BIZCinema.uz@SD",
+    "name": "BIZ Cinema",
+    "raw_name": "BIZ Cinema (1080p)",
+    "resolution": "1080P",
+    "logo": "https://biztv.uz/static/media/biz-cinema.286b83dc.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://fl.biztv.media/cinema_720_EMfSyXgoRdiIHgldXTZICucKTIeCKO/index.m3u8"
+  },
+  {
+    "id": "Blokbaster.ru@HD",
+    "name": "Blokbaster HD",
+    "raw_name": "Blokbaster HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/KcOi4Os.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/364/index.m3u8"
+  },
+  {
+    "id": "Bollygold.in@HD",
+    "name": "Bollygold",
+    "raw_name": "Bollygold (1080p)",
+    "resolution": "1080P",
+    "logo": "https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN4000600Q_20260805T003941SQUARE.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://jmp2.uk/stvp-IN4000600Q"
+  },
+  {
+    "id": "Bollywood.ru@HD",
+    "name": "Bollywood HD",
+    "raw_name": "Bollywood HD (576p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/YLQRnXt.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://176.118.197.101/Bollywood_HD/index.m3u8"
+  },
+  {
+    "id": "BollywoodHD.ro@Russia",
+    "name": "Bollywood HD Russia",
+    "raw_name": "Bollywood HD Russia (576p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/scDKOLS.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://xykt-fix.github.io/cinerama_edge01/hls/BOLLYWOOD_RU/Movie009.m3u8"
+  },
+  {
+    "id": "Bolt.ua@SD",
+    "name": "Bolt",
+    "raw_name": "Bolt (Ukraine) (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/YdIHXOR.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "http://stream.mcquack.net/73/index.m3u8"
+  },
+  {
+    "id": "Bonanza.us@SD",
+    "name": "Bonanza",
+    "raw_name": "Bonanza",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/696e647b07ea70192d49f6a5/colorLogoPNG_1768842647658.png",
+    "category": "classic",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-68e9913c4a666b9054849832.m3u8"
+  },
+  {
+    "id": "Bonanza.us@CA",
+    "name": "Bonanza CA",
+    "raw_name": "Bonanza CA",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/696e647b07ea70192d49f6a5/colorLogoPNG_1768842647658.png",
+    "category": "classic",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-696e647b07ea70192d49f6a5.m3u8"
+  },
+  {
+    "id": "Boreal.do@SD",
+    "name": "Boreal",
+    "raw_name": "Boreal (720p) [Not 24/7]",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/KSquHTG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://edge.essastream.com/borealtelevision/tracks-v1a1/mono.m3u8"
+  },
+  {
+    "id": "BravoFarsiTV.ir@SD",
+    "name": "Bravo Farsi TV",
+    "raw_name": "Bravo Farsi TV (360p)",
+    "resolution": "360P",
+    "logo": "https://i.ibb.co/yynxRTS/Bravo-Farsi.jpg",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://bravoohls.wns.live/hls/stream.m3u8"
+  },
+  {
+    "id": "CafeFilm.ir@SD",
+    "name": "Cafe Film",
+    "raw_name": "Cafe Film",
+    "resolution": "HD",
+    "logo": "",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://cafefhls.wns.live/hls/stream.m3u8"
+  },
+  {
+    "id": "CanalCineDios.co@SD",
+    "name": "Canal Cine Dios",
+    "raw_name": "Canal Cine Dios",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/S4xqZgV.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://canal.mediaserver.com.co/live/cinedios.m3u8"
+  },
+  {
+    "id": "CCTV6.cn@HD",
+    "name": "CCTV-6 HD",
+    "raw_name": "CCTV-6 HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/rFiaef7.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://69.30.245.50/live/cctv6.m3u8"
+  },
+  {
+    "id": "CCTVStormTheater.cn@HD",
+    "name": "CCTV-Storm Theater",
+    "raw_name": "CCTV-Storm Theater (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/rEttkKm.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://38.75.136.137:98/gslb/dsdqpub/fyjc.m3u8?auth=testpub"
+  },
+  {
+    "id": "CCTVTheFirstTheater.cn@HD",
+    "name": "CCTV-The First Theater",
+    "raw_name": "CCTV-The First Theater (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/eFxD3hq.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://38.75.136.137:98/gslb/dsdqpub/dyjc.m3u8?auth=testpub"
+  },
+  {
+    "id": "Charge.us@SD",
+    "name": "Charge!",
+    "raw_name": "Charge! (1080p)",
+    "resolution": "1080P",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/0/09/Charge!_network_logo.png/revision/latest/scale-to-width-down/512/",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://fast-channels.sinclairstoryline.com/CHARGE/index.m3u8"
+  },
+  {
+    "id": "CINDIETV.br@HD",
+    "name": "CINDIE TV",
+    "raw_name": "CINDIE TV (1080p)",
+    "resolution": "1080P",
+    "logo": "https://a.jsrdn.com/hls/23208/cindie-tv/logo_20250225_222520_68.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://cc-hqw8u5r1nshjc.akamaized.net/scheduler/scheduleMaster/352.m3u8"
+  },
+  {
+    "id": "Cine666byPlutoTV.de@FR",
+    "name": "Cine 666 by Pluto TV",
+    "raw_name": "Cine 666 by Pluto TV",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6823648580b2665220d9e69a/colorLogoPNG-1757404141.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6823648580b2665220d9e69a.m3u8"
+  },
+  {
+    "id": "CineActionbyPlutoTV.de@FR",
+    "name": "Cine Action by Pluto TV",
+    "raw_name": "Cine Action by Pluto TV",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f8ed1ff5c39700007e2204a/colorLogoPNG_1752228138963.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f8ed1ff5c39700007e2204a.m3u8"
+  },
+  {
+    "id": "CineAdrenalina.us@SD",
+    "name": "Cine Adrenalina",
+    "raw_name": "Cine Adrenalina",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/njCKaMv.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5d8d164d92e97a5e107638d2.m3u8"
+  },
+  {
+    "id": "CineAmor.us@SD",
+    "name": "Cine Amor",
+    "raw_name": "Cine Amor",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/eAS86qH.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f5136317aedfb0007016f93.m3u8"
+  },
+  {
+    "id": "CinebyPlutoTV.de@FR",
+    "name": "Cine by Pluto TV",
+    "raw_name": "Cine by Pluto TV",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f8ed0f17564a300082b676a/colorLogoPNG_1775048900088.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f8ed0f17564a300082b676a.m3u8"
+  },
+  {
+    "id": "CineCatastrophebyPlutoTV.de@FR",
+    "name": "Cine Catastrophe by Pluto TV",
+    "raw_name": "Cine Catastrophe by Pluto TV",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/65a69ef53af63d000825e0ee/colorLogoPNG_1751272916058.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-65a69ef53af63d000825e0ee.m3u8"
+  },
+  {
+    "id": "CinedAsiebyPlutoTV.de@FR",
+    "name": "Cine d'Asie by Pluto TV",
+    "raw_name": "Cine d'Asie by Pluto TV",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62f3e2d000418d00070f7dbc/colorLogoPNG_1751272759694.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-62f3e2d000418d00070f7dbc.m3u8"
+  },
+  {
+    "id": "CineFriki.es@SD",
+    "name": "Cine Friki",
+    "raw_name": "Cine Friki (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/b3Ospym.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://d2mr4fu91mjx9m.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-rb0tx75ojbc5u/CineFriki_ES.m3u8"
+  },
+  {
+    "id": "CineHorreurbyPlutoTV.de@FR",
+    "name": "Cine Horreur by Pluto TV",
+    "raw_name": "Cine Horreur by Pluto TV",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/66e1978babec540008ce41ac/colorLogoPNG_1751272165674.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-66e1978babec540008ce41ac.m3u8"
+  },
+  {
+    "id": "CineNanar.fr@SD",
+    "name": "Cine Nanar",
+    "raw_name": "Cine Nanar (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/YnUZd3W.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://zylo-cinenanar-rakuten.amagi.tv/playlist.m3u8"
+  },
+  {
+    "id": "CinePremiere.us@SD",
+    "name": "Cine Premiere",
+    "raw_name": "Cine Premiere",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/PdhWTO6.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5cf968040ab7d8f181e6a68b.m3u8"
+  },
+  {
+    "id": "CineRetrobyPlutoTV.de@FR",
+    "name": "Cine Retro by Pluto TV",
+    "raw_name": "Cine Retro by Pluto TV",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f8ed168f72fcd0007e56269/colorLogoPNG_1751272859383.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f8ed168f72fcd0007e56269.m3u8"
+  },
+  {
+    "id": "CineRomancebyPlutoTV.de@FR",
+    "name": "Cine Romance by Pluto TV",
+    "raw_name": "Cine Romance by Pluto TV",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/60812fc8539963000707d1e1/colorLogoPNG_1775048649580.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-60812fc8539963000707d1e1.m3u8"
+  },
+  {
+    "id": "CineRomantico.us@SD",
+    "name": "Cine Romantico",
+    "raw_name": "Cine Romantico (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/FUrrDrb.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://d1si3n1st4nkgb.cloudfront.net/10502/88886011/hls/master.m3u8?ads.xumo_channelId=88886011"
+  },
+  {
+    "id": "CineSciFibyPlutoTV.de@FR",
+    "name": "Cine Sci-Fi by Pluto TV",
+    "raw_name": "Cine Sci-Fi by Pluto TV",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/60c34592c911890007f29a73/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-60c34592c911890007f29a73.m3u8"
+  },
+  {
+    "id": "CineSony.us@SD",
+    "name": "Cine Sony",
+    "raw_name": "Cine Sony (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/bZWoDTg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://a-cdn.klowdtv.com/live1/cine_720p/playlist.m3u8"
+  },
+  {
+    "id": "CineTerror.us@US",
+    "name": "Cine Terror",
+    "raw_name": "Cine Terror",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f12111c9e6c2c00078ef3bb/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5d8d180092e97a5e107638d3.m3u8"
+  },
+  {
+    "id": "CineTerror.us@BR",
+    "name": "Cine Terror BR",
+    "raw_name": "Cine Terror BR",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f12111c9e6c2c00078ef3bb/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f12111c9e6c2c00078ef3bb.m3u8"
+  },
+  {
+    "id": "CineTerror.us@LatAm",
+    "name": "Cine Terror LatAm",
+    "raw_name": "Cine Terror LatAm",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f12111c9e6c2c00078ef3bb/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5dcddf1ed95e740009fef7ab.m3u8"
+  },
+  {
+    "id": "CineThrillersbyPlutoTV.de@FR",
+    "name": "Cine Thrillers by Pluto TV",
+    "raw_name": "Cine Thrillers by Pluto TV",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/60c3472a51a2050008dad272/colorLogoPNG_1751272093012.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-60c3472a51a2050008dad272.m3u8"
+  },
+  {
+    "id": "CineWestern.fr@SD",
+    "name": "Cine Western",
+    "raw_name": "Cine Western (France) (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/tteOFkL.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://amg00711-zylo-amg00711c8-rakuten-uk-2686.playouts.now.amagi.tv/playlist/amg00711-zylofast-cinewestern-rakutenuk/playlist.m3u8"
+  },
+  {
+    "id": "CineWestern.es@SD",
+    "name": "Cine Western",
+    "raw_name": "Cine Western (Spain) (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/2UROzSc.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://d2nq34q0i1r3la.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-awohw8g217ho8/CineWestern_ES.m3u8"
+  },
+  {
+    "id": "CineWesternbyPlutoTV.de@FR",
+    "name": "Cine Western by Pluto TV",
+    "raw_name": "Cine Western by Pluto TV",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/65cca3e2ec452d0008af3a65/colorLogoPNG_1751272826143.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-65cca3e2ec452d0008af3a65.m3u8"
+  },
+  {
+    "id": "CinePlus.ua@SD",
+    "name": "Cine+",
+    "raw_name": "Cine+",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/SAtdShq.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjUxOjcwMDAvY2gzMy90cmFja3MtdjJhMS9tb25vLm0zdTg%2FbGl2ZT0xJmlwPTE3OC4xMzYuNDIuMjIwJmlkPTk0ODg2NSZzZWNyZXQ9bjF1N3VpMDYmc3NsPTEmMjF5bz0wJmU9MTc5MDc1MjM2MiZzdD12bmp2elZKY2JtUndKMkFzY1l0UWpR&master=567"
+  },
+  {
+    "id": "CinePlusHit.ua@SD",
+    "name": "Cine+ Hit",
+    "raw_name": "Cine+ Hit",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/b3FcLU1.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDAvdHJhY2tzLXYyYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTI3NDUmc3Q9cVZaQ3Vpd2l3UzEwLW1tMzEwMktDZw%3D%3D&master=539"
+  },
+  {
+    "id": "CinePlusLegend.ua@SD",
+    "name": "Cine+ Legend",
+    "raw_name": "Cine+ Legend",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/QtOfzSH.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoMzQvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTI2Mzgmc3Q9RHdRc3AyN2l6V3J1dllqUEZ5aS1yUQ%3D%3D&master=568"
+  },
+  {
+    "id": "cinebox.bg@SD",
+    "name": "cine.box",
+    "raw_name": "cine.box",
+    "resolution": "HD",
+    "logo": "",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://212.70.131.37:8000/play/a08b"
+  },
+  {
+    "id": "Cinecanal.us@Pacific",
+    "name": "Cinecanal Pacific",
+    "raw_name": "Cinecanal Pacific (1080p)",
+    "resolution": "1080P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/CinecanalLA.png/960px-CinecanalLA.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://138.121.15.230:9002/CINECANAL/index.m3u8"
+  },
+  {
+    "id": "Cinema.ru@SD",
+    "name": "Cinema",
+    "raw_name": "Cinema (Russia) (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/b5e9qUA.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://flussonic.linkintel.ru/cinema/index.m3u8"
+  },
+  {
+    "id": "CinemaratonPlus.ro@HD",
+    "name": "Cinemaraton Plus (1080i)",
+    "raw_name": "Cinemaraton Plus (1080i)",
+    "resolution": "HD",
+    "logo": "https://assets.antenaplay.ro/2026/03/10/RMNdkVBCTNfsogsYqHaB.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://hls02ns.antenaplay.ro/hls/cinemaraton-plus-hd/index.m3u8"
+  },
+  {
+    "id": "Cinemax2.cz@Czechia",
+    "name": "Cinemax 2",
+    "raw_name": "Cinemax 2",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Cinemax_2_%282016%29.png/960px-Cinemax_2_%282016%29.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_cinemax2_hd_hevc/playlist.m3u8"
+  },
+  {
+    "id": "Cinemax.cz@Czechia",
+    "name": "Cinemax",
+    "raw_name": "Cinemax (Czech Republic)",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Cinemax_2016.svg/960px-Cinemax_2016.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_cinemax_hd_hevc/playlist.m3u8"
+  },
+  {
+    "id": "Cinemax.us@West",
+    "name": "Cinemax West",
+    "raw_name": "Cinemax (United States) West (720p)",
+    "resolution": "720P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Cinemax_2016.svg/960px-Cinemax_2016.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://23.237.104.106:8080/USA_CINEMAX_WEST/index.m3u8"
+  },
+  {
+    "id": "CinemaxAsia.sg@SD",
+    "name": "Cinemax Asia",
+    "raw_name": "Cinemax Asia (720p) [Geo-blocked]",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/c8crJfA.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://tinyurl.com/44efw2rx"
+  },
+  {
+    "id": "CinemaxAsia.sg@HD",
+    "name": "Cinemax Asia HD",
+    "raw_name": "Cinemax Asia HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/c8crJfA.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://125.227.210.55:1001/VideoInput/play.ts"
+  },
+  {
+    "id": "CinemaxClassics.us@East",
+    "name": "Cinemax Classics",
+    "raw_name": "Cinemax Classics (1080p)",
+    "resolution": "1080P",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/6/66/Cinemax_Classics_Logo.png/960px-Cinemax_Classics_Logo.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "http://23.237.104.106:8080/USA_5STARMAX/index.m3u8"
+  },
+  {
+    "id": "CinemaxHits.us@East",
+    "name": "Cinemax Hits",
+    "raw_name": "Cinemax Hits (1080p)",
+    "resolution": "1080P",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Cinemax_Hits_Logo.png/960px-Cinemax_Hits_Logo.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://23.237.104.106:8080/USA_MOREMAX/index.m3u8"
+  },
+  {
+    "id": "CinemaxLatinAmerica.us@SD",
+    "name": "Cinemax Latin America",
+    "raw_name": "Cinemax Latin America (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/cZWoJWD.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://streaming.onnethn.com/CINEMAX/playlist.m3u8"
+  },
+  {
+    "id": "CinemaxLatinAmerica.us@HD",
+    "name": "Cinemax Latin America HD",
+    "raw_name": "Cinemax Latin America HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/cZWoJWD.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://38.65.175.84:8000/play/a093/index.m3u8"
+  },
+  {
+    "id": "CityEdenKinoAction.ru@HD",
+    "name": "City Eden KinoAction",
+    "raw_name": "City Eden KinoAction [Not 24/7]",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/uuzuvD0.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://cityeden.catcast.tv/content/41333/index.m3u8"
+  },
+  {
+    "id": "CityEdenKinoArt.ru@HD",
+    "name": "City Eden KinoArt",
+    "raw_name": "City Eden KinoArt [Not 24/7]",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/67CWCtz.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://cityeden.catcast.tv/content/38398/index.m3u8"
+  },
+  {
+    "id": "CityEdenKinoAsia.ru@HD",
+    "name": "City Eden KinoAsia",
+    "raw_name": "City Eden KinoAsia [Not 24/7]",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/gaket4B.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://cityeden.catcast.tv/content/34393/index.m3u8"
+  },
+  {
+    "id": "CityEdenKinoDetektiv.ru@HD",
+    "name": "City Eden KinoDetektiv",
+    "raw_name": "City Eden KinoDetektiv [Not 24/7]",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/9rKHwBV.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://cityeden.catcast.tv/content/41327/index.m3u8"
+  },
+  {
+    "id": "CityEdenKinoDrama.ru@HD",
+    "name": "City Eden KinoDrama",
+    "raw_name": "City Eden KinoDrama [Not 24/7]",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/29ddffh.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://cityeden.catcast.tv/content/45269/index.m3u8"
+  },
+  {
+    "id": "CityEdenKinoFantastika.ru@HD",
+    "name": "City Eden KinoFantastika",
+    "raw_name": "City Eden KinoFantastika [Not 24/7]",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/I64FeIO.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://cityeden.catcast.tv/content/45268/index.m3u8"
+  },
+  {
+    "id": "CityEdenKinoKlassika.ru@HD",
+    "name": "City Eden KinoKlassika",
+    "raw_name": "City Eden KinoKlassika [Not 24/7]",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/0qGCS1S.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://cityeden.catcast.tv/content/34185/index.m3u8"
+  },
+  {
+    "id": "CityEdenKinoKomediya.ru@HD",
+    "name": "City Eden KinoKomediya",
+    "raw_name": "City Eden KinoKomediya [Not 24/7]",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/Aga2XVA.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://cityeden.catcast.tv/content/41331/index.m3u8"
+  },
+  {
+    "id": "CityEdenKinoMistika.ru@HD",
+    "name": "City Eden KinoMistika",
+    "raw_name": "City Eden KinoMistika [Not 24/7]",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/s1Pid0K.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://cityeden.catcast.tv/content/40783/index.m3u8"
+  },
+  {
+    "id": "ClaroCinema.mx@SD",
+    "name": "Claro Cinema",
+    "raw_name": "Claro Cinema (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/SOLGQxQ.jpg",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://158.172.217.18:8000/play/a00d/index.m3u8"
+  },
+  {
+    "id": "ClassicMovieWesterns.us@SD",
+    "name": "Classic Movie Westerns",
+    "raw_name": "Classic Movie Westerns",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/61f33318210549000806a530/colorLogoPNG.png",
+    "category": "classic",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-61f33318210549000806a530.m3u8"
+  },
+  {
+    "id": "ClassicMoviesChannel.us@SD",
+    "name": "Classic Movies Channel",
+    "raw_name": "Classic Movies Channel",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/pQJxov2.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-561c5b0dada51f8004c4d855.m3u8"
+  },
+  {
+    "id": "ClassiqueTV.br@SD",
+    "name": "Classique TV",
+    "raw_name": "Classique TV (360p)",
+    "resolution": "360P",
+    "logo": "https://i.imgur.com/rHxcraT.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://stmv1.srvif.com/classique/classique/playlist.m3u8"
+  },
+  {
+    "id": "ColorsBanglaCinema.in@SD",
+    "name": "Colors Bangla Cinema",
+    "raw_name": "Colors Bangla Cinema (576p)",
+    "resolution": "576P",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_COLORS_BANGLA_CINEMA/images/LOGO_HD/image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://103.151.60.162:2122/play/a02m/index.m3u8?hls"
+  },
+  {
+    "id": "ColorsCineplex.in@SD",
+    "name": "Colors Cineplex",
+    "raw_name": "Colors Cineplex (576p)",
+    "resolution": "576P",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_COLORS_CINEPLEX/images/LOGO_HD/image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/gb/YuppTV/ColorsCineplexUK.m3u8"
+  },
+  {
+    "id": "CosmosTv.ar@HD",
+    "name": "Cosmos Tv",
+    "raw_name": "Cosmos Tv",
+    "resolution": "HD",
+    "logo": "https://i0.wp.com/fmcosmos.com/wp-content/uploads/2021/11/COSMOS-TV.png",
+    "category": "movies",
+    "group": "Movies;News",
+    "url": "https://tv.mediacp.eu:19360/cosmos/cosmos.m3u8"
+  },
+  {
+    "id": "CosmosTv.ar@SD",
+    "name": "Cosmos Tv SD",
+    "raw_name": "Cosmos Tv SD",
+    "resolution": "SD",
+    "logo": "https://i0.wp.com/fmcosmos.com/wp-content/uploads/2021/11/COSMOS-TV.png",
+    "category": "movies",
+    "group": "Movies;News",
+    "url": "https://canaletaplus.com:3922/live/cosmoslive.m3u8"
+  },
+  {
+    "id": "DePeliculaLatinAmerica.mx@SD",
+    "name": "De Pelicula Latin America",
+    "raw_name": "De Pelicula Latin America (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/aksM8pa.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://38.19.41.46:8081/DEPELICULA/index.m3u8"
+  },
+  {
+    "id": "DePeliculaPlus.mx@SD",
+    "name": "De Pelicula Plus",
+    "raw_name": "De Pelicula Plus (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/MMhSmDK.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://200.115.120.1:8000/play/ca030/index.m3u8"
+  },
+  {
+    "id": "DePeliculaUS.us@SD",
+    "name": "De Pelicula US",
+    "raw_name": "De Pelicula US (720p)",
+    "resolution": "720P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/DPel%C3%ADcula_2021.svg/960px-DPel%C3%ADcula_2021.svg.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://138.121.15.230:9002/DEPELICULA/index.m3u8"
+  },
+  {
+    "id": "Domkino.ru@SD",
+    "name": "Dom kino",
+    "raw_name": "Dom kino (576p)",
+    "resolution": "576P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%D0%94%D0%BE%D0%BC_%D0%9A%D0%B8%D0%BD%D0%BE.png/960px-%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%D0%94%D0%BE%D0%BC_%D0%9A%D0%B8%D0%BD%D0%BE.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/236/index.m3u8"
+  },
+  {
+    "id": "DomkinoPremium.ru@HD",
+    "name": "Dom kino Premium HD",
+    "raw_name": "Dom kino Premium HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/rJpQtvK.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/108/index.m3u8"
+  },
+  {
+    "id": "Dorama.ru@SD",
+    "name": "Dorama",
+    "raw_name": "Dorama (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/ZH5LuXU.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://fs.uplink.kz/dorama/mono.m3u8?token=onlinetv"
+  },
+  {
+    "id": "Dorama.ru@HD",
+    "name": "Dorama HD",
+    "raw_name": "Dorama HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/ZH5LuXU.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/412/index.m3u8"
+  },
+  {
+    "id": "DUST.us@SD",
+    "name": "DUST",
+    "raw_name": "DUST (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/FxYhME9.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://dqi7ayt2o24fn.cloudfront.net/playlist.m3u8"
+  },
+  {
+    "id": "EbonyTVbyLionsgate.us@SD",
+    "name": "Ebony TV by Lionsgate",
+    "raw_name": "Ebony TV by Lionsgate (1080p)",
+    "resolution": "1080P",
+    "logo": "https://provider-static.plex.tv/epg/cms/production/234d5377-ab07-41bf-acd6-34c17c1c051a/EbonyTV_Plex_Logo_Light_1500x1000.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://aegis-cloudfront-1.tubi.video/a0ad4b53-ab3a-48dd-be12-bc7f533c372c/playlist.m3u8"
+  },
+  {
+    "id": "EmotionL.fr@SD",
+    "name": "Emotion L",
+    "raw_name": "Emotion L (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/MP34aaj.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://rakutenaa-zylo-emotional-rakuten-r1zkm.amagi.tv/playlist/rakutenAA-zylo-emotional-rakuten/playlist.m3u8"
+  },
+  {
+    "id": "EnterFilm.ua@SD",
+    "name": "Enter-Film",
+    "raw_name": "Enter-Film (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/wQbiGs6.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/322/index.m3u8"
+  },
+  {
+    "id": "EpicBhojpuri.in@SD",
+    "name": "Epic Bhojpuri",
+    "raw_name": "Epic Bhojpuri (576p)",
+    "resolution": "576P",
+    "logo": "https://dtil.tmsimg.com/assets/GNLZZGG0032BVJ8.png?lock=720x540",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://mumt01.tangotv.in/O5aw8Zn3EPICBHOJPURI/index.m3u8"
+  },
+  {
+    "id": "EpicBhojpuri.in@Digital",
+    "name": "Epic Bhojpuri Digital",
+    "raw_name": "Epic Bhojpuri Digital (1080p)",
+    "resolution": "1080P",
+    "logo": "https://dtil.tmsimg.com/assets/GNLZZGG0032BVJ8.png?lock=720x540",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://cc-8hy4a26pz2uos.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-8hy4a26pz2uos/playlist.m3u8"
+  },
+  {
+    "id": "ETVCinema.in@SD",
+    "name": "ETV Cinema (396p)",
+    "raw_name": "ETV Cinema (396p)",
+    "resolution": "HD",
+    "logo": "https://dtil.tmsimg.com/assets/s143026_ld_h15_aa.png?lock=720x540",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://yupplivegcpusa.yuppcdn.net/100823/smil:etvcinema.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b"
+  },
+  {
+    "id": "Evrokino.ru@HD",
+    "name": "Evrokino HD",
+    "raw_name": "Evrokino HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/8LPtPf6.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/385/index.m3u8"
+  },
+  {
+    "id": "Film4.hu@SD",
+    "name": "Film4",
+    "raw_name": "Film4",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/X5N8CHf.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/film4_hun/index.m3u8"
+  },
+  {
+    "id": "FilmCafe.hu@Hungary",
+    "name": "Film Cafe",
+    "raw_name": "Film Cafe",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/jaKRnzU.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/film_cafe/index.m3u8"
+  },
+  {
+    "id": "FilmPlus.cz@SD",
+    "name": "Film+",
+    "raw_name": "Film+ (Czech Republic)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/OBYuY3S.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_film_plus_25p/playlist.m3u8"
+  },
+  {
+    "id": "FilmPlus.hu@SD",
+    "name": "Film+",
+    "raw_name": "Film+ (Hungary)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/OWqzJyy.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/film_plus_hun_atk/index.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusAction.pl@HD",
+    "name": "FILMBOX+ Action",
+    "raw_name": "FILMBOX+ Action (720p)",
+    "resolution": "720P",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Baction.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://92.114.85.87:8008/play/a007/index.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusComedy.pl@Poland",
+    "name": "FILMBOX+ Comedy",
+    "raw_name": "FILMBOX+ Comedy (720p)",
+    "resolution": "720P",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bcomedy.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://92.114.85.87:8008/play/a009/index.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusComedy.pl@Czechia",
+    "name": "FILMBOX+ Comedy Czechia",
+    "raw_name": "FILMBOX+ Comedy Czechia",
+    "resolution": "HD",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bcomedy.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_filmbox_family_atk_1200/playlist.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusComedy.pl@Magyar",
+    "name": "FILMBOX+ Comedy Magyar",
+    "raw_name": "FILMBOX+ Comedy Magyar (576p)",
+    "resolution": "576P",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bcomedy.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_filmbox_family_hun_atk_1200/playlist.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusComedy.pl@Romania",
+    "name": "FILMBOX+ Comedy Romania",
+    "raw_name": "FILMBOX+ Comedy Romania",
+    "resolution": "HD",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bcomedy.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://nosignal1.antenaplay.ro/hls/fb-comedy-hd/index.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusEmotion.pl@Poland",
+    "name": "FILMBOX+ Emotion",
+    "raw_name": "FILMBOX+ Emotion (720p)",
+    "resolution": "720P",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bemotion.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://92.114.85.87:8008/play/a008/index.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusEmotion.pl@Czechia",
+    "name": "FILMBOX+ Emotion Czechia",
+    "raw_name": "FILMBOX+ Emotion Czechia",
+    "resolution": "HD",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bemotion.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_film_boxextra_hd_hevc/playlist.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusEmotion.pl@Hungary",
+    "name": "FILMBOX+ Emotion Hungary",
+    "raw_name": "FILMBOX+ Emotion Hungary (1080p)",
+    "resolution": "1080P",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bemotion.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_filmbox_extra_hd_hun_atk_1200/playlist.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusFestival.pl@SD",
+    "name": "FILMBOX+ Festival",
+    "raw_name": "FILMBOX+ Festival",
+    "resolution": "HD",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bfestival.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://dash3.antik.sk/live/test_filmbox_arthouse_atk_1200/playlist.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusFestival.pl@HD",
+    "name": "FILMBOX+ Festival HD",
+    "raw_name": "FILMBOX+ Festival HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bfestival.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://nosignal1.antenaplay.ro/hls/fb-festival-hd/index.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusFestival.pl@Poland",
+    "name": "FILMBOX+ Festival Poland",
+    "raw_name": "FILMBOX+ Festival Poland",
+    "resolution": "HD",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bfestival.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://92.114.85.87:8018/play/a009/index.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusHits.pl@Poland",
+    "name": "FILMBOX+ Hits",
+    "raw_name": "FILMBOX+ Hits (576i)",
+    "resolution": "576I",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bhits.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://92.114.85.87:8008/play/a00a/index.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusHits.pl@Czechia",
+    "name": "FILMBOX+ Hits Czechia",
+    "raw_name": "FILMBOX+ Hits Czechia",
+    "resolution": "HD",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bhits.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_film_boxpremium_hd_hevc/playlist.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusHits.pl@Hungary",
+    "name": "FILMBOX+ Hits Hungary",
+    "raw_name": "FILMBOX+ Hits Hungary",
+    "resolution": "HD",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bhits.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/fb_premium_hungary/index.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusHits.pl@Romania",
+    "name": "FILMBOX+ Hits Romania",
+    "raw_name": "FILMBOX+ Hits Romania (576p)",
+    "resolution": "576P",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bhits.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://nosignal1.antenaplay.ro/hls/fb-hits-sd/index.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusLoveCrime.pl@Czechia",
+    "name": "FILMBOX+ Love & Crime",
+    "raw_name": "FILMBOX+ Love & Crime",
+    "resolution": "HD",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Blove-and-crime.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_filmbox_plus_atk_1200/playlist.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusLoveCrime.pl@Magyar",
+    "name": "FILMBOX+ Love & Crime Magyar",
+    "raw_name": "FILMBOX+ Love & Crime Magyar",
+    "resolution": "HD",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Blove-and-crime.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_filmbox_plus_hun_atk_1200/playlist.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusLoveCrime.pl@Romania",
+    "name": "FILMBOX+ Love & Crime Romania",
+    "raw_name": "FILMBOX+ Love & Crime Romania",
+    "resolution": "HD",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Blove-and-crime.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://nosignal1.antenaplay.ro/hls/fb-love-and-crime-sd/index.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusOne.pl@Czechia",
+    "name": "FILMBOX+ One Czechia",
+    "raw_name": "FILMBOX+ One Czechia",
+    "resolution": "HD",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bone.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_filmbox/playlist.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusOne.pl@Magyar",
+    "name": "FILMBOX+ One Magyar",
+    "raw_name": "FILMBOX+ One Magyar",
+    "resolution": "HD",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bone.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/filmbox_hungary/index.m3u8"
+  },
+  {
+    "id": "FILMBOXPlusOne.pl@Romania",
+    "name": "FILMBOX+ One Romania",
+    "raw_name": "FILMBOX+ One Romania (576p)",
+    "resolution": "576P",
+    "logo": "https://spiintl.com/data/files/kcfinderUploadDir/images/filmboxplus/filmbox%2Bone.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://nosignal1.antenaplay.ro/hls/fb-one-sd/index.m3u8"
+  },
+  {
+    "id": "FilmesSuspense.us@BR",
+    "name": "Filmes Suspense",
+    "raw_name": "Filmes Suspense",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f171d3442a0500007362f22/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f171d3442a0500007362f22.m3u8"
+  },
+  {
+    "id": "FilmUALive.ua@SD",
+    "name": "FilmUA Live",
+    "raw_name": "FilmUA Live",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/kizTBgS.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://dash2.antik.sk/live/test_film_life_atktv/playlist.m3u8"
+  },
+  {
+    "id": "FilmUADrama.ua@SD",
+    "name": "FilmUADrama",
+    "raw_name": "FilmUADrama (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Hnwsh5d.png",
+    "category": "comedy",
+    "group": "Movies;Series",
+    "url": "http://88.99.215.227/FilmUADrama/index.m3u8"
+  },
+  {
+    "id": "FlicksofFury.us@SD",
+    "name": "Flicks of Fury",
+    "raw_name": "Flicks of Fury",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/rtL5L81.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-58e55b14ad8e9c364d55f717.m3u8"
+  },
+  {
+    "id": "FrightFlix.us@SD",
+    "name": "FrightFlix",
+    "raw_name": "FrightFlix (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/rgNQYAl.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=2229"
+  },
+  {
+    "id": "GhostTV.br@SD",
+    "name": "Ghost TV (712p)",
+    "raw_name": "Ghost TV (712p) [Not 24/7]",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/ZVO8GVI.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://stmv.video.expressolider.com.br/ghostv/ghostv/playlist.m3u8"
+  },
+  {
+    "id": "GirlfriendsFilms.us@SD",
+    "name": "Girlfriends Films",
+    "raw_name": "Girlfriends Films",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/hCcdrOv.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-66ba1e4446762a000855cd87.m3u8"
+  },
+  {
+    "id": "GoldStar.ir@SD",
+    "name": "Gold Star",
+    "raw_name": "Gold Star",
+    "resolution": "HD",
+    "logo": "",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://moviethls.wns.live/hls/stream.m3u8"
+  },
+  {
+    "id": "Goldmines2.in@SD",
+    "name": "Goldmines 2",
+    "raw_name": "Goldmines 2 (576p)",
+    "resolution": "576P",
+    "logo": "",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINES2/index.m3u8"
+  },
+  {
+    "id": "Goldmines.in@SD",
+    "name": "Goldmines",
+    "raw_name": "Goldmines (576p)",
+    "resolution": "576P",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_GOLDMINES/images/LOGO_HD/image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://streams.tangotv.in/GOLDMINES/ORIGIN/index.m3u8"
+  },
+  {
+    "id": "GoldminesAction.in@SD",
+    "name": "Goldmines Action",
+    "raw_name": "Goldmines Action (576p)",
+    "resolution": "576P",
+    "logo": "https://yt3.googleusercontent.com/_X6U6bMLF-pTu5wBMFwsSI6aubGrXk2B0kUKdGiLIMqFLyDIne4Ot4ro76BS1S8fX3pWcCwS=s900-c-k-c0x00ffffff-no-rj",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINESACTION/index.m3u8"
+  },
+  {
+    "id": "GoldminesBollywood.in@SD",
+    "name": "Goldmines Bollywood",
+    "raw_name": "Goldmines Bollywood (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/6mNQ9mM.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINESBOLLYWOOD/index.m3u8"
+  },
+  {
+    "id": "GrandCinema.tr@SD",
+    "name": "Grand Cinema",
+    "raw_name": "Grand Cinema",
+    "resolution": "HD",
+    "logo": "",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://gcinemahls.wns.live/hls/stream.m3u8"
+  },
+  {
+    "id": "GravitasMovies.us@SD",
+    "name": "Gravitas Movies",
+    "raw_name": "Gravitas Movies (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/H2hD4vT.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://d6dg3ebeih71x.cloudfront.net/Gravitas_Movies.m3u8"
+  },
+  {
+    "id": "GrjngoWesternMovies.de@SD",
+    "name": "Grjngo Western Movies",
+    "raw_name": "Grjngo Western Movies (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/wFqhK3p.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://amogonetworx-grjngo-3-dk.samsung.wurl.tv/playlist.m3u8"
+  },
+  {
+    "id": "GroovyTV.gr@SD",
+    "name": "Groovy TV",
+    "raw_name": "Groovy TV (360p)",
+    "resolution": "360P",
+    "logo": "https://i.imgur.com/ZYNQuf1.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://web.onair-radio.eu:1935/groovytv/groovytv/playlist.m3u8"
+  },
+  {
+    "id": "HallmarkMoviesMore.us@SD",
+    "name": "Hallmark Movies & More",
+    "raw_name": "Hallmark Movies & More (1080p)",
+    "resolution": "1080P",
+    "logo": "https://provider-static.plex.tv/epg/cms/production/29af70d1-d3ba-4a16-bc4d-bd99e7e7def4/hallmark-movies-and-more_color.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://dbrb49pjoymg4.cloudfront.net/v1/master/3fec3e5cac39a52b2132f9c66c83dae043dc17d4/prod_default_xumo-ams-aws/master.m3u8?ads.xumo_channelId=99991709"
+  },
+  {
+    "id": "HarbinMovieChannel.cn@SD",
+    "name": "Harbin Movie Channel",
+    "raw_name": "Harbin Movie Channel",
+    "resolution": "HD",
+    "logo": "https://www.tvchinese.net/uploads/tv/haerbin.jpg",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://stream.hrbtv.net/yspd/playlist.m3u8"
+  },
+  {
+    "id": "HBO2.cz@SD",
+    "name": "HBO 2",
+    "raw_name": "HBO 2 (Czech Republic)",
+    "resolution": "HD",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/8/8f/HBO_2_%28Metallic%29.png/revision/latest/scale-to-width-down/1000?cb=20190715122226",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_hbo2_hd_hevc/playlist.m3u8"
+  },
+  {
+    "id": "HBO2LatinAmerica.us@HD",
+    "name": "HBO 2 Latin America HD",
+    "raw_name": "HBO 2 Latin America HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/HBO2_logo.svg/960px-HBO2_logo.svg.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "http://45.171.64.30:6060/play/a00i/index.m3u8"
+  },
+  {
+    "id": "HBO3.cz@SD",
+    "name": "HBO 3",
+    "raw_name": "HBO 3 (Czech Republic)",
+    "resolution": "HD",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/6/6f/HBO_3_%28Metallic%29.png/revision/latest/scale-to-width-down/1000?cb=20190715122202",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_hbo3_hd_hevc/playlist.m3u8"
+  },
+  {
+    "id": "HBO.cz@SD",
+    "name": "HBO",
+    "raw_name": "HBO (Czech Republic)",
+    "resolution": "HD",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/a/a9/HBO_Silver_glossy_logo.svg/revision/latest?cb=20260529155924",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_hbo_hd_hevc/playlist.m3u8"
+  },
+  {
+    "id": "HBOAsia.sg@SD",
+    "name": "HBO Asia SD",
+    "raw_name": "HBO Asia SD (720p) [Geo-blocked]",
+    "resolution": "SD",
+    "logo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/HBO_Asia.png/960px-HBO_Asia.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://tinyurl.com/yn3d3rmd"
+  },
+  {
+    "id": "HBOAsia.sg@Taiwan",
+    "name": "HBO Asia Taiwan",
+    "raw_name": "HBO Asia Taiwan (1080p)",
+    "resolution": "1080P",
+    "logo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/HBO_Asia.png/960px-HBO_Asia.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://125.227.210.55:1003/VideoInput/play.ts"
+  },
+  {
+    "id": "HITSMovies.sg@SD",
+    "name": "HITS Movies",
+    "raw_name": "HITS Movies (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/kyE3vXf.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://103.151.60.162:2122/play/a01h/index.m3u8?hls"
+  },
+  {
+    "id": "HorosheeKino.ru@SD",
+    "name": "Horoshee Kino",
+    "raw_name": "Horoshee Kino (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/ZbOqfy4.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://live-rian.cdnvideo.ru/rian/rus-radio/playlist.m3u8"
+  },
+  {
+    "id": "IFC.us@East",
+    "name": "IFC",
+    "raw_name": "IFC (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/bQdkyF9.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://23.237.104.106:8080/USA_IFC/index.m3u8"
+  },
+  {
+    "id": "iFilm2.ir@SD",
+    "name": "iFilm 2",
+    "raw_name": "iFilm 2",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/fa/c/ce/Ifilm2logo.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://live.presstv.co.uk/hls/ifilm2.m3u8"
+  },
+  {
+    "id": "iFilmArabic.ir@SD",
+    "name": "iFilm Arabic",
+    "raw_name": "iFilm Arabic",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b9/IFILM.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://live.presstv.co.uk/hls/ifilmar.m3u8"
+  },
+  {
+    "id": "iFilmEnglish.ir@SD",
+    "name": "iFilm English",
+    "raw_name": "iFilm English",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b9/IFILM.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://live.presstv.co.uk/hls/ifilmen.m3u8"
+  },
+  {
+    "id": "iFilmPersian.ir@SD",
+    "name": "iFilm Persian",
+    "raw_name": "iFilm Persian",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b9/IFILM.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://live.presstv.co.uk/hls/ifilmfa.m3u8"
+  },
+  {
+    "id": "IllusionPlus.ru@SD",
+    "name": "Illusion+",
+    "raw_name": "Illusion+ (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/9GvuHQ5.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://176.118.197.101/Illuzion+/index.m3u8"
+  },
+  {
+    "id": "IndiyskoyeKino.ru@SD",
+    "name": "Indiyskoye Kino",
+    "raw_name": "Indiyskoye Kino (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/LL8GyCh.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://188.113.190.12/329/index.m3u8"
+  },
+  {
+    "id": "IndywoodTV.in@SD",
+    "name": "Indywood TV",
+    "raw_name": "Indywood TV (720p)",
+    "resolution": "720P",
+    "logo": "https://i.ibb.co/jT3NCPp/logo-tv.png",
+    "category": "bollywood",
+    "group": "Movies;News",
+    "url": "https://43wrzjnpqoxe-hls-live.wmncdn.net/indywood/indywoodtv/index.m3u8"
+  },
+  {
+    "id": "JalshaMovies.in@HD",
+    "name": "Jalsha Movies HD",
+    "raw_name": "Jalsha Movies HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/25eWjX2.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://103.185.24.134:3001/JALSHA-MOVIES-HD/index.m3u8"
+  },
+  {
+    "id": "KairaliWe.in@SD",
+    "name": "Kairali We",
+    "raw_name": "Kairali We (576p)",
+    "resolution": "576P",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_KAIRALI_WE/images/LOGO_HD/image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://streams.tangotv.in/WETV/ORIGIN/index.m3u8"
+  },
+  {
+    "id": "KCM.sg@India",
+    "name": "KCM India",
+    "raw_name": "KCM India (1080p) [Geo-blocked]",
+    "resolution": "1080P",
+    "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/KCM.png",
+    "category": "movies",
+    "group": "Entertainment;Movies",
+    "url": "https://amg02159-amg02159c7-samsung-in-4001.playouts.now.amagi.tv/playlist/amg02159-kcglobal-kcm-samsungin/playlist.m3u8"
+  },
+  {
+    "id": "KidsMovieClub.us@SD",
+    "name": "Kids Movie Club",
+    "raw_name": "Kids Movie Club",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/avFk0Tt.png",
+    "category": "comedy",
+    "group": "Kids;Movies",
+    "url": "https://jmp2.uk/plu-5db0ad56edc89300090d2ebb.m3u8"
+  },
+  {
+    "id": "KidsFlix.us@SD",
+    "name": "KidsFlix",
+    "raw_name": "KidsFlix (1080p) [Not 24/7]",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/4Pn0ADQ.png",
+    "category": "comedy",
+    "group": "Kids;Movies",
+    "url": "https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=50"
+  },
+  {
+    "id": "Kino1.ru@International",
+    "name": "Kino 1",
+    "raw_name": "Kino 1 (Russia) [Not 24/7]",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/zsCPLs4.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://kino-1.catcast.tv/content/38617/index.m3u8"
+  },
+  {
+    "id": "Kino1.ua@SD",
+    "name": "Kino 1",
+    "raw_name": "Kino 1 (Ukraine) (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/FWVxBWI.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/395/index.m3u8"
+  },
+  {
+    "id": "Kino2.ua@SD",
+    "name": "Kino 2",
+    "raw_name": "Kino 2 (1080p)",
+    "resolution": "1080P",
+    "logo": "https://upload.wikimedia.org/wikipedia/uk/3/35/KINO_2_UA.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/465/index.m3u8"
+  },
+  {
+    "id": "KinoBarrandov.cz@SD",
+    "name": "Kino Barrandov",
+    "raw_name": "Kino Barrandov",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Kino_Barrandov_logo.png/960px-Kino_Barrandov_logo.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/test_kino_barrandov_sd_hevc50/playlist.m3u8"
+  },
+  {
+    "id": "KinoTV.ru@HD",
+    "name": "Kino TV HD",
+    "raw_name": "Kino TV HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/sMpamNO.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://176.118.197.101/KinoTvHD/playlist.m3u8"
+  },
+  {
+    "id": "KinoHit.ru@SD",
+    "name": "KinoHit",
+    "raw_name": "KinoHit (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/Ge8vkQM.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/126/index.m3u8"
+  },
+  {
+    "id": "Kinoliving.ua@SD",
+    "name": "Kinoliving",
+    "raw_name": "Kinoliving (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/9XJcmBY.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/445/index.m3u8"
+  },
+  {
+    "id": "Kinomix.ru@SD",
+    "name": "Kinomix",
+    "raw_name": "Kinomix (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/D4q2XUT.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://93.170.254.17/Kinomiks/index.m3u8"
+  },
+  {
+    "id": "Kinopokaz.ru@SD",
+    "name": "Kinopokaz",
+    "raw_name": "Kinopokaz (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/nNjMyAq.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/64/index.m3u8"
+  },
+  {
+    "id": "Kinopremyera.ru@SD",
+    "name": "Kinopremyera",
+    "raw_name": "Kinopremyera (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/s0UYT8T.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://5.188.159.128:8070/KINOPREMIERA/index.m3u8"
+  },
+  {
+    "id": "Kinosemja.ru@SD",
+    "name": "Kinosemja",
+    "raw_name": "Kinosemja (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/4BF5VeK.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/170/index.m3u8"
+  },
+  {
+    "id": "Kinosvidanie.ru@SD",
+    "name": "Kinosvidanie",
+    "raw_name": "Kinosvidanie (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/ZRaWqxj.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://5.188.159.128:8070/kinosvidanie/index.m3u8"
+  },
+  {
+    "id": "Kinoteatr.uz@SD",
+    "name": "Kinoteatr",
+    "raw_name": "Kinoteatr (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/emH1BgC.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://stream8.cinerama.uz/1009/tracks-v1a1/playlist.m3u8"
+  },
+  {
+    "id": "Kinouzhas.ru@SD",
+    "name": "Kinouzhas",
+    "raw_name": "Kinouzhas (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/mAcAAQF.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/278/index.m3u8"
+  },
+  {
+    "id": "Kinowood.ua@SD",
+    "name": "Kinowood",
+    "raw_name": "Kinowood (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/PQcXNBI.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/446/index.m3u8"
+  },
+  {
+    "id": "KuriakosCine.pt@SD",
+    "name": "Kuriakos Cine",
+    "raw_name": "Kuriakos Cine (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/CZViCwB.jpg",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://w2.manasat.com/kcine/smil:kcine.smil/playlist.m3u8"
+  },
+  {
+    "id": "LollywoodHDTV.cd@SD",
+    "name": "Lollywood HD TV",
+    "raw_name": "Lollywood HD TV",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/fQhrsdr.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://stream.berosat.live/hls/lollywood-hd/lollywood-hd.m3u8"
+  },
+  {
+    "id": "MaahTV.my@SD",
+    "name": "Maah TV",
+    "raw_name": "Maah TV (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/FkyueH6.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://hls.maahtv.live/hls/stream.m3u8"
+  },
+  {
+    "id": "MadeInHollywood.us@SD",
+    "name": "Made In Hollywood",
+    "raw_name": "Made In Hollywood",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/p16HNIM.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://connection3-ent-nz.samsung.wurl.tv/playlist.m3u8"
+  },
+  {
+    "id": "MagyarMoziTV.hu@SD",
+    "name": "Magyar Mozi TV",
+    "raw_name": "Magyar Mozi TV",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/cXajs8V.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/mozi/index.m3u8"
+  },
+  {
+    "id": "MahaMovie.in@SD",
+    "name": "Maha Movie",
+    "raw_name": "Maha Movie (576p)",
+    "resolution": "576P",
+    "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/Maha_Movies.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://cdn.pishow.tv/ott/live/10007/master.m3u8"
+  },
+  {
+    "id": "ManoranjanGrand.in@SD",
+    "name": "Manoranjan Grand",
+    "raw_name": "Manoranjan Grand (720p)",
+    "resolution": "720P",
+    "logo": "https://dtil.tmsimg.com/assets/s143302_ld_h15_aa.png?lock=720x540",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://cdn.pishow.tv/ott/live/1011/master.m3u8"
+  },
+  {
+    "id": "ManoranjanMovies.in@SD",
+    "name": "Manoranjan Movies",
+    "raw_name": "Manoranjan Movies (576p)",
+    "resolution": "576P",
+    "logo": "https://dtil.tmsimg.com/assets/s143303_ld_h15_aa.png?lock=720x540",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://mumt04.tangotv.in/m18aqlK4MANORANJANMOVIES/index.m3u8"
+  },
+  {
+    "id": "MaverickBlackCinema.us@SD",
+    "name": "Maverick Black Cinema",
+    "raw_name": "Maverick Black Cinema (1080p)",
+    "resolution": "1080P",
+    "logo": "https://images.fubo.tv/station_logos/maverick_black_cinema_c.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://maverick-maverick-black-cinema-3-us.roku.wurl.tv/playlist.m3u8"
+  },
+  {
+    "id": "MAX4.hu@SD",
+    "name": "MAX4",
+    "raw_name": "MAX4 (1080p)",
+    "resolution": "1080P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Max4_logo.png/960px-Max4_logo.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://141.94.193.53:80/MAX4_HD/index.m3u8"
+  },
+  {
+    "id": "Maxcine2.us@HD",
+    "name": "Maxcine 2",
+    "raw_name": "Maxcine 2 (720p)",
+    "resolution": "720P",
+    "logo": "https://gia.tv/streams/pptv/209163.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://live20.bozztv.com/giatvplayout7/giatv-209163/playlist.m3u8"
+  },
+  {
+    "id": "Maxcine.us@HD",
+    "name": "Maxcine",
+    "raw_name": "Maxcine (720p)",
+    "resolution": "720P",
+    "logo": "https://gia.tv/streams/pptv/208138.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://live20.bozztv.com/giatvplayout7/giatv-208138/playlist.m3u8"
+  },
+  {
+    "id": "MaxcineComedy.us@HD",
+    "name": "Maxcine Comedy",
+    "raw_name": "Maxcine Comedy (720p)",
+    "resolution": "720P",
+    "logo": "https://gia.tv/streams/pptv/208730.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://live20.bozztv.com/giatvplayout7/giatv-208730/playlist.m3u8"
+  },
+  {
+    "id": "MaxcineFamily.us@HD",
+    "name": "Maxcine Family",
+    "raw_name": "Maxcine Family (720p)",
+    "resolution": "720P",
+    "logo": "https://gia.tv/streams/pptv/208817.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://live20.bozztv.com/giatvplayout7/giatv-208817/playlist.m3u8"
+  },
+  {
+    "id": "MaxcineKids.us@HD",
+    "name": "Maxcine Kids",
+    "raw_name": "Maxcine Kids (720p)",
+    "resolution": "720P",
+    "logo": "https://gia.tv/streams/pptv/209909.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://live20.bozztv.com/giatvplayout7/giatv-209909/playlist.m3u8"
+  },
+  {
+    "id": "MBCBollywood.ae@SD",
+    "name": "MBC Bollywood",
+    "raw_name": "MBC Bollywood (1080p) [Geo-blocked]",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/TTAGFHG.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-bollywood/546eb40d7dcf9a209255dd2496903764/index.m3u8"
+  },
+  {
+    "id": "MBCPlusDrama.sa@SD",
+    "name": "MBC+ Drama",
+    "raw_name": "MBC+ Drama (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/lxWdjXG.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-plus-drama/e37251ec2aac8f6c98f75cd0fa37cd28/index.m3u8"
+  },
+  {
+    "id": "MCITelevision.co@SD",
+    "name": "MCI Television",
+    "raw_name": "MCI Television (1080p)",
+    "resolution": "1080P",
+    "logo": "https://pbs.twimg.com/profile_images/1836009952420274177/FfYonU6r_400x400.jpg",
+    "category": "comedy",
+    "group": "Family;General;Movies",
+    "url": "https://video.ejeserver.com/live/mcitelevision.m3u8"
+  },
+  {
+    "id": "Medium.de@ES",
+    "name": "Medium (Germany)",
+    "raw_name": "Medium (Germany)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6578808014fbe400086e21bc/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-6578808014fbe400086e21bc.m3u8"
+  },
+  {
+    "id": "MegaCineTV.do@HD",
+    "name": "Mega Cine TV",
+    "raw_name": "Mega Cine TV (1080p)",
+    "resolution": "1080P",
+    "logo": "https://www.vivalivetv.com/public/files/shows/0/1/2893-294x165-FFFFFF.jpg",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://cnn.hostlagarto.com/megacinetv/playlist.m3u8"
+  },
+  {
+    "id": "MeiAhMovieChannel.hk@SD",
+    "name": "Mei Ah Movie Channel",
+    "raw_name": "Mei Ah Movie Channel (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/laGiFM1.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://103.172.187.30:12000/stream/mytv/null-9/master.m3u8"
+  },
+  {
+    "id": "MerryChristmasfromViafree.se@SE",
+    "name": "Merry Christmas from Viafree",
+    "raw_name": "Merry Christmas from Viafree",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/63048147b09fd60007847a08/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6304854ac6073d0007259fe1.m3u8"
+  },
+  {
+    "id": "MerryChristmasfromViafree.se@DK",
+    "name": "Merry Christmas from Viafree DK",
+    "raw_name": "Merry Christmas from Viafree DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/63048147b09fd60007847a08/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-63048147b09fd60007847a08.m3u8"
+  },
+  {
+    "id": "MerryChristmasfromViafree.se@NO",
+    "name": "Merry Christmas from Viafree NO",
+    "raw_name": "Merry Christmas from Viafree NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/63048147b09fd60007847a08/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-63047bd6b0726b000795341d.m3u8"
+  },
+  {
+    "id": "MetaFilmTV.ir@SD",
+    "name": "Meta Film TV",
+    "raw_name": "Meta Film TV",
+    "resolution": "HD",
+    "logo": "",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://metafilmhls.wns.live/hls/stream.m3u8"
+  },
+  {
+    "id": "MHOneMovies.in@SD",
+    "name": "MH One Movies",
+    "raw_name": "MH One Movies (576p)",
+    "resolution": "576P",
+    "logo": "",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://mumt03.tangotv.in/Dsly5z3HMHONEMOVIE/index.m3u8"
+  },
+  {
+    "id": "MixHollywood.eg@SD",
+    "name": "Mix Hollywood",
+    "raw_name": "Mix Hollywood (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/1ENdbZn.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://ml-pull-hwc.myco.io/MixTV/hls/index.m3u8"
+  },
+  {
+    "id": "MovieBangla.bd@SD",
+    "name": "Movie Bangla",
+    "raw_name": "Movie Bangla",
+    "resolution": "HD",
+    "logo": "https://www.jagobd.com/wp-content/uploads/2016/02/moviebangla.jpg?x50681",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://alvetv.com/moviebanglatv/8080/index.m3u8"
+  },
+  {
+    "id": "Moviedome.us@Germany",
+    "name": "Moviedome",
+    "raw_name": "Moviedome (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/8c54ycg.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-615c1e5ce3039400070a0547.m3u8"
+  },
+  {
+    "id": "MoviesAction.sa@SD",
+    "name": "Movies Action",
+    "raw_name": "Movies Action (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/NIVhISa.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://shd-amg-fast.edgenextcdn.net/tx011/playlist.m3u8"
+  },
+  {
+    "id": "MoviesNow.in@HD",
+    "name": "Movies Now HD",
+    "raw_name": "Movies Now HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_MOVIES_NOW/images/LOGO_HD/image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://103.151.60.162:2122/play/a02w/index.m3u8?hls"
+  },
+  {
+    "id": "MoviesThriller.sa@SD",
+    "name": "Movies Thriller",
+    "raw_name": "Movies Thriller (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/JWihdcl.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://shd-amg-fast.edgenextcdn.net/tx012/playlist.m3u8"
+  },
+  {
+    "id": "Movies.us@KPVMLD",
+    "name": "Movies! KPVM-LD",
+    "raw_name": "Movies! KPVM-LD",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/gAGn3mK.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://2-fss-2.streamhoster.com/pl_120/206858-4412962-1/playlist.m3u8"
+  },
+  {
+    "id": "MovieSphere.us@US",
+    "name": "MovieSphere",
+    "raw_name": "MovieSphere (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/h1ejU90.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://amg00353-lionsgatestudio-moviesphere-xumo-zh5u0.amagi.tv/playlist.m3u8"
+  },
+  {
+    "id": "MovieSphere.us@AU",
+    "name": "MovieSphere AU",
+    "raw_name": "MovieSphere AU (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/h1ejU90.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://amg00353-lionsgatefilmsi-moviesphereaus-samsungau-7qzhf.amagi.tv/playlist/amg00353-lionsgatefilmsi-moviesphereaus-samsungau/playlist.m3u8"
+  },
+  {
+    "id": "MovieSphere.us@CA",
+    "name": "MovieSphere CA",
+    "raw_name": "MovieSphere CA",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/h1ejU90.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-64a3d96f060e830008af6745.m3u8"
+  },
+  {
+    "id": "MovieSphere.us@UK",
+    "name": "MovieSphere UK",
+    "raw_name": "MovieSphere UK (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/h1ejU90.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://moviesphereuk-samsunguk.amagi.tv/playlist.m3u8"
+  },
+  {
+    "id": "MovieSphereGold.us@WFXT",
+    "name": "MovieSphere Gold WFXT",
+    "raw_name": "MovieSphere Gold WFXT (1080p)",
+    "resolution": "1080P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/MovieSphere_Gold_2025_logo.svg/500px-MovieSphere_Gold_2025_logo.svg.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01438-ewscrippscompan-ionmystery-tablo/playlist.m3u8"
+  },
+  {
+    "id": "MoziPlus.hu@SD",
+    "name": "Mozi+",
+    "raw_name": "Mozi+",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/LtCnPFJ.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/mozi_plusz/index.m3u8"
+  },
+  {
+    "id": "Moziverzum.hu@SD",
+    "name": "Moziverzum",
+    "raw_name": "Moziverzum",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/NMifecQ.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/moziverzum/index.m3u8"
+  },
+  {
+    "id": "MultiPremier.mx@SD",
+    "name": "MultiPremier",
+    "raw_name": "MultiPremier (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/H3PzGZW.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://168.196.127.137:6001/play/a08n/index.m3u8"
+  },
+  {
+    "id": "Muzhskoekino.ru@SD",
+    "name": "Muzhskoe kino",
+    "raw_name": "Muzhskoe kino (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/8RN3tQC.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/107/index.m3u8"
+  },
+  {
+    "id": "MyTimeMovieNetwork.br@SD",
+    "name": "MyTime Movie Network",
+    "raw_name": "MyTime Movie Network (Brazil) (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/aiGQtzI.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://appletree-mytime-samsungbrazil.amagi.tv/playlist.m3u8"
+  },
+  {
+    "id": "MyTimeMovieNetwork.mx@SD",
+    "name": "MyTime Movie Network (Mexico)",
+    "raw_name": "MyTime Movie Network (Mexico) (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/pw4NZK1.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://appletree-mytime-samsungmexico.amagi.tv/playlist.m3u8"
+  },
+  {
+    "id": "MyTimeMovieNetwork.es@SD",
+    "name": "MyTime Movie Network",
+    "raw_name": "MyTime Movie Network (Spain) (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/pw4NZK1.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://appletree-mytimespain-rakuten.amagi.tv/playlist.m3u8"
+  },
+  {
+    "id": "MyTimeMovieNetwork.uk@SD",
+    "name": "MyTime Movie Network (United Kingdom)",
+    "raw_name": "MyTime Movie Network (United Kingdom) (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/pw4NZK1.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://appletree-mytimeuk-rakuten.amagi.tv/playlist.m3u8"
+  },
+  {
+    "id": "MyTimeMovieNetworkEast.us@SD",
+    "name": "MyTime Movie Network East",
+    "raw_name": "MyTime Movie Network East (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/HYgxPVQ.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://appletree-mytimeau-samsung.amagi.tv/playlist.m3u8"
+  },
+  {
+    "id": "NashKinopokaz.ru@HD",
+    "name": "Nash Kinopokaz HD",
+    "raw_name": "Nash Kinopokaz HD (576p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/iwTMl8O.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://46.53.200.153:7777/play/SRT_Nash_kinopokaz/index.m3u8"
+  },
+  {
+    "id": "Nashe.ru@HD",
+    "name": "Nashe HD",
+    "raw_name": "Nashe HD (576p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/KO8dhi9.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "http://stream.mcquack.net/217/index.m3u8"
+  },
+  {
+    "id": "NasheLubimoeKinoUkraine.ua@SD",
+    "name": "Nashe Lubimoe Kino Ukraine",
+    "raw_name": "Nashe Lubimoe Kino Ukraine (1080p)",
+    "resolution": "1080P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d0/%D0%9D%D0%B0%D1%88%D0%B5_%D0%A3%D0%BB%D1%8E%D0%B1%D0%BB%D0%B5%D0%BD%D0%B5_%D0%9A%D1%96%D0%BD%D0%BE.webp",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/456/index.m3u8"
+  },
+  {
+    "id": "Nashemuzhskoe.ru@HD",
+    "name": "Nashe muzhskoe HD",
+    "raw_name": "Nashe muzhskoe HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/QRWKpmb.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/362/index.m3u8"
+  },
+  {
+    "id": "NasheNovoeKino.ru@SD",
+    "name": "Nashe Novoe Kino",
+    "raw_name": "Nashe Novoe Kino",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/IOxIsPj.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://stream8.cinerama.uz/1051/tracks-v1a1/mono.m3u8"
+  },
+  {
+    "id": "NEWKMOVIES.us@SD",
+    "name": "NEW K.MOVIES",
+    "raw_name": "NEW K.MOVIES (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/wCgirjc.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://ads.its-newid.net/api/manifest.m3u8?ads.service_id=GB1700007PK&channel_id=newid_343&tp=samsung_tvplus"
+  },
+  {
+    "id": "NewFlix.ir@SD",
+    "name": "NewFlix",
+    "raw_name": "NewFlix",
+    "resolution": "HD",
+    "logo": "",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://newfhls.wns.live/hls/stream.m3u8"
+  },
+  {
+    "id": "NextHD.py@SD",
+    "name": "Next HD",
+    "raw_name": "Next HD (480p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/c2rF3SS.png",
+    "category": "movies",
+    "group": "Movies;Music",
+    "url": "https://live.enhdtv.com:19360/nexthd/nexthd.m3u8"
+  },
+  {
+    "id": "NHBollyFlix.in@HD",
+    "name": "NH BollyFlix",
+    "raw_name": "NH BollyFlix (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.ibb.co/yF9MPTDK/blyflx.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://jmp2.uk/stvp-IN46000140Q"
+  },
+  {
+    "id": "NHTamilGold.in@HD",
+    "name": "NH Tamil Gold",
+    "raw_name": "NH Tamil Gold (1080p)",
+    "resolution": "1080P",
+    "logo": "https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN400061DB_20260623T015348SQUARE.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://d3arbp6l7f096k.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-gv6wgpbb4mgwk/playlist.m3u8?ads.ads_cdn=cf&ads.app_domain=APP_DOMAIN&ads.cdn=cf"
+  },
+  {
+    "id": "NileDrama.eg@SD",
+    "name": "Nile Drama",
+    "raw_name": "Nile Drama (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/FasJFMM.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "http://185.9.2.18/chid_352/index.m3u8"
+  },
+  {
+    "id": "NonStopKungFu.se@SE",
+    "name": "NonStop Kung Fu",
+    "raw_name": "NonStop Kung Fu",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6728d2be529ac9000830dc15/colorLogoPNG_1732110461260.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6728d33f030a2c0008edf4be.m3u8"
+  },
+  {
+    "id": "NonStopKungFu.se@DK",
+    "name": "NonStop Kung Fu DK",
+    "raw_name": "NonStop Kung Fu DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6728d2be529ac9000830dc15/colorLogoPNG_1732110461260.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6728d2be529ac9000830dc15.m3u8"
+  },
+  {
+    "id": "NonStopKungFu.se@NO",
+    "name": "NonStop Kung Fu NO",
+    "raw_name": "NonStop Kung Fu NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6728d2be529ac9000830dc15/colorLogoPNG_1732110461260.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6728d30cdaad7f000881d979.m3u8"
+  },
+  {
+    "id": "NOST.us@SD",
+    "name": "NOST",
+    "raw_name": "NOST (720p)",
+    "resolution": "720P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/NOST-1080x1080.jpg/250px-NOST-1080x1080.jpg",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://a-cdn.klowdtv.com/live2/nost_720p/playlist.m3u8"
+  },
+  {
+    "id": "NostalgiaTV.ro@HD",
+    "name": "Nostalgia TV",
+    "raw_name": "Nostalgia TV (1080p)",
+    "resolution": "1080P",
+    "logo": "https://assets.antenaplay.ro/2026/03/10/fX5tvuPLymvvR8lQmwO7.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://hls02ns.antenaplay.ro/hls/nostalgia-hd/index.m3u8"
+  },
+  {
+    "id": "ONMovies.vn@SD",
+    "name": "ON Movies",
+    "raw_name": "ON Movies (720p)",
+    "resolution": "720P",
+    "logo": "https://i.ibb.co/fdbgvtT8/IMG-2523.webp",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://freem3u.xyz/api/live/play.m3u8?vid=181"
+  },
+  {
+    "id": "OscarMoviesBhojpuri.in@SD",
+    "name": "Oscar Movies Bhojpuri",
+    "raw_name": "Oscar Movies Bhojpuri (720p)",
+    "resolution": "720P",
+    "logo": "https://dtil.tmsimg.com/assets/s143638_ld_h9_ab.png?lock=720x540",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://cdn.pishow.tv/ott/live/233/master.m3u8"
+  },
+  {
+    "id": "Ostrosyuzhetnoye.ru@HD",
+    "name": "Ostrosyuzhetnoye HD",
+    "raw_name": "Ostrosyuzhetnoye HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/NwQ7GBy.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/214/index.m3u8"
+  },
+  {
+    "id": "OuterSphere.us@SD",
+    "name": "OuterSphere",
+    "raw_name": "OuterSphere (1080p)",
+    "resolution": "1080P",
+    "logo": "https://provider-static.plex.tv/epg/cms/production/f162df8b-6532-43fe-9202-83a658090651/OuterSphere_1500x1000_Logo_Dark_-_Chris_Connors__1_.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://d3o593mz1glx8d.cloudfront.net/OuterSphere_US.m3u8"
+  },
+  {
+    "id": "ParamountMovieChannel.us@SD",
+    "name": "Paramount Movie Channel",
+    "raw_name": "Paramount Movie Channel",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/sj5h9bl.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5cb0cae7a461406ffe3f5213.m3u8"
+  },
+  {
+    "id": "ParamountPlusPicks.us@SD",
+    "name": "Paramount+ Picks",
+    "raw_name": "Paramount+ Picks",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5ff8c708653d080007361b14/featuredImage.jpg",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5ff8c708653d080007361b14.m3u8"
+  },
+  {
+    "id": "Patriot.ru@SD",
+    "name": "Patriot",
+    "raw_name": "Patriot (720p)",
+    "resolution": "720P",
+    "logo": "https://patriotkanal.ru/assets/cached/2025/02/resize/264_112_q100_patriot-only-logo.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://stream.smotrim.ru/hls2/static/playlist_4.m3u8"
+  },
+  {
+    "id": "PersianaCinema.fr@SD",
+    "name": "Persiana Cinema",
+    "raw_name": "Persiana Cinema",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/hgIro9r.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://cinehls.persiana.live/hls/stream.m3u8"
+  },
+  {
+    "id": "PersianaFamily.fr@SD",
+    "name": "Persiana Family",
+    "raw_name": "Persiana Family",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/lMZsuWi.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://familyhls.persiana.live/hls/stream.m3u8"
+  },
+  {
+    "id": "PersianaIranian.fr@SD",
+    "name": "Persiana Iranian",
+    "raw_name": "Persiana Iranian",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/vqrrpBi.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://irhls.persiana.live/hls/stream.m3u8"
+  },
+  {
+    "id": "PersianaKorea.fr@SD",
+    "name": "Persiana Korea",
+    "raw_name": "Persiana Korea",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/si2ZnIA.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://korhls.persiana.live/hls/stream.m3u8"
+  },
+  {
+    "id": "PersianaLatino.fr@SD",
+    "name": "Persiana Latino",
+    "raw_name": "Persiana Latino",
+    "resolution": "HD",
+    "logo": "",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://latinohls.persiana.live/hls/stream.m3u8"
+  },
+  {
+    "id": "PersianaPlus.fr@SD",
+    "name": "Persiana Plus",
+    "raw_name": "Persiana Plus",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/0xttibX.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://euhls.persiana.live/hls/stream.m3u8"
+  },
+  {
+    "id": "Pitaara.in@SD",
+    "name": "Pitaara",
+    "raw_name": "Pitaara (720p)",
+    "resolution": "720P",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_PITAARA/images/LOGO_HD/image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://vg-pitaaratvlive.akamaized.net/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/vglive-sk-583798/playlist.m3u8"
+  },
+  {
+    "id": "PlutoClassicMovieWesterns.us@CA",
+    "name": "Pluto Classic Movie Westerns",
+    "raw_name": "Pluto Classic Movie Westerns",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/66dad50215d2c60008d7afbd/colorLogoPNG.png",
+    "category": "classic",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-66dad50215d2c60008d7afbd.m3u8"
+  },
+  {
+    "id": "PlutoTV90sClassics.de@FR",
+    "name": "Pluto TV 90's Classics",
+    "raw_name": "Pluto TV 90's Classics",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/66b4990746762a00084c2f78/colorLogoPNG.png",
+    "category": "classic",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-66b4990746762a00084c2f78.m3u8"
+  },
+  {
+    "id": "PlutoTVALaMexicana.us@LatAm",
+    "name": "Pluto TV A La Mexicana",
+    "raw_name": "Pluto TV A La Mexicana",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5dfcde52d28b09000a42d7a2/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5dfcde52d28b09000a42d7a2.m3u8"
+  },
+  {
+    "id": "PlutoTVAction.se@SE",
+    "name": "Pluto TV Action",
+    "raw_name": "Pluto TV Action (Sweden)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/61c095861782bd000780e0ba/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-61c0b0688a80a4000703fbcb.m3u8"
+  },
+  {
+    "id": "PlutoTVAction.se@DK",
+    "name": "Pluto TV Action DK",
+    "raw_name": "Pluto TV Action (Sweden) DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/61c095861782bd000780e0ba/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-61c095861782bd000780e0ba.m3u8"
+  },
+  {
+    "id": "PlutoTVAction.se@NO",
+    "name": "Pluto TV Action NO",
+    "raw_name": "Pluto TV Action (Sweden) NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/61c095861782bd000780e0ba/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-61c1e270489a9c000874d209.m3u8"
+  },
+  {
+    "id": "PlutoTVAction.us@US",
+    "name": "Pluto TV Action",
+    "raw_name": "Pluto TV Action (United States)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/tDapGal.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-561d7d484dc7c8770484914a.m3u8"
+  },
+  {
+    "id": "PlutoTVActionMovies.us@CA",
+    "name": "Pluto TV Action Movies",
+    "raw_name": "Pluto TV Action Movies",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62ea3c2e4823db00072788ed/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-62ea3c2e4823db00072788ed.m3u8"
+  },
+  {
+    "id": "PlutoTVAlbertoSordi.de@IT",
+    "name": "Pluto TV Alberto Sordi",
+    "raw_name": "Pluto TV Alberto Sordi",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/661f8f01801af800083d9d81/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-661f8f01801af800083d9d81.m3u8"
+  },
+  {
+    "id": "PlutoTVBangBang.us@BR",
+    "name": "Pluto TV Bang Bang",
+    "raw_name": "Pluto TV Bang Bang",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/663b9dc7cb3ea10008f1a0ce/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-663b9dc7cb3ea10008f1a0ce.m3u8"
+  },
+  {
+    "id": "PlutoTVBudTerence.de@DACH",
+    "name": "Pluto TV Bud & Terence (Germany)",
+    "raw_name": "Pluto TV Bud & Terence (Germany)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/64be7398e4391c0008cdedfe/colorLogoPNG_1776936976930.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-64be7398e4391c0008cdedfe.m3u8"
+  },
+  {
+    "id": "PlutoTVBudTerence.se@SE",
+    "name": "Pluto TV Bud & Terence",
+    "raw_name": "Pluto TV Bud & Terence (Sweden)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/64be7398e4391c0008cdedfe/colorLogoPNG_1776936976930.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-65b917720d9ab4000833f323.m3u8"
+  },
+  {
+    "id": "PlutoTVBudTerence.se@DK",
+    "name": "Pluto TV Bud & Terence DK",
+    "raw_name": "Pluto TV Bud & Terence (Sweden) DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/64be7398e4391c0008cdedfe/colorLogoPNG_1776936976930.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-65b915b1dc10a40008d53797.m3u8"
+  },
+  {
+    "id": "PlutoTVBudTerence.se@NO",
+    "name": "Pluto TV Bud & Terence NO",
+    "raw_name": "Pluto TV Bud & Terence (Sweden) NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/64be7398e4391c0008cdedfe/colorLogoPNG_1776936976930.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-65b916ec3af63d00084c5841.m3u8"
+  },
+  {
+    "id": "PlutoTVCatastrofes.de@ES",
+    "name": "Pluto TV Catastrofes",
+    "raw_name": "Pluto TV Catastrofes",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/645a309c5a0cd5000873f609/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-645a309c5a0cd5000873f609.m3u8"
+  },
+  {
+    "id": "PlutoTVChristmastuttolanno.de@IT",
+    "name": "Pluto TV Christmas tutto l'anno",
+    "raw_name": "Pluto TV Christmas tutto l'anno",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/612e05b885183d0007958101/colorLogoPNG_1770018716998.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-612e05b885183d0007958101.m3u8"
+  },
+  {
+    "id": "PlutoTVCineAccion.us@LatAm",
+    "name": "Pluto TV Cine Accion",
+    "raw_name": "Pluto TV Cine Accion",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5dcb62e63d4d8f0009f36881/colorLogoPNG_1760378798093.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5dcb62e63d4d8f0009f36881.m3u8"
+  },
+  {
+    "id": "PlutoTVCineClasico.us@LatAm",
+    "name": "Pluto TV Cine Clasico",
+    "raw_name": "Pluto TV Cine Clasico",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/609059dc63be6e0007b4eca6/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-609059dc63be6e0007b4eca6.m3u8"
+  },
+  {
+    "id": "PlutoTVCineClassicos.us@BR",
+    "name": "Pluto TV Cine Classicos",
+    "raw_name": "Pluto TV Cine Classicos",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5fa1612a669ba0000702017b/colorLogoPNG_1733440556804.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5fa1612a669ba0000702017b.m3u8"
+  },
+  {
+    "id": "PlutoTVCineComedia.de@ES",
+    "name": "Pluto TV Cine Comedia (Germany)",
+    "raw_name": "Pluto TV Cine Comedia (Germany)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f1ac8099c49f600076579b2/colorLogoPNG_1769092378955.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f1ac8099c49f600076579b2.m3u8"
+  },
+  {
+    "id": "PlutoTVCineComedia.us@US",
+    "name": "Pluto TV Cine Comedia",
+    "raw_name": "Pluto TV Cine Comedia (United States)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f12101f0b12f00007844c7c/colorLogoPNG_1732662798298.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f513564e4622a0007c578c0.m3u8"
+  },
+  {
+    "id": "PlutoTVCineComedia.us@BR",
+    "name": "Pluto TV Cine Comedia BR",
+    "raw_name": "Pluto TV Cine Comedia (United States) BR",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f12101f0b12f00007844c7c/colorLogoPNG_1732662798298.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f12101f0b12f00007844c7c.m3u8"
+  },
+  {
+    "id": "PlutoTVCineComedia.us@LatAm",
+    "name": "Pluto TV Cine Comedia LatAm",
+    "raw_name": "Pluto TV Cine Comedia (United States) LatAm",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f12101f0b12f00007844c7c/colorLogoPNG_1732662798298.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5dcdde78f080d900098550e4.m3u8"
+  },
+  {
+    "id": "PlutoTVCineComediaRomantica.us@BR",
+    "name": "Pluto TV Cine Comedia Romantica",
+    "raw_name": "Pluto TV Cine Comedia Romantica",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62545ed3dab4380007582f7c/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-62545ed3dab4380007582f7c.m3u8"
+  },
+  {
+    "id": "PlutoTVCineCrime.us@BR",
+    "name": "Pluto TV Cine Crime",
+    "raw_name": "Pluto TV Cine Crime",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6479ff764f5ba5000878dfe2/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6479ff764f5ba5000878dfe2.m3u8"
+  },
+  {
+    "id": "PlutoTVCineCrimen.us@LatAm",
+    "name": "Pluto TV Cine Crimen",
+    "raw_name": "Pluto TV Cine Crimen",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/624af40c004f8000079b784d/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-624af40c004f8000079b784d.m3u8"
+  },
+  {
+    "id": "PlutoTVCinedeautor.de@ES",
+    "name": "Pluto TV Cine de autor",
+    "raw_name": "Pluto TV Cine de autor",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/60cc807324d60a0007708dc8/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-60cc807324d60a0007708dc8.m3u8"
+  },
+  {
+    "id": "PlutoTVCineDrama.us@BR",
+    "name": "Pluto TV Cine Drama",
+    "raw_name": "Pluto TV Cine Drama",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f1210d14ae1f80007bafb1d/colorLogoPNG.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f1210d14ae1f80007bafb1d.m3u8"
+  },
+  {
+    "id": "PlutoTVCineDrama.us@LatAm",
+    "name": "Pluto TV Cine Drama LatAm",
+    "raw_name": "Pluto TV Cine Drama LatAm",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f1210d14ae1f80007bafb1d/colorLogoPNG.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5dcddfcb229eff00091b6bdf.m3u8"
+  },
+  {
+    "id": "PlutoTVCineEstelar.us@LatAm",
+    "name": "Pluto TV Cine Estelar",
+    "raw_name": "Pluto TV Cine Estelar",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5dcde437229eff00091b6c30/colorLogoPNG_1769014514491.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5dcde437229eff00091b6c30.m3u8"
+  },
+  {
+    "id": "PlutoTVCineFamilia.us@BR",
+    "name": "Pluto TV Cine Familia",
+    "raw_name": "Pluto TV Cine Familia",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f171f032cd22e0007f17f3d/colorLogoPNG_1732045254120.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f171f032cd22e0007f17f3d.m3u8"
+  },
+  {
+    "id": "PlutoTVCineFamilia.us@LatAm",
+    "name": "Pluto TV Cine Familia LatAm",
+    "raw_name": "Pluto TV Cine Familia LatAm",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f171f032cd22e0007f17f3d/colorLogoPNG_1732045254120.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5dd6ddb30a1d8a000908ed4c.m3u8"
+  },
+  {
+    "id": "PlutoTVCineInspiracao.us@BR",
+    "name": "Pluto TV Cine Inspiracao",
+    "raw_name": "Pluto TV Cine Inspiracao",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5fa991b1f09e020007e78626/colorLogoPNG_1748874366972.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5fa991b1f09e020007e78626.m3u8"
+  },
+  {
+    "id": "PlutoTVCineInspirador.us@LatAm",
+    "name": "Pluto TV Cine Inspirador",
+    "raw_name": "Pluto TV Cine Inspirador",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6806d519fea7414f33f57016/colorLogoPNG_1746817663597.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6806d519fea7414f33f57016.m3u8"
+  },
+  {
+    "id": "PlutoTVCineRomance.us@BR",
+    "name": "Pluto TV Cine Romance",
+    "raw_name": "Pluto TV Cine Romance",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f171f988ab9780007fa95ea/colorLogoPNG_1771344977802.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f171f988ab9780007fa95ea.m3u8"
+  },
+  {
+    "id": "PlutoTVCineRomance.us@LatAm",
+    "name": "Pluto TV Cine Romance LatAm",
+    "raw_name": "Pluto TV Cine Romance LatAm",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f171f988ab9780007fa95ea/colorLogoPNG_1771344977802.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5dd7ea2aeab5230009986735.m3u8"
+  },
+  {
+    "id": "PlutoTVCineRomantico.de@ES",
+    "name": "Pluto TV Cine Romantico",
+    "raw_name": "Pluto TV Cine Romantico",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f1ac9a2d3611d0007a844bb/colorLogoPNG_1747044085204.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f1ac9a2d3611d0007a844bb.m3u8"
+  },
+  {
+    "id": "PlutoTVCineSucessos.us@BR",
+    "name": "Pluto TV Cine Sucessos",
+    "raw_name": "Pluto TV Cine Sucessos",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f120e94a5714d00074576a1/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f120e94a5714d00074576a1.m3u8"
+  },
+  {
+    "id": "PlutoTVCineSuspenso.us@LatAm",
+    "name": "Pluto TV Cine Suspenso",
+    "raw_name": "Pluto TV Cine Suspenso",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5ddc4e8bcbb9010009b4e84f/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5ddc4e8bcbb9010009b4e84f.m3u8"
+  },
+  {
+    "id": "PlutoTVCinemaItaliano.de@IT",
+    "name": "Pluto TV Cinema Italiano",
+    "raw_name": "Pluto TV Cinema Italiano",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/608aa7d8359b270007861489/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-608aa7d8359b270007861489.m3u8"
+  },
+  {
+    "id": "PlutoTVCinemaOrientale.de@IT",
+    "name": "Pluto TV Cinema Orientale",
+    "raw_name": "Pluto TV Cinema Orientale",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6786235bd648bf0008c2780a/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6786235bd648bf0008c2780a.m3u8"
+  },
+  {
+    "id": "PlutoTVComediasRomanticas.de@ES",
+    "name": "Pluto TV Comedias Romanticas",
+    "raw_name": "Pluto TV Comedias Romanticas",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/655b5d865812e80008843bd1/colorLogoPNG_1747044085522.png",
+    "category": "comedy",
+    "group": "Comedy;Movies",
+    "url": "https://jmp2.uk/plu-655b5d865812e80008843bd1.m3u8"
+  },
+  {
+    "id": "PlutoTVComediesCultes.de@FR",
+    "name": "Pluto TV Comedies Cultes",
+    "raw_name": "Pluto TV Comedies Cultes",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/67b4b2d976a934282e92d71c/colorLogoPNG.png",
+    "category": "comedy",
+    "group": "Comedy;Movies",
+    "url": "https://jmp2.uk/plu-67b4b2d976a934282e92d71c.m3u8"
+  },
+  {
+    "id": "PlutoTVComedyMovies.us@CA",
+    "name": "Pluto TV Comedy Movies",
+    "raw_name": "Pluto TV Comedy Movies",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62ea3d24b8e02600071fa296/colorLogoPNG.png",
+    "category": "comedy",
+    "group": "Comedy;Movies",
+    "url": "https://jmp2.uk/plu-62ea3d24b8e02600071fa296.m3u8"
+  },
+  {
+    "id": "PlutoTVCrimeDrama.us@SD",
+    "name": "Pluto TV Crime Drama",
+    "raw_name": "Pluto TV Crime Drama",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62e92708a7ce600007b2676a/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f31fd1b4c510e00071c3103.m3u8"
+  },
+  {
+    "id": "PlutoTVCrimeDrama.us@CA",
+    "name": "Pluto TV Crime Drama CA",
+    "raw_name": "Pluto TV Crime Drama CA",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62e92708a7ce600007b2676a/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-62e92708a7ce600007b2676a.m3u8"
+  },
+  {
+    "id": "PlutoTVCrimeMovies.us@SD",
+    "name": "Pluto TV Crime Movies",
+    "raw_name": "Pluto TV Crime Movies",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/SJcqknt.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f4d8594eb979c0007706de7.m3u8"
+  },
+  {
+    "id": "PlutoTVCultFilms.de@GB",
+    "name": "Pluto TV Cult Films (Germany)",
+    "raw_name": "Pluto TV Cult Films (Germany)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5c5c31f2f21b553c1f673fb0/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5c5c31f2f21b553c1f673fb0.m3u8"
+  },
+  {
+    "id": "PlutoTVCultFilms.us@US",
+    "name": "Pluto TV Cult Films",
+    "raw_name": "Pluto TV Cult Films (United States)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/xoaIAus.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5c665db3e6c01b72c4977bc2.m3u8"
+  },
+  {
+    "id": "PlutoTVDanskeklassikere.se@DK",
+    "name": "Pluto TV Danske klassikere",
+    "raw_name": "Pluto TV Danske klassikere",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/67d2b814fe36d6e7b1d2318a/colorLogoPNG.png",
+    "category": "classic",
+    "group": "Classic;Movies",
+    "url": "https://jmp2.uk/plu-67d2b814fe36d6e7b1d2318a.m3u8"
+  },
+  {
+    "id": "PlutoTVDrama.us@US",
+    "name": "Pluto TV Drama",
+    "raw_name": "Pluto TV Drama",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/PvhbHTZ.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5b4e92e4694c027be6ecece1.m3u8"
+  },
+  {
+    "id": "PlutoTVDramaMovies.us@CA",
+    "name": "Pluto TV Drama Movies",
+    "raw_name": "Pluto TV Drama Movies",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62bdb0bcd707b9000739d2e5/colorLogoPNG.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-62bdb0bcd707b9000739d2e5.m3u8"
+  },
+  {
+    "id": "PlutoTVEstrellasdeAccion.us@SD",
+    "name": "Pluto TV Estrellas de Accion",
+    "raw_name": "Pluto TV Estrellas de Accion",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/GVOYX4L.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5e972a21ad709d00074195ba.m3u8"
+  },
+  {
+    "id": "PlutoTVFamilyMovieClub.de@GB",
+    "name": "Pluto TV Family Movie Club",
+    "raw_name": "Pluto TV Family Movie Club",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5dc3fc6b9133f500099c7d98/colorLogoPNG.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5dc3fc6b9133f500099c7d98.m3u8"
+  },
+  {
+    "id": "PlutoTVFantasyHorror.de@GB",
+    "name": "Pluto TV Fantasy & Horror",
+    "raw_name": "Pluto TV Fantasy & Horror",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/685041d936c9361b1921c26c/colorLogoPNG_1753696741486.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-685041d936c9361b1921c26c.m3u8"
+  },
+  {
+    "id": "PlutoTVFiccaoCientifica.us@BR",
+    "name": "Pluto TV Ficcao Cientifica",
+    "raw_name": "Pluto TV Ficcao Cientifica",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5fa15ad6367e170007cdd098/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5fa15ad6367e170007cdd098.m3u8"
+  },
+  {
+    "id": "PlutoTVFilm.de@IT",
+    "name": "Pluto TV Film (Germany)",
+    "raw_name": "Pluto TV Film (Germany)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/608aa17fb9f4490007e6419a/colorLogoPNG_1733013735186.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-608aa17fb9f4490007e6419a.m3u8"
+  },
+  {
+    "id": "PlutoTVFilm.se@SE",
+    "name": "Pluto TV Film",
+    "raw_name": "Pluto TV Film (Sweden)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/61c09515fbb4b50007d221f5/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-61c0afa0a09bbe00078f8378.m3u8"
+  },
+  {
+    "id": "PlutoTVFilm.se@DK",
+    "name": "Pluto TV Film DK",
+    "raw_name": "Pluto TV Film (Sweden) DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/61c09515fbb4b50007d221f5/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-61c09515fbb4b50007d221f5.m3u8"
+  },
+  {
+    "id": "PlutoTVFilm.se@NO",
+    "name": "Pluto TV Film NO",
+    "raw_name": "Pluto TV Film (Sweden) NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/61c09515fbb4b50007d221f5/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-61c1e1e55deef000075aed0c.m3u8"
+  },
+  {
+    "id": "PlutoTVFilmAzione.de@IT",
+    "name": "Pluto TV Film Azione",
+    "raw_name": "Pluto TV Film Azione",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/608aa20a2e7f270007c4878d/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-608aa20a2e7f270007c4878d.m3u8"
+  },
+  {
+    "id": "PlutoTVFilmCommedia.de@IT",
+    "name": "Pluto TV Film Commedia",
+    "raw_name": "Pluto TV Film Commedia",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/608aa512d67fd900072323db/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-608aa512d67fd900072323db.m3u8"
+  },
+  {
+    "id": "PlutoTVFilmRomantici.de@IT",
+    "name": "Pluto TV Film Romantici",
+    "raw_name": "Pluto TV Film Romantici",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/608aa4a4cc92820007b663af/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-608aa4a4cc92820007b663af.m3u8"
+  },
+  {
+    "id": "PlutoTVFilmStorici.de@IT",
+    "name": "Pluto TV Film Storici",
+    "raw_name": "Pluto TV Film Storici",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/68750875759366af05a151ce/colorLogoPNG_1756144116606.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-68750875759366af05a151ce.m3u8"
+  },
+  {
+    "id": "PlutoTVFilmThriller.de@IT",
+    "name": "Pluto TV Film Thriller",
+    "raw_name": "Pluto TV Film Thriller",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/608aa5e995132a00075f7005/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-608aa5e995132a00075f7005.m3u8"
+  },
+  {
+    "id": "PlutoTVFilmesAcao.us@BR",
+    "name": "Pluto TV Filmes Acao",
+    "raw_name": "Pluto TV Filmes Acao",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f120f41b7d403000783a6d6/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f120f41b7d403000783a6d6.m3u8"
+  },
+  {
+    "id": "PlutoTVFilmesAventura.us@BR",
+    "name": "Pluto TV Filmes Aventura",
+    "raw_name": "Pluto TV Filmes Aventura",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/66c79a4262e5510008ff68a5/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-66c79a4262e5510008ff68a5.m3u8"
+  },
+  {
+    "id": "PlutoTVFilmesdeLuta.us@BR",
+    "name": "Pluto TV Filmes de Luta",
+    "raw_name": "Pluto TV Filmes de Luta",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6806d62369aec5b19cd628c0/colorLogoPNG_1746817781806.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6806d62369aec5b19cd628c0.m3u8"
+  },
+  {
+    "id": "PlutoTVFilmesNacionais.us@BR",
+    "name": "Pluto TV Filmes Nacionais",
+    "raw_name": "Pluto TV Filmes Nacionais",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5f5a545d0dbf7f0007c09408/colorLogoPNG_1732044719987.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f5a545d0dbf7f0007c09408.m3u8"
+  },
+  {
+    "id": "PlutoTVFranchiseFavorites.us@SD",
+    "name": "Pluto TV Franchise Favorites",
+    "raw_name": "Pluto TV Franchise Favorites",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/68fbf8101d26140175db8b58/colorLogoPNG_1762383685562.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-68fbf8101d26140175db8b58.m3u8"
+  },
+  {
+    "id": "PlutoTVHaialarm.de@DACH",
+    "name": "Pluto TV Haialarm",
+    "raw_name": "Pluto TV Haialarm",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/69b015c5d29cc97de7da4af8/colorLogoPNG_1779802132594.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-69b015c5d29cc97de7da4af8.m3u8"
+  },
+  {
+    "id": "PlutoTVHarlequin.se@SE",
+    "name": "Pluto TV Harlequin",
+    "raw_name": "Pluto TV Harlequin",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/68c01afa3efb41cd9759dafb/colorLogoPNG_1770018342774.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-68c01bed508ba507f0d0dd60.m3u8"
+  },
+  {
+    "id": "PlutoTVHarlequin.se@DK",
+    "name": "Pluto TV Harlequin DK",
+    "raw_name": "Pluto TV Harlequin DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/68c01afa3efb41cd9759dafb/colorLogoPNG_1770018342774.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-68c01afa3efb41cd9759dafb.m3u8"
+  },
+  {
+    "id": "PlutoTVHarlequin.se@NO",
+    "name": "Pluto TV Harlequin NO",
+    "raw_name": "Pluto TV Harlequin NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/68c01afa3efb41cd9759dafb/colorLogoPNG_1770018342774.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-68c01b9a6bdcf3b9a64febcc.m3u8"
+  },
+  {
+    "id": "PlutoTVHorror.se@SE",
+    "name": "Pluto TV Horror",
+    "raw_name": "Pluto TV Horror (Sweden)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/63a1c9790cc44a0007dc8857/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-63a19e1b9ab2df0007bef7a7.m3u8"
+  },
+  {
+    "id": "PlutoTVHorror.se@DK",
+    "name": "Pluto TV Horror DK",
+    "raw_name": "Pluto TV Horror (Sweden) DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/63a1c9790cc44a0007dc8857/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-63a1c9790cc44a0007dc8857.m3u8"
+  },
+  {
+    "id": "PlutoTVHorror.se@NO",
+    "name": "Pluto TV Horror NO",
+    "raw_name": "Pluto TV Horror (Sweden) NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/63a1c9790cc44a0007dc8857/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-63a19cb7847a090007f230d7.m3u8"
+  },
+  {
+    "id": "PlutoTVHorror.us@US",
+    "name": "Pluto TV Horror",
+    "raw_name": "Pluto TV Horror (United States)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/569546031a619b8f07ce6e25/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-569546031a619b8f07ce6e25.m3u8"
+  },
+  {
+    "id": "PlutoTVHorror.us@CA",
+    "name": "Pluto TV Horror CA",
+    "raw_name": "Pluto TV Horror (United States) CA",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/569546031a619b8f07ce6e25/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-62ea3f8a38acc80007072d26.m3u8"
+  },
+  {
+    "id": "PlutoTVHumor.se@DK",
+    "name": "Pluto TV Humor",
+    "raw_name": "Pluto TV Humor (Sweden)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/61c0974945b45d0007aaa5ac/colorLogoPNG.png",
+    "category": "comedy",
+    "group": "Comedy;Movies",
+    "url": "https://jmp2.uk/plu-61c0974945b45d0007aaa5ac.m3u8"
+  },
+  {
+    "id": "PlutoTVIcons.us@SD",
+    "name": "Pluto TV Icons",
+    "raw_name": "Pluto TV Icons",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/64b585f84ea480000838e446/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-64b585f84ea480000838e446.m3u8"
+  },
+  {
+    "id": "PlutoTVInvasionAlien.de@ES",
+    "name": "Pluto TV Invasion Alien",
+    "raw_name": "Pluto TV Invasion Alien",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/654a35ce346f420008d5c36e/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-654a35ce346f420008d5c36e.m3u8"
+  },
+  {
+    "id": "PlutoTVJohnWayne.se@SE",
+    "name": "Pluto TV John Wayne",
+    "raw_name": "Pluto TV John Wayne",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/655ca7aa635c3c000855d655/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-655caaaac0fc8800086f5d99.m3u8"
+  },
+  {
+    "id": "PlutoTVJohnWayne.se@DK",
+    "name": "Pluto TV John Wayne DK",
+    "raw_name": "Pluto TV John Wayne DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/655ca7aa635c3c000855d655/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-655ca7aa635c3c000855d655.m3u8"
+  },
+  {
+    "id": "PlutoTVJohnWayne.se@NO",
+    "name": "Pluto TV John Wayne NO",
+    "raw_name": "Pluto TV John Wayne NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/655ca7aa635c3c000855d655/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-655ca99dfbc15b00081f209c.m3u8"
+  },
+  {
+    "id": "PlutoTVKomedi.se@SE",
+    "name": "Pluto TV Komedi",
+    "raw_name": "Pluto TV Komedi",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/61c0b36d18447e000717d686/colorLogoPNG.png",
+    "category": "comedy",
+    "group": "Comedy;Movies",
+    "url": "https://jmp2.uk/plu-61c0b36d18447e000717d686.m3u8"
+  },
+  {
+    "id": "PlutoTVKomedie.se@NO",
+    "name": "Pluto TV Komedie",
+    "raw_name": "Pluto TV Komedie",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/61c1e3a679a4390007c78136/colorLogoPNG.png",
+    "category": "comedy",
+    "group": "Comedy;Movies",
+    "url": "https://jmp2.uk/plu-61c1e3a679a4390007c78136.m3u8"
+  },
+  {
+    "id": "PlutoTVKultComedies.de@DACH",
+    "name": "Pluto TV Kult Comedies",
+    "raw_name": "Pluto TV Kult Comedies",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/66337de656fc840008ff7a65/colorLogoPNG.png",
+    "category": "comedy",
+    "group": "Comedy;Movies",
+    "url": "https://jmp2.uk/plu-66337de656fc840008ff7a65.m3u8"
+  },
+  {
+    "id": "PlutoTVKultfilm.se@DK",
+    "name": "Pluto TV Kultfilm",
+    "raw_name": "Pluto TV Kultfilm",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/63dbe7ed51f5d000083e9499/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-63dbe7ed51f5d000083e9499.m3u8"
+  },
+  {
+    "id": "PlutoTVKultfilme.de@DACH",
+    "name": "Pluto TV Kultfilme",
+    "raw_name": "Pluto TV Kultfilme",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5dde47b63585b500099f74ec/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5dde47b63585b500099f74ec.m3u8"
+  },
+  {
+    "id": "PlutoTVKultfilmer.se@SE",
+    "name": "Pluto TV Kultfilmer",
+    "raw_name": "Pluto TV Kultfilmer",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/63dbe80f60bc8f0008aa7c78/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-63dbe8c8a9957100087798a3.m3u8"
+  },
+  {
+    "id": "PlutoTVKultfilmer.se@NO",
+    "name": "Pluto TV Kultfilmer NO",
+    "raw_name": "Pluto TV Kultfilmer NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/63dbe80f60bc8f0008aa7c78/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-63dbe80f60bc8f0008aa7c78.m3u8"
+  },
+  {
+    "id": "PlutoTVLegamiLetali.de@IT",
+    "name": "Pluto TV Legami Letali",
+    "raw_name": "Pluto TV Legami Letali",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/64808a8c536e0c0008a276d1/colorLogoPNG_1747395859514.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-64808a8c536e0c0008a276d1.m3u8"
+  },
+  {
+    "id": "PlutoTVMovies.de@DACH",
+    "name": "Pluto TV Movies",
+    "raw_name": "Pluto TV Movies",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5c5c3b948002db3c3e0b262e/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5c5c3b948002db3c3e0b262e.m3u8"
+  },
+  {
+    "id": "PlutoTVMovies.de@GB",
+    "name": "Pluto TV Movies GB",
+    "raw_name": "Pluto TV Movies GB",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5c5c3b948002db3c3e0b262e/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5ad8d3a31b95267e225e4e09.m3u8"
+  },
+  {
+    "id": "PlutoTVNetmovies.us@BR",
+    "name": "Pluto TV Netmovies",
+    "raw_name": "Pluto TV Netmovies",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/663b9de4f999220008230fa8/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-663b9de4f999220008230fa8.m3u8"
+  },
+  {
+    "id": "PlutoTVNottidiPassione.de@IT",
+    "name": "Pluto TV Notti di Passione",
+    "raw_name": "Pluto TV Notti di Passione",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6911c9704316999535eb21cf/colorLogoPNG_1766041294522.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6911c9704316999535eb21cf.m3u8"
+  },
+  {
+    "id": "PlutoTVNuestroCine.us@LatAm",
+    "name": "Pluto TV Nuestro Cine",
+    "raw_name": "Pluto TV Nuestro Cine",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5defde6d6c07b50009cf0757/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5defde6d6c07b50009cf0757.m3u8"
+  },
+  {
+    "id": "PlutoTVParanormal.se@SE",
+    "name": "Pluto TV Paranormal",
+    "raw_name": "Pluto TV Paranormal (Sweden)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62b30beb81f89900071fc7b9/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-62b1e4189f5db20007ff03be.m3u8"
+  },
+  {
+    "id": "PlutoTVParanormal.se@DK",
+    "name": "Pluto TV Paranormal DK",
+    "raw_name": "Pluto TV Paranormal (Sweden) DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62b30beb81f89900071fc7b9/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-62b30beb81f89900071fc7b9.m3u8"
+  },
+  {
+    "id": "PlutoTVPsycho.de@ES",
+    "name": "Pluto TV Psycho",
+    "raw_name": "Pluto TV Psycho",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/65ce480a78df2200131c597b/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-65ce480a78df2200131c597b.m3u8"
+  },
+  {
+    "id": "PlutoTVReaction.us@SD",
+    "name": "Pluto TV Reaction",
+    "raw_name": "Pluto TV Reaction",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/H9k3OXN.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-617b37b361e0fd0008cfd8c5.m3u8"
+  },
+  {
+    "id": "PlutoTVRetroActionMovies.us@CA",
+    "name": "Pluto TV Retro Action Movies",
+    "raw_name": "Pluto TV Retro Action Movies",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/69a9ae4d3bd16a4ed04240d7/colorLogoPNG_1774879695281.png",
+    "category": "action",
+    "group": "Classic;Movies",
+    "url": "https://jmp2.uk/plu-69a9ae4d3bd16a4ed04240d7.m3u8"
+  },
+  {
+    "id": "PlutoTVRomance.us@US",
+    "name": "Pluto TV Romance",
+    "raw_name": "Pluto TV Romance",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/GJBxfyf.png",
+    "category": "comedy",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-5a66795ef91fef2c7031c599.m3u8"
+  },
+  {
+    "id": "PlutoTVRomantik.se@SE",
+    "name": "Pluto TV Romantik",
+    "raw_name": "Pluto TV Romantik",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/63a1c954d3897300079fcb12/colorLogoPNG_1767773445743.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-63a19da6847a090007f230da.m3u8"
+  },
+  {
+    "id": "PlutoTVRomantik.se@DK",
+    "name": "Pluto TV Romantik DK",
+    "raw_name": "Pluto TV Romantik DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/63a1c954d3897300079fcb12/colorLogoPNG_1767773445743.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-63a1c954d3897300079fcb12.m3u8"
+  },
+  {
+    "id": "PlutoTVRomantikk.se@NO",
+    "name": "Pluto TV Romantikk",
+    "raw_name": "Pluto TV Romantikk",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/63a19bb5e6914b000721b5c0/colorLogoPNG_1767773376618.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-63a19bb5e6914b000721b5c0.m3u8"
+  },
+  {
+    "id": "PlutoTVSciFi.se@SE",
+    "name": "Pluto TV Sci-Fi",
+    "raw_name": "Pluto TV Sci-Fi (Sweden)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/60ed498c4248a400077c0b9d/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-61f9597e78607000074f6c2a.m3u8"
+  },
+  {
+    "id": "PlutoTVSciFi.se@DK",
+    "name": "Pluto TV Sci-Fi DK",
+    "raw_name": "Pluto TV Sci-Fi (Sweden) DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/60ed498c4248a400077c0b9d/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-61f9598588f86000078ee7d6.m3u8"
+  },
+  {
+    "id": "PlutoTVSciFi.se@NO",
+    "name": "Pluto TV Sci-Fi NO",
+    "raw_name": "Pluto TV Sci-Fi (Sweden) NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/60ed498c4248a400077c0b9d/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-61f957e051cca800076f2358.m3u8"
+  },
+  {
+    "id": "PlutoTVSciFi.us@US",
+    "name": "Pluto TV Sci-Fi",
+    "raw_name": "Pluto TV Sci-Fi (United States)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/66166cb1307fa30008f275e7/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-5b4fc274694c027be6ed3eea.m3u8"
+  },
+  {
+    "id": "PlutoTVSciFi.us@CA",
+    "name": "Pluto TV Sci-Fi CA",
+    "raw_name": "Pluto TV Sci-Fi (United States) CA",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/66166cb1307fa30008f275e7/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-66166cb1307fa30008f275e7.m3u8"
+  },
+  {
+    "id": "PlutoTVSciFi.us@LatAm",
+    "name": "Pluto TV Sci-Fi LatAm",
+    "raw_name": "Pluto TV Sci-Fi (United States) LatAm",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/66166cb1307fa30008f275e7/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-5f2817d3d7573a00080f9175.m3u8"
+  },
+  {
+    "id": "PlutoTVSerieSciFi.de@IT",
+    "name": "Pluto TV Serie Sci-Fi",
+    "raw_name": "Pluto TV Serie Sci-Fi",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/67ed14aaf7c5d70b9089c3bf/colorLogoPNG_1750259768860.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-67ed14aaf7c5d70b9089c3bf.m3u8"
+  },
+  {
+    "id": "PlutoTVSpotlight.us@SD",
+    "name": "Pluto TV Spotlight",
+    "raw_name": "Pluto TV Spotlight",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/UmuJkVB.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5ba3fb9c4b078e0f37ad34e8.m3u8"
+  },
+  {
+    "id": "PlutoTVStaffPicks.us@SD",
+    "name": "Pluto TV Staff Picks",
+    "raw_name": "Pluto TV Staff Picks",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/JzwO8IO.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5f4d863b98b41000076cd061.m3u8"
+  },
+  {
+    "id": "PlutoTVStarTrek.de@DACH",
+    "name": "Pluto TV Star Trek (Germany)",
+    "raw_name": "Pluto TV Star Trek (Germany)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6152ee71bf99590007893a11/colorLogoPNG.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-6152ee71bf99590007893a11.m3u8"
+  },
+  {
+    "id": "PlutoTVStarTrek.se@DK",
+    "name": "Pluto TV Star Trek",
+    "raw_name": "Pluto TV Star Trek (Sweden)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/61c1979dfa307000070bbe4d/colorLogoPNG.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-61c1979dfa307000070bbe4d.m3u8"
+  },
+  {
+    "id": "PlutoTVTerror.us@SD",
+    "name": "Pluto TV Terror",
+    "raw_name": "Pluto TV Terror",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/eWtoHDM.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5c6dc88fcd232425a6e0f06e.m3u8"
+  },
+  {
+    "id": "PlutoTVTerrorTrash.us@BR",
+    "name": "Pluto TV Terror Trash",
+    "raw_name": "Pluto TV Terror Trash",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/66aa67493a4ad2000806d91b/colorLogoPNG.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-66aa67493a4ad2000806d91b.m3u8"
+  },
+  {
+    "id": "PlutoTVThrillers.us@US",
+    "name": "Pluto TV Thrillers",
+    "raw_name": "Pluto TV Thrillers",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/ULKvDN7.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5b4e69e08291147bd04a9fd7.m3u8"
+  },
+  {
+    "id": "PlutoTVToto.de@IT",
+    "name": "Pluto TV Toto",
+    "raw_name": "Pluto TV Toto",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/65253f9881f942000833ccd5/colorLogoPNG_1774617972809.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-65253f9881f942000833ccd5.m3u8"
+  },
+  {
+    "id": "PlutoTVTrendingNow.us@SD",
+    "name": "Pluto TV Trending Now",
+    "raw_name": "Pluto TV Trending Now",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/673247127d5da5000817b4d6/colorLogoPNG_1732662634386.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-673247127d5da5000817b4d6.m3u8"
+  },
+  {
+    "id": "PlutoTVWestern.de@DACH",
+    "name": "Pluto TV Western",
+    "raw_name": "Pluto TV Western",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/630dd3b2605f140007e002f5/colorLogoPNG_1732030684562.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-630dd3b2605f140007e002f5.m3u8"
+  },
+  {
+    "id": "PlutoTVWestern.de@ES",
+    "name": "Pluto TV Western ES",
+    "raw_name": "Pluto TV Western ES",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/630dd3b2605f140007e002f5/colorLogoPNG_1732030684562.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6385e82900ab2e000768a058.m3u8"
+  },
+  {
+    "id": "PlutoTVWestern.de@IT",
+    "name": "Pluto TV Western IT",
+    "raw_name": "Pluto TV Western IT",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/630dd3b2605f140007e002f5/colorLogoPNG_1732030684562.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-62e7fb67478a5b0007e6c50c.m3u8"
+  },
+  {
+    "id": "PlutoTVWesterns.de@GB",
+    "name": "Pluto TV Westerns (Germany)",
+    "raw_name": "Pluto TV Westerns (Germany)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/5d4bdb635ce813b38639e6a3/colorLogoPNG.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5d4bdb635ce813b38639e6a3.m3u8"
+  },
+  {
+    "id": "PlutoTVWesterns.us@US",
+    "name": "Pluto TV Westerns",
+    "raw_name": "Pluto TV Westerns (United States)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62bdacc96a3751000811842d/colorLogoPNG.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5b4e94282d4ec87bdcbb87cd.m3u8"
+  },
+  {
+    "id": "PlutoTVWesterns.us@CA",
+    "name": "Pluto TV Westerns CA",
+    "raw_name": "Pluto TV Westerns (United States) CA",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62bdacc96a3751000811842d/colorLogoPNG.png",
+    "category": "classic",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-62bdacc96a3751000811842d.m3u8"
+  },
+  {
+    "id": "PlutoTVWildWest.se@SE",
+    "name": "Pluto TV Wild West",
+    "raw_name": "Pluto TV Wild West",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/68c01732b3900870ec74766f/colorLogoPNG_1761917904777.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-68c017bf337652ee75db201f.m3u8"
+  },
+  {
+    "id": "PlutoTVWildWest.se@DK",
+    "name": "Pluto TV Wild West DK",
+    "raw_name": "Pluto TV Wild West DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/68c01732b3900870ec74766f/colorLogoPNG_1761917904777.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-68c01732b3900870ec74766f.m3u8"
+  },
+  {
+    "id": "PlutoTVWildWest.se@NO",
+    "name": "Pluto TV Wild West NO",
+    "raw_name": "Pluto TV Wild West NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/68c01732b3900870ec74766f/colorLogoPNG_1761917904777.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-68c01785b3900870ec7480e4.m3u8"
+  },
+  {
+    "id": "PlutoTVZombies.de@ES",
+    "name": "Pluto TV Zombies",
+    "raw_name": "Pluto TV Zombies",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/65786888b228b7000843ad9a/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-65786888b228b7000843ad9a.m3u8"
+  },
+  {
+    "id": "PocketFilms.in@SD",
+    "name": "Pocket Films",
+    "raw_name": "Pocket Films",
+    "resolution": "HD",
+    "logo": "https://jiotvimages.cdn.jio.com/dare_images/images/p_pktflm.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://vglivessai.akamaized.net/sg/v1/manifest/611d79b11b77e2f571934fd80ca1413453772ac7/b8ada260-bb81-472b-b7c1-3a79213a84b8/e02a0ce5-6c42-4cca-bb53-e5cfecff74a9/0.m3u8"
+  },
+  {
+    "id": "PolsatFilm.pl@HD",
+    "name": "Polsat Film HD",
+    "raw_name": "Polsat Film HD",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/wGH6shZ.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://92.63.196.180:8080/live/74173747597177/7vfxky4rjx3j/10208.m3u8?token=Q0FaWEpZFFsXAwNWUFMEBwJXAwMDVlpTBgVTVwEHAQNeWgoACVVXVQAVGEZGFUdTUl9qWwIVAlBSAQBdGENHQ10RbVBdEwxDAgANUAJVFxoRRlxfAxUCUU4RQA1QQwheTQ9eFRtUThVQRVoFWT5RU0VbVldEDVYUDl8cRlsPbVRdDlNXXRMMQwQVGEZcEkUUCVxAXgobGgMLR0IFQAQQClYWXlUVE1UOQFlAFkxDDxRjfhceRFJAFQddQw1bDxAKGg4BTAETGkNcRGsWUBJBRFZTWFcUFQJDUhEcRlkASm9bDFxXXFJCCFpZR0YPQwQUHxBYXQheTA4QbEANUEMIXk0PXkQ="
+  },
+  {
+    "id": "PopcornCentral.mx@SD",
+    "name": "Popcorn Central",
+    "raw_name": "Popcorn Central (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/ULGVjyC.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://oly-ftvpc.otteravision.com/oly/ftvpc/ftvpc.m3u8"
+  },
+  {
+    "id": "Premialnoe.ru@HD",
+    "name": "Premialnoe HD",
+    "raw_name": "Premialnoe HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/ck4aLBP.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/421/index.m3u8"
+  },
+  {
+    "id": "ProCinema.ro@SD",
+    "name": "Pro Cinema",
+    "raw_name": "Pro Cinema (1080p)",
+    "resolution": "1080P",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/a/a6/Pro_Cinema_logo_2022.svg/revision/latest/scale-to-width-down/1000?cb=20220419100521",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-procinema/live_fullhd?offsetSeconds=0"
+  },
+  {
+    "id": "PublicMovies.in@SD",
+    "name": "Public Movies",
+    "raw_name": "Public Movies (576p)",
+    "resolution": "576P",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_PUBLIC_MOVIES/images/LOGO_HD/image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://mumt04.tangotv.in/m18aqlK4PUBLICMOVIES/index.m3u8"
+  },
+  {
+    "id": "PunjabiShorts.in@SD",
+    "name": "Punjabi Shorts",
+    "raw_name": "Punjabi Shorts (1080p)",
+    "resolution": "1080P",
+    "logo": "https://www.thegtcnetwork.com/punjabi-shorts.jpg",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://vglivessai.akamaized.net/ptnr-yupptv/title-Punjabi_Shorts/in/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/27c3fd7a-b01f-4b00-ac03-557ac77acd47/index.m3u8"
+  },
+  {
+    "id": "QTV3.cn@SD",
+    "name": "QTV-3",
+    "raw_name": "QTV-3",
+    "resolution": "HD",
+    "logo": "https://www.tvchinese.net/uploads/tv/qdtv3.jpg",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://video10.qtv.com.cn/drm/qtv3at/manifest.m3u8"
+  },
+  {
+    "id": "RaiMovie.it@HD",
+    "name": "Rai Movie HD",
+    "raw_name": "Rai Movie HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/0FjxXU9.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://team-tv.co:81/raimovie/index.m3u8"
+  },
+  {
+    "id": "RajDigitalPlus.in@SD",
+    "name": "Raj Digital Plus",
+    "raw_name": "Raj Digital Plus (1080p)",
+    "resolution": "1080P",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_RAJ_DIGITAL_PLUS/images/LOGO_HD/image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://livestream.rajtv.tv/hlslive/Admin/px08241087/live/RajTV_Digital_plus/master_1.m3u8"
+  },
+  {
+    "id": "RakutenTVActionMovies.es@Spain",
+    "name": "Rakuten TV Action Movies",
+    "raw_name": "Rakuten TV Action Movies (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://a9c57ec7ec5e4b7daeacc6316a0bb404.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6069/master.m3u8"
+  },
+  {
+    "id": "RakutenTVActionMovies.es@Germany",
+    "name": "Rakuten TV Action Movies Germany",
+    "raw_name": "Rakuten TV Action Movies Germany (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://284824cf70404fdfb6ddf9349009c710.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6066/master.m3u8"
+  },
+  {
+    "id": "RakutenTVActionMovies.es@Italy",
+    "name": "Rakuten TV Action Movies Italy",
+    "raw_name": "Rakuten TV Action Movies Italy (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://87f2e2e5e7624e3bad85da1ca2ed31a7.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6067/master.m3u8"
+  },
+  {
+    "id": "RakutenTVActionMovies.es@UK",
+    "name": "Rakuten TV Action Movies UK",
+    "raw_name": "Rakuten TV Action Movies UK (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://54045f0c40fd442c8b06df076aaf1e85.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6065/master.m3u8"
+  },
+  {
+    "id": "RakutenTVComedyMovies.es@Spain",
+    "name": "Rakuten TV Comedy Movies",
+    "raw_name": "Rakuten TV Comedy Movies (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://71db867f03ce4d71a29e92155f07ab87.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6180/master.m3u8"
+  },
+  {
+    "id": "RakutenTVComedyMovies.es@Germany",
+    "name": "Rakuten TV Comedy Movies Germany",
+    "raw_name": "Rakuten TV Comedy Movies Germany (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://ecac08c9e2214375b907d6825aaf9a01.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6182/master.m3u8"
+  },
+  {
+    "id": "RakutenTVComedyMovies.es@Italy",
+    "name": "Rakuten TV Comedy Movies Italy",
+    "raw_name": "Rakuten TV Comedy Movies Italy (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://b8bc6c4b9be64bd6aeb3b92aa8521ed4.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6184/master.m3u8"
+  },
+  {
+    "id": "RakutenTVComedyMovies.es@UK",
+    "name": "Rakuten TV Comedy Movies UK",
+    "raw_name": "Rakuten TV Comedy Movies UK (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://9be783d652cd4b099cf63e1dc134c4a3.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6181/master.m3u8"
+  },
+  {
+    "id": "RakutenTVDramaMovies.es@Spain",
+    "name": "Rakuten TV Drama Movies",
+    "raw_name": "Rakuten TV Drama Movies (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://a7089c89d85f453d850c4a1518b43076.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6092/master.m3u8"
+  },
+  {
+    "id": "RakutenTVDramaMovies.es@Germany",
+    "name": "Rakuten TV Drama Movies Germany",
+    "raw_name": "Rakuten TV Drama Movies Germany (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://968754c2483045c1a9a7f677caec35b6.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6096/master.m3u8"
+  },
+  {
+    "id": "RakutenTVDramaMovies.es@Italy",
+    "name": "Rakuten TV Drama Movies Italy",
+    "raw_name": "Rakuten TV Drama Movies Italy (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://f84e0b1628464fab846160df957f269e.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6094/master.m3u8"
+  },
+  {
+    "id": "RakutenTVDramaMovies.es@UK",
+    "name": "Rakuten TV Drama Movies UK",
+    "raw_name": "Rakuten TV Drama Movies UK (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://fee09fd665814f51b939b6d106cf5f66.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6093/master.m3u8"
+  },
+  {
+    "id": "RakutenTVFamilyMovies.es@Spain",
+    "name": "Rakuten TV Family Movies",
+    "raw_name": "Rakuten TV Family Movies (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "comedy",
+    "group": "Family;Movies",
+    "url": "https://b0d59c8c98974e708e5ccb9a27cdfdfc.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6205/master.m3u8"
+  },
+  {
+    "id": "RakutenTVFamilyMovies.es@Germany",
+    "name": "Rakuten TV Family Movies Germany",
+    "raw_name": "Rakuten TV Family Movies Germany (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "comedy",
+    "group": "Family;Movies",
+    "url": "https://af230031eeac45f3b78d4f8a13265105.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6209/master.m3u8"
+  },
+  {
+    "id": "RakutenTVFamilyMovies.es@Italy",
+    "name": "Rakuten TV Family Movies Italy",
+    "raw_name": "Rakuten TV Family Movies Italy (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "comedy",
+    "group": "Family;Movies",
+    "url": "https://3315fc3e7276420f895e19cf807dbee1.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6215/master.m3u8"
+  },
+  {
+    "id": "RakutenTVFamilyMovies.es@UK",
+    "name": "Rakuten TV Family Movies UK",
+    "raw_name": "Rakuten TV Family Movies UK (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "comedy",
+    "group": "Family;Movies",
+    "url": "https://e3207568b726401995c25670faaf32e4.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6203/master.m3u8"
+  },
+  {
+    "id": "RakutenTVTopMovies.es@Spain",
+    "name": "Rakuten TV Top Movies",
+    "raw_name": "Rakuten TV Top Movies (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://ff335120300e4742a2b135ee9a9e7df8.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5983/master.m3u8"
+  },
+  {
+    "id": "RakutenTVTopMovies.es@Germany",
+    "name": "Rakuten TV Top Movies Germany",
+    "raw_name": "Rakuten TV Top Movies Germany (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://cbb622b29f5d43b598991f3fa19de291.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5985/master.m3u8"
+  },
+  {
+    "id": "RakutenTVTopMovies.es@Italy",
+    "name": "Rakuten TV Top Movies Italy",
+    "raw_name": "Rakuten TV Top Movies Italy (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://d4a4999341764c67a67e9ec9eb3790ab.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5984/master.m3u8"
+  },
+  {
+    "id": "RakutenTVTopMovies.es@UK",
+    "name": "Rakuten TV Top Movies UK",
+    "raw_name": "Rakuten TV Top Movies UK (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Meew6eX.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://0145451975a64b35866170fd2e8fa486.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5987/master.m3u8"
+  },
+  {
+    "id": "Rawhide.us@SD",
+    "name": "Rawhide",
+    "raw_name": "Rawhide (United States)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/65660223635c3c00086c2578/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-634f307c7a068e00072c9982.m3u8"
+  },
+  {
+    "id": "Rawhide.us@CA",
+    "name": "Rawhide CA",
+    "raw_name": "Rawhide (United States) CA",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/65660223635c3c00086c2578/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-65660223635c3c00086c2578.m3u8"
+  },
+  {
+    "id": "RodnoeKino.ru@SD",
+    "name": "Rodnoe Kino",
+    "raw_name": "Rodnoe Kino (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/H70LxoZ.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/242/index.m3u8"
+  },
+  {
+    "id": "RotanaCinemaEgypt.eg@SD",
+    "name": "Rotana Cinema Egypt",
+    "raw_name": "Rotana Cinema Egypt (1080p) [Geo-blocked]",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/dGlKoLW.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://rotana.hibridcdn.net/rotananet/cinemamasr_net-7Y83PP5adWixDF93/playlist.m3u8"
+  },
+  {
+    "id": "RotanaCinemaKSA.sa@SD",
+    "name": "Rotana Cinema KSA",
+    "raw_name": "Rotana Cinema KSA (1080p) [Geo-blocked]",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/pGgp38I.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://rotana.hibridcdn.net/rotananet/cinema_net-7Y83PP5adWixDF93/playlist.m3u8"
+  },
+  {
+    "id": "Runtime.us@SD",
+    "name": "Runtime",
+    "raw_name": "Runtime (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/2USCMvP.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6086d3f420fc8500075f8dbf.m3u8"
+  },
+  {
+    "id": "RuntimeEspanol.us@SD",
+    "name": "Runtime Espanol",
+    "raw_name": "Runtime Espanol (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/OMQq19N.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://run-rt-uh-roku.otteravision.com/run/rt_uh/rt_uh.m3u8"
+  },
+  {
+    "id": "RusskiyBestseller.ru@SD",
+    "name": "Russkiy Bestseller",
+    "raw_name": "Russkiy Bestseller (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/w0ZE9QJ.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/208/index.m3u8"
+  },
+  {
+    "id": "RusskiyDetektiv.ru@SD",
+    "name": "Russkiy Detektiv",
+    "raw_name": "Russkiy Detektiv (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/H3qhN8S.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/204/index.m3u8"
+  },
+  {
+    "id": "ScreamIN.fr@SD",
+    "name": "ScreamIN",
+    "raw_name": "ScreamIN (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/tGmKbil.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://rakutenaa-zylo-screamin-rakuten-p11ej.amagi.tv/playlist/rakutenAA-zylo-screamin-rakuten/playlist.m3u8"
+  },
+  {
+    "id": "SensaCineTVxPluto.de@ES",
+    "name": "SensaCine TV x Pluto",
+    "raw_name": "SensaCine TV x Pluto",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/676e7b4a4bd636000819c6a7/colorLogoPNG_1748957675934.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-676e7b4a4bd636000819c6a7.m3u8"
+  },
+  {
+    "id": "ShemarooJosh.in@SD",
+    "name": "Shemaroo Josh",
+    "raw_name": "Shemaroo Josh (576p)",
+    "resolution": "576P",
+    "logo": "https://dtil.tmsimg.com/assets/GNLZZGG00297P3E.png?lock=720x540",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://mumt04.tangotv.in/m18aqlK4SHEMAROOJOSH/index.m3u8"
+  },
+  {
+    "id": "Shokiruyushchee.ru@HD",
+    "name": "Shokiruyushchee HD",
+    "raw_name": "Shokiruyushchee HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/UG63hZ0.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/75/index.m3u8"
+  },
+  {
+    "id": "ShubhCinemaTV.in@SD",
+    "name": "Shubh Cinema TV",
+    "raw_name": "Shubh Cinema TV (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/RQhorAG.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://d393sxaxig6bax.cloudfront.net/out/v1/589cf2cf44bf42bb941e817a2240d62e/index.m3u8"
+  },
+  {
+    "id": "SilkWayCinema.kz@SD",
+    "name": "Silk Way Cinema",
+    "raw_name": "Silk Way Cinema (1080p) [Geo-blocked]",
+    "resolution": "1080P",
+    "logo": "https://www.cableman.ru/sites/default/files/Silk-way-CINEMA.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://stream.qazcdn.net/ex6r514/silkwaycinema/index.m3u8"
+  },
+  {
+    "id": "SL1.ir@SD",
+    "name": "SL 1",
+    "raw_name": "SL 1",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/n9cuM2W.jpg",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://slonehls.wns.live/hls/stream.m3u8"
+  },
+  {
+    "id": "SL2.ir@SD",
+    "name": "SL 2",
+    "raw_name": "SL 2",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/BVuUx5R.jpg",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://sltwohls.wns.live/hls/stream.m3u8"
+  },
+  {
+    "id": "Smotrim100Klassika.ru@SD",
+    "name": "Smotrim 100% Klassika",
+    "raw_name": "Smotrim 100% Klassika (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/aASNpKq.png",
+    "category": "classic",
+    "group": "Classic;Movies",
+    "url": "https://stream.smotrim.ru/hls/fasttv03/playlist_3.m3u8"
+  },
+  {
+    "id": "SonyMax2.in@SD",
+    "name": "Sony Max 2",
+    "raw_name": "Sony Max 2 (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/gqUYk6C.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://107.167.16.138/sonymax2/index.m3u8?token=test"
+  },
+  {
+    "id": "SonyMax.in@HD",
+    "name": "Sony Max HD",
+    "raw_name": "Sony Max HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://dtil.tmsimg.com/assets/s157590_ld_h15_aa.png?lock=720x540",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://103.185.24.134:3001/SonyMAX/index.m3u8"
+  },
+  {
+    "id": "SonyMovies.br@SD",
+    "name": "Sony Movies",
+    "raw_name": "Sony Movies (720p)",
+    "resolution": "720P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Sony_Movies_Logo.svg/500px-Sony_Movies_Logo.svg.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://45.162.64.114/SONY_MOVIES/index.m3u8"
+  },
+  {
+    "id": "SonyOneFavoris.fr@HD",
+    "name": "Sony One Favoris",
+    "raw_name": "Sony One Favoris (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/RO4AM4b.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://49d735318d6b4c30a24a7997ea594e1b.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-820-FR-SONYONEFAVORIS-LG_FR/playlist.m3u8"
+  },
+  {
+    "id": "SonyOneHitsAction.fr@HD",
+    "name": "Sony One Hits Action",
+    "raw_name": "Sony One Hits Action (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/pXsZEsR.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://5098a8b860504a3690fd2e7c0a18d68f.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-817-FR-SONYONEHITSACTION-LG_FR/playlist.m3u8"
+  },
+  {
+    "id": "SonyOneHitsComedie.fr@HD",
+    "name": "Sony One Hits Comedie",
+    "raw_name": "Sony One Hits Comedie (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/8sHuxxS.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://7aa9671895264ec9a384dfed1b992171.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-818-FR-SONYONEHITSCOMDIE-LG_FR/playlist.m3u8"
+  },
+  {
+    "id": "SonyPix.in@HD",
+    "name": "Sony Pix HD",
+    "raw_name": "Sony Pix HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.postimg.cc/Z5G8j67L/PIX-HD-WHITE.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://103.151.60.162:2122/play/a01d/index.m3u8?hls"
+  },
+  {
+    "id": "SonyWah.in@SD",
+    "name": "Sony Wah",
+    "raw_name": "Sony Wah (1080p) [Geo-blocked]",
+    "resolution": "1080P",
+    "logo": "https://dtil.tmsimg.com/assets/s157974_ld_h15_aa.png?lock=720x540",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://sl.vodep39240327.workers.dev/channel/SONY+WAH.m3u8"
+  },
+  {
+    "id": "SouthStation.in@HD",
+    "name": "South Station",
+    "raw_name": "South Station (1080p)",
+    "resolution": "1080P",
+    "logo": "https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN3800008CX_20260325T012316SQUARE.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://cc-yw7ztecy8do3q.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-yw7ztecy8do3q/SS_IN.m3u8"
+  },
+  {
+    "id": "StarChannel.cl@SD",
+    "name": "Star Channel (Chile)",
+    "raw_name": "Star Channel (Chile) (720p)",
+    "resolution": "720P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Star_Channel_2020.svg/960px-Star_Channel_2020.svg.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "http://138.121.15.230:9002/STAR-CHANNEL/index.m3u8"
+  },
+  {
+    "id": "StarChannel.co@SD",
+    "name": "Star Channel (Colombia)",
+    "raw_name": "Star Channel (Colombia) (1080p)",
+    "resolution": "1080P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Star_Channel_2020.svg/960px-Star_Channel_2020.svg.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "http://190.61.47.54:8000/play/a035/index.m3u8"
+  },
+  {
+    "id": "StarCinema.ru@SD",
+    "name": "Star Cinema",
+    "raw_name": "Star Cinema",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/5sis895.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://dash2.antik.sk/live/test_star_cinema_atktv/playlist.m3u8"
+  },
+  {
+    "id": "StarFamily.ru@SD",
+    "name": "Star Family",
+    "raw_name": "Star Family (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/eGuGHnZ.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://dash2.antik.sk/live/test_star_family_atktv/playlist.m3u8"
+  },
+  {
+    "id": "StarGold2.in@HD",
+    "name": "Star Gold 2 HD",
+    "raw_name": "Star Gold 2 HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/G0ZfzZr.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://103.151.60.162:2122/play/a01v/index.m3u8?hls"
+  },
+  {
+    "id": "StarGold.in@HD",
+    "name": "Star Gold HD",
+    "raw_name": "Star Gold HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/xC460sj.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://103.185.24.134:3001/Star-Gold/index.m3u8"
+  },
+  {
+    "id": "StarMaaMovies.in@HD",
+    "name": "Star Maa Movies HD",
+    "raw_name": "Star Maa Movies HD (720p)",
+    "resolution": "HD",
+    "logo": "https://dtil.tmsimg.com/assets/s143826_ld_h15_aa.png?lock=720x540",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://da86m1sqpm3o0.cloudfront.net/28072023/smil:maamovies.smil/chunklist_b2628000.m3u8"
+  },
+  {
+    "id": "StarMovies.in@HD",
+    "name": "Star Movies (India) HD",
+    "raw_name": "Star Movies (India) HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_STAR_MOVIES/images/LOGO_HD/image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://103.185.24.134:3001/Star-Movies/index.m3u8"
+  },
+  {
+    "id": "StarTrekMovies.se@SE",
+    "name": "Star Trek Movies",
+    "raw_name": "Star Trek Movies",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6400c281dff38e00083f59da/colorLogoPNG.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6400c2a6cb41a40008dbe5bc.m3u8"
+  },
+  {
+    "id": "StarTrekMovies.se@DK",
+    "name": "Star Trek Movies DK",
+    "raw_name": "Star Trek Movies DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6400c281dff38e00083f59da/colorLogoPNG.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6400c281dff38e00083f59da.m3u8"
+  },
+  {
+    "id": "StarTrekMovies.se@NO",
+    "name": "Star Trek Movies NO",
+    "raw_name": "Star Trek Movies NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6400c281dff38e00083f59da/colorLogoPNG.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-6400c228498393000878a9b7.m3u8"
+  },
+  {
+    "id": "StarTrekDeepSpaceNine.us@SD",
+    "name": "Star Trek: Deep Space Nine",
+    "raw_name": "Star Trek: Deep Space Nine",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/65c69bbfd77d450008c7ffee/colorLogoPNG_1758310416057.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-65c69bbfd77d450008c7ffee.m3u8"
+  },
+  {
+    "id": "StarTrekTheNextGeneration.de@DACH",
+    "name": "Star Trek: The Next Generation (Germany)",
+    "raw_name": "Star Trek: The Next Generation (Germany)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/69776ce979545c21a1220bff/colorLogoPNG_1769434849537.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-69776ce979545c21a1220bff.m3u8"
+  },
+  {
+    "id": "StarTrekTheNextGeneration.us@SD",
+    "name": "Star Trek: The Next Generation",
+    "raw_name": "Star Trek: The Next Generation (United States)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/695c32e61ca20bb8ca802eb9/colorLogoPNG_1768440087394.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-695c32e61ca20bb8ca802eb9.m3u8"
+  },
+  {
+    "id": "StarTrekTheOriginalSeries.de@DACH",
+    "name": "Star Trek: The Original Series (Germany)",
+    "raw_name": "Star Trek: The Original Series (Germany)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/69776b58036e883f39e5ab8a/colorLogoPNG_1769434091096.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-69776b58036e883f39e5ab8a.m3u8"
+  },
+  {
+    "id": "StarTrekTheOriginalSeries.se@SE",
+    "name": "Star Trek: The Original Series",
+    "raw_name": "Star Trek: The Original Series (Sweden)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/693add137e308621c051e733/colorLogoPNG_1765465486347.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-693ade4d569386f93f235bb6.m3u8"
+  },
+  {
+    "id": "StarTrekTheOriginalSeries.se@DK",
+    "name": "Star Trek: The Original Series DK",
+    "raw_name": "Star Trek: The Original Series (Sweden) DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/693add137e308621c051e733/colorLogoPNG_1765465486347.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-693add137e308621c051e733.m3u8"
+  },
+  {
+    "id": "StarTrekTheOriginalSeries.se@NO",
+    "name": "Star Trek: The Original Series NO",
+    "raw_name": "Star Trek: The Original Series (Sweden) NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/693add137e308621c051e733/colorLogoPNG_1765465486347.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-693addd62bf6cf7414c4b2fc.m3u8"
+  },
+  {
+    "id": "StarTrekVoyager.de@IT",
+    "name": "Star Trek: Voyager (Germany) IT",
+    "raw_name": "Star Trek: Voyager (Germany) IT",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/65787f2eb228b7000843fa5c/colorLogoPNG.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-65cb73d33ba51e00084cabad.m3u8"
+  },
+  {
+    "id": "StarTrekVoyager.us@SD",
+    "name": "Star Trek: Voyager",
+    "raw_name": "Star Trek: Voyager (United States)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/634dacf51d90320007fcd5fa/colorLogoPNG_1758310287876.png",
+    "category": "premium",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-634dacf51d90320007fcd5fa.m3u8"
+  },
+  {
+    "id": "STARTAir.ru@SD",
+    "name": "START Air",
+    "raw_name": "START Air (1080p)",
+    "resolution": "1080P",
+    "logo": "https://images.iptv.rt.ru/images/d60qp8omife4gis72tk0.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://176.118.197.101/START_AIR/index.m3u8"
+  },
+  {
+    "id": "StudioOnePlus.in@SD",
+    "name": "Studio One +",
+    "raw_name": "Studio One + (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/yOPB7JB.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://cdn.pishow.tv/ott/live/276/master.m3u8"
+  },
+  {
+    "id": "SundanceTV.pl@SD",
+    "name": "Sundance TV",
+    "raw_name": "Sundance TV (Poland) (576i)",
+    "resolution": "576I",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/SundanceTV_2014.svg/960px-SundanceTV_2014.svg.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://92.114.85.87:8003/play/a004/index.m3u8"
+  },
+  {
+    "id": "SuriyanTV.in@SD",
+    "name": "Suriyan TV",
+    "raw_name": "Suriyan TV (576p)",
+    "resolution": "576P",
+    "logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/transparentImages/Suriyan-tv-logo_2000_X_1125_Transpharent.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://stream.sscloud7.com/live/suriyantv/index.m3u8"
+  },
+  {
+    "id": "SYFY.us@East",
+    "name": "SYFY",
+    "raw_name": "SYFY (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/4fMWhUE.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "http://23.237.104.106:8080/USA_SYFY/index.m3u8"
+  },
+  {
+    "id": "Tamasha.ir@SD",
+    "name": "Tamasha",
+    "raw_name": "Tamasha",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/fa/thumb/f/f2/IRIB_tamashaTV.svg/960px-IRIB_tamashaTV.svg.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://ncdn.telewebion.ir/hdtest/live/playlist.m3u8"
+  },
+  {
+    "id": "ThalaaTV.in@HD",
+    "name": "Thalaa TV",
+    "raw_name": "Thalaa TV (1080p)",
+    "resolution": "1080P",
+    "logo": "https://d229kpbsb5jevy.cloudfront.net/yuppfast/content/common/channel/logos/thalaa-tv.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/2069c593-3c07-4d62-9d44-746be5c3a5d6/manifest.m3u8"
+  },
+  {
+    "id": "TheMovieClub.in@HD",
+    "name": "The Movie Club",
+    "raw_name": "The Movie Club (1080p)",
+    "resolution": "1080P",
+    "logo": "https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN38000072R_20260325T012318SQUARE.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://sis-global.prod.samsungtv.plus/v1/tvpprd/sc-mp2ar4ca425xo.m3u8"
+  },
+  {
+    "id": "TheMovieClub.in@Plus2",
+    "name": "The Movie Club +2",
+    "raw_name": "The Movie Club +2 (1080p)",
+    "resolution": "1080P",
+    "logo": "https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/IN40000100Y_20260204T004058SQUARE.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://d3gnyty2vddhsg.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/pb-ytipwjqub3kf8/TMC2_IN.m3u8?ads.ads_cdn=cf&ads.cdn=cf"
+  },
+  {
+    "id": "TheTwilightZone.se@SE",
+    "name": "The Twilight Zone",
+    "raw_name": "The Twilight Zone",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6512ec9f3a0d700008db4f0c/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-6512d6c92ce8e40008bd5c81.m3u8"
+  },
+  {
+    "id": "TheTwilightZone.se@DK",
+    "name": "The Twilight Zone DK",
+    "raw_name": "The Twilight Zone DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6512ec9f3a0d700008db4f0c/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-6512ec9f3a0d700008db4f0c.m3u8"
+  },
+  {
+    "id": "TheTwilightZone.se@NO",
+    "name": "The Twilight Zone NO",
+    "raw_name": "The Twilight Zone NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/6512ec9f3a0d700008db4f0c/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-6512d3a0bdcb19000799cc82.m3u8"
+  },
+  {
+    "id": "TheWildWildWest.us@SD",
+    "name": "The Wild Wild West",
+    "raw_name": "The Wild Wild West (United States)",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/664e640a0120f40008be4582/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "https://jmp2.uk/plu-664e640a0120f40008be4582.m3u8"
+  },
+  {
+    "id": "TollyTV.in@HD",
+    "name": "Tolly TV",
+    "raw_name": "Tolly TV (1080p)",
+    "resolution": "1080P",
+    "logo": "https://d229kpbsb5jevy.cloudfront.net/yuppfast/content/common/channel/logos/aumnrs.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/13b5735d-52c3-4be0-853d-e0ec0127e708/manifest.m3u8"
+  },
+  {
+    "id": "TV21.ru@SD",
+    "name": "TV 21",
+    "raw_name": "TV 21 (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/nSmSnH6.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://178.134.1.158:8081/TVXXI/index.m3u8"
+  },
+  {
+    "id": "TV21International.ru@SD",
+    "name": "TV 21 International",
+    "raw_name": "TV 21 International (576p)",
+    "resolution": "576P",
+    "logo": "https://ibb.co/BH6CZx3K",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/152/index.m3u8"
+  },
+  {
+    "id": "TV1000.bg@SD",
+    "name": "TV1000",
+    "raw_name": "TV1000",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/GHNsctR.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://85.14.32.26:8800/udp/239.100.10.100:5000"
+  },
+  {
+    "id": "TVLandDrama.us@SD",
+    "name": "TV Land Drama",
+    "raw_name": "TV Land Drama",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/y1rXIAS.png",
+    "category": "comedy",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-5d40bebc5e3d2750a2239d7e.m3u8"
+  },
+  {
+    "id": "TVCARiBCinema.sx@SD",
+    "name": "TVCARiB Cinema",
+    "raw_name": "TVCARiB Cinema (720p) [Not 24/7]",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/fvGlwKo.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://cdn.mycloudstream.io/hls/live/broadcast/l3vslw4i/index.m3u8"
+  },
+  {
+    "id": "UniversalCinema.us@SD",
+    "name": "Universal Cinema",
+    "raw_name": "Universal Cinema (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/XxfET68.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://45.167.1.138:8000/play/a06m"
+  },
+  {
+    "id": "ViafreeMovies.se@SE",
+    "name": "Viafree Movies",
+    "raw_name": "Viafree Movies",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62bebc3459624e00078209c3/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-62f64ec9eb1045000728cad6.m3u8"
+  },
+  {
+    "id": "ViafreeMovies.se@DK",
+    "name": "Viafree Movies DK",
+    "raw_name": "Viafree Movies DK",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62bebc3459624e00078209c3/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-62bebc3459624e00078209c3.m3u8"
+  },
+  {
+    "id": "ViafreeMovies.se@NO",
+    "name": "Viafree Movies NO",
+    "raw_name": "Viafree Movies NO",
+    "resolution": "HD",
+    "logo": "https://images.pluto.tv/channels/62bebc3459624e00078209c3/colorLogoPNG.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://jmp2.uk/plu-62beb44e3afd120007915d1b.m3u8"
+  },
+  {
+    "id": "ViasatKino.ua@Romania",
+    "name": "Viasat Kino Romania",
+    "raw_name": "Viasat Kino Romania",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/io0WAkA.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "https://flash1.bogulus1.cfd/tivi10/usergenrxs4f7zc.m3u8"
+  },
+  {
+    "id": "ViasatKinoComedy.ua@SD",
+    "name": "Viasat Kino Comedy",
+    "raw_name": "Viasat Kino Comedy",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/qVYt8kP.png",
+    "category": "premium",
+    "group": "Comedy;Movies",
+    "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDQvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA1OTk4Mzcmc3Q9UzRPS1VZemNocmREQWhnSTJkTDJ5QQ%3D%3D&master=249"
+  },
+  {
+    "id": "ViasatKinoWorld.ua@SD",
+    "name": "Viasat Kino World",
+    "raw_name": "Viasat Kino World",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/GPiE2Rb.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDgvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA1OTk5NDcmc3Q9N3ROblpCZy02WTBka1RuekRIZjU0QQ%3D%3D&master=102"
+  },
+  {
+    "id": "ViasatSerial.ua@HD",
+    "name": "Viasat Serial",
+    "raw_name": "Viasat Serial",
+    "resolution": "HD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Viasat_Serial.svg",
+    "category": "movies",
+    "group": "Movies;Series",
+    "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDUvdHJhY2tzLXYyYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA2MDExNzAmc3Q9VS12czVHQmhOdF9WQXJ4bHVYVzR2dw%3D%3D&master=599"
+  },
+  {
+    "id": "vijuTV1000.ru@SD",
+    "name": "viju TV1000",
+    "raw_name": "viju TV1000 (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/ZMsyjSr.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/110/index.m3u8"
+  },
+  {
+    "id": "vijuTV1000action.ru@SD",
+    "name": "viju TV1000 action",
+    "raw_name": "viju TV1000 action (576p)",
+    "resolution": "576P",
+    "logo": "https://i.imgur.com/TMmyuzh.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/100/index.m3u8"
+  },
+  {
+    "id": "vijuTV1000novella.ru@HD",
+    "name": "viju TV1000 novella HD",
+    "raw_name": "viju TV1000 novella HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://www.cableman.ru/sites/default/files/viju_TV1000_%D0%BD%D0%BE%D0%B2%D0%B5%D0%BB%D0%BB%D0%B0_color_rgb_02%20%281%29.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://46.53.200.153:7777/play/VIJU_TV_1000_novella/index.m3u8"
+  },
+  {
+    "id": "vijuPlusMegahit.ru@HD",
+    "name": "viju+ Megahit HD",
+    "raw_name": "viju+ Megahit HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/oIQNddV.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/200/index.m3u8"
+  },
+  {
+    "id": "vijuPlusPremiere.ru@HD",
+    "name": "viju+ Premiere HD",
+    "raw_name": "viju+ Premiere HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/klRvhR5.png",
+    "category": "premium",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/202/index.m3u8"
+  },
+  {
+    "id": "VinhLongTV3.vn@SD",
+    "name": "Vinh Long TV 3",
+    "raw_name": "Vinh Long TV 3 (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/OQXEhqu.png",
+    "category": "movies",
+    "group": "Entertainment;Movies",
+    "url": "https://dethich.pw/thvl3/index.m3u8"
+  },
+  {
+    "id": "WarnerChannel.us@Colombia",
+    "name": "Warner Channel Colombia",
+    "raw_name": "Warner Channel Colombia (1080p)",
+    "resolution": "1080P",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Warner_TV_logo.svg/960px-Warner_TV_logo.svg.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://38.134.250.110:8000/play/a029/index.m3u8"
+  },
+  {
+    "id": "WarnerTV.cz@SD",
+    "name": "Warner TV",
+    "raw_name": "Warner TV",
+    "resolution": "HD",
+    "logo": "https://static.wikia.nocookie.net/logopedia/images/c/c7/WarnerTV_2021.svg/revision/latest/scale-to-width-down/1000?cb=20230818123400",
+    "category": "movies",
+    "group": "Movies",
+    "url": "http://88.212.15.17/live/warner_tv/index.m3u8"
+  },
+  {
+    "id": "WatchitScream.us@SD",
+    "name": "Watch it Scream!",
+    "raw_name": "Watch it Scream! (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/bz3Caum.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=2246"
+  },
+  {
+    "id": "WhiplashCinema.us@SD",
+    "name": "Whiplash Cinema",
+    "raw_name": "Whiplash Cinema (480p)",
+    "resolution": "480P",
+    "logo": "https://whiplash.cc/assets/img/channels/whiplashcinema.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://cdn.whiplash.cc/whiplash-cinema/index.m3u8"
+  },
+  {
+    "id": "WuTangCollection.us@SD",
+    "name": "Wu Tang Collection",
+    "raw_name": "Wu Tang Collection (720p)",
+    "resolution": "720P",
+    "logo": "https://i.imgur.com/sz55sBl.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://dbrb49pjoymg4.cloudfront.net/10001/99991745/hls/master.m3u8?ads.xumo_channelId=99991745"
+  },
+  {
+    "id": "XtremaAccion.ar@SD",
+    "name": "Xtrema Accion",
+    "raw_name": "Xtrema Accion",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/z5NwizH.png",
+    "category": "movies",
+    "group": "Movies",
+    "url": "https://stmv6.voxtvhd.com.br/cineaccion/cineaccion/playlist.m3u8"
+  },
+  {
+    "id": "XtremaCineClasico.ar@SD",
+    "name": "Xtrema Cine Clasico",
+    "raw_name": "Xtrema Cine Clasico",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/j91M4Yf.png",
+    "category": "classic",
+    "group": "Classic;Movies",
+    "url": "https://stmv6.voxtvhd.com.br/cineclasico/cineclasico/playlist.m3u8"
+  },
+  {
+    "id": "XtremaTerror.ar@SD",
+    "name": "Xtrema Terror",
+    "raw_name": "Xtrema Terror",
+    "resolution": "HD",
+    "logo": "https://i.imgur.com/FcaTUym.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "https://stmv6.voxtvhd.com.br/cineterror/cineterror/playlist.m3u8"
+  },
+  {
+    "id": "YesMoviesAction.il@SD",
+    "name": "Yes Movies Action",
+    "raw_name": "Yes Movies Action (1080p)",
+    "resolution": "1080P",
+    "logo": "https://i.imgur.com/Bgz7p5F.png",
+    "category": "action",
+    "group": "Movies",
+    "url": "http://stream.mcquack.net/380/index.m3u8"
+  },
+  {
+    "id": "ZeeAction.in@SD",
+    "name": "Zee Action",
+    "raw_name": "Zee Action (576p)",
+    "resolution": "576P",
+    "logo": "https://dtil.tmsimg.com/assets/GNLZZGG0022K5ZV.png?lock=720x540",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://107.167.16.138/zeeaction/index.m3u8?token=test"
+  },
+  {
+    "id": "ZeeCinema.in@APAC",
+    "name": "Zee Cinema APAC",
+    "raw_name": "Zee Cinema APAC (720p)",
+    "resolution": "720P",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_ZEE_CINEMA/images/LOGO_HD/LOGO_HD_image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/sg/YuppTV/ZeeCinemaAPAC.m3u8"
+  },
+  {
+    "id": "ZeeCinema.in@HD",
+    "name": "Zee Cinema HD",
+    "raw_name": "Zee Cinema HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_ZEE_CINEMA/images/LOGO_HD/LOGO_HD_image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://103.151.60.162:2122/play/a024/index.m3u8?hls"
+  },
+  {
+    "id": "ZeeTalkies.in@HD",
+    "name": "Zee Talkies HD",
+    "raw_name": "Zee Talkies HD (1080p)",
+    "resolution": "HD",
+    "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_ZEE_TALKIES/images/LOGO_HD/LOGO_HD_image.png",
+    "category": "bollywood",
+    "group": "Movies",
+    "url": "http://107.167.16.138/zeetalkies/index.m3u8?token=test"
+  }
+]

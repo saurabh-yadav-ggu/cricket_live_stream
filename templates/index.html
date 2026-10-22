@@ -212,98 +212,78 @@
   </section>
 
   <!-- ======================================================================
-       FEATURED FOR YOU (Content Showcase)
+  <!-- ======================================================================
+       EXPLORE MOVIE CHANNELS (550+ IPTV Streams)
        ====================================================================== -->
   <section class="featured-section" id="explore">
     <div class="container">
       
-      <!-- Section Header with Category Tabs -->
-      <div class="section-header">
+      <!-- Section Header -->
+      <div class="section-header" style="flex-direction: column; align-items: flex-start; gap: 16px;">
         <div class="section-title-wrap">
           <div class="section-eyebrow">
             <span class="section-eyebrow-bar"></span>
-            CURATED LINEUP
+            LIVE IPTV CHANNELS • 550+ MOVIE STREAMS
           </div>
-          <h2 class="section-title">Featured for You</h2>
+          <h2 class="section-title">Explore Movie Channels</h2>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">
+            Click on any movie channel to stream instantly in adaptive HLS with zero buffering.
+          </p>
         </div>
 
-        <!-- Filter Tabs -->
-        <div class="filter-tabs" role="tablist">
-          <button class="filter-tab active" data-filter="all">All Content</button>
-          <button class="filter-tab" data-filter="sci-fi">Sci-Fi</button>
-          <button class="filter-tab" data-filter="thrillers">Thrillers</button>
-          <button class="filter-tab" data-filter="documentaries">Documentaries</button>
-          <button class="filter-tab" data-filter="live">Live Now <span class="live-dot" style="width:5px; height:5px;"></span></button>
+        <!-- Toolbar: Search Bar + Status -->
+        <div class="explore-toolbar" style="width: 100%;">
+          <div class="explore-search-wrap">
+            <svg class="explore-search-icon" viewBox="0 0 24 24">
+              <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+            <input type="text" id="channelSearchInput" class="explore-search-input" placeholder="Search 550+ channels by title, group, or resolution (e.g. Zee, HBO, Action, Cinemax)..." autocomplete="off">
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="filter-tabs" role="tablist" style="margin-top: 4px;">
+            <button class="filter-tab active" data-filter="all">All Channels <span class="tab-badge" id="badgeAll">550</span></button>
+            <button class="filter-tab" data-filter="bollywood">Bollywood & Hindi <span class="tab-badge">62</span></button>
+            <button class="filter-tab" data-filter="action">Action & Thrillers <span class="tab-badge">66</span></button>
+            <button class="filter-tab" data-filter="premium">Hollywood & Premium <span class="tab-badge">117</span></button>
+            <button class="filter-tab" data-filter="classic">Classic & Western <span class="tab-badge">29</span></button>
+            <button class="filter-tab" data-filter="comedy">Comedy & Drama <span class="tab-badge">42</span></button>
+          </div>
+
+          <div class="explore-status-line">
+            <span>Showing <strong id="showingCount" style="color: var(--text-primary);">0</strong> of <span id="totalCount">550</span> live channels</span>
+            <span style="display: flex; align-items: center; gap: 6px;">
+              <span class="live-dot" style="width: 6px; height: 6px;"></span>
+              Click card to play
+            </span>
+          </div>
         </div>
       </div>
 
-      <!-- 3 Content Cards Grid -->
-      <div class="cards-grid">
-        
-        <!-- Card 1: Chrono Station -->
-        <article class="content-card" data-category="sci-fi" data-live="true">
-          <div class="card-thumbnail-wrap">
-            <img src="/static/images/space_station.jpg" alt="Chrono Station" class="card-img" loading="lazy">
-            <span class="card-badge badge-match">98% MATCH</span>
-            <div class="card-progress-bar">
-              <div class="card-progress-fill" style="width: 65%;"></div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="card-meta-line">
-              <div class="card-meta-left">
-                <span class="tag-genre">Sci-Fi</span>
-                <span>•</span>
-                <span>4K HDR</span>
-              </div>
-              <span class="card-duration">2h 14m</span>
-            </div>
-            <h3 class="card-title">Chrono Station</h3>
-            <p class="card-desc">In orbit around Kepler-186f, an isolated crew uncovers an anomaly that fractures spacetime communications.</p>
-          </div>
-        </article>
-
-        <!-- Card 2: Neon Syndicate -->
-        <article class="content-card" data-category="thrillers" data-live="true">
-          <div class="card-thumbnail-wrap">
-            <img src="/static/images/cyberpunk_street.jpg" alt="Neon Syndicate" class="card-img" loading="lazy">
-            <span class="card-badge badge-trending">TRENDING #1</span>
-          </div>
-          <div class="card-body">
-            <div class="card-meta-line">
-              <div class="card-meta-left">
-                <span class="tag-genre">Cyberpunk Noir</span>
-                <span>•</span>
-                <span>Ultra HD</span>
-              </div>
-              <span class="card-duration">1h 52m</span>
-            </div>
-            <h3 class="card-title">Neon Syndicate</h3>
-            <p class="card-desc">Underground synthetic cartels battle rogue enforcers across the rain-slicked sectors of Neo-Tokyo.</p>
-          </div>
-        </article>
-
-        <!-- Card 3: Abyssal Light -->
-        <article class="content-card" data-category="documentaries">
-          <div class="card-thumbnail-wrap">
-            <img src="/static/images/bioluminescent_jellyfish.jpg" alt="Abyssal Light" class="card-img" loading="lazy">
-            <span class="card-badge badge-original">STREAMBOX ORIGINAL</span>
-          </div>
-          <div class="card-body">
-            <div class="card-meta-line">
-              <div class="card-meta-left">
-                <span class="tag-genre">Docuseries</span>
-                <span>•</span>
-                <span>Dolby Vision</span>
-              </div>
-              <span class="card-duration">58m</span>
-            </div>
-            <h3 class="card-title">Abyssal Light</h3>
-            <p class="card-desc">Explore the midnight zone where life thrives on bio-electric luminescence in perpetual oceanic darkness.</p>
-          </div>
-        </article>
-
+      <!-- Channels Grid -->
+      <div class="cards-grid" id="channelsGrid">
+        <!-- Rendered dynamically by static/js/main.js -->
       </div>
+
+      <!-- No Channels Found Alert -->
+      <div id="noChannelsFound" class="no-channels-found" style="display: none;">
+        <svg viewBox="0 0 24 24" width="40" height="40" fill="var(--text-tertiary)" style="margin-bottom: 8px;">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+        <p>No channels found matching "<span id="searchQueryEcho"></span>".</p>
+        <button id="clearSearchBtn" class="btn-secondary" style="margin-top: 12px; padding: 6px 16px; font-size: 12px;">Clear Search</button>
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-wrap" id="loadMoreContainer">
+        <button id="loadMoreChannelsBtn" class="btn-load-more" type="button">
+          <span>Load More Channels</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+          </svg>
+        </button>
+      </div>
+
     </div>
   </section>
 

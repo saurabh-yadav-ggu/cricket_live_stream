@@ -108,6 +108,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Toast Notification Helper ---
+  function showToast(message) {
+    let toast = document.getElementById('globalToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'globalToast';
+      toast.style.cssText = `
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: rgba(18, 18, 18, 0.95);
+        color: #fff;
+        padding: 12px 22px;
+        border-radius: 8px;
+        border-left: 4px solid #FF0000;
+        box-shadow: 0 12px 32px rgba(0,0,0,0.85);
+        font-size: 13px;
+        font-weight: 500;
+        z-index: 99999;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        opacity: 0;
+        transform: translateY(10px);
+        pointer-events: none;
+      `;
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
+    clearTimeout(toast._timeout);
+    toast._timeout = setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(10px)';
+    }, 3500);
+  }
+
   // --- Theater Modal Video.js Player ---
   const videoModal = document.getElementById('videoModal');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
@@ -115,8 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalTitle = document.getElementById('modalTitle');
   let modalPlayer = null;
 
-  function openTheaterModal(title) {
+  function openTheaterModal(title, streamUrl) {
     if (!videoModal) return;
+    const targetUrl = streamUrl || currentRawStreamUrl;
     if (modalTitle) modalTitle.textContent = `Now Playing • ${title}`;
     videoModal.classList.add('open');
 
@@ -136,14 +173,40 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof modalPlayer.httpSourceSelector === 'function') {
           modalPlayer.httpSourceSelector({ default: 'auto' });
         }
+
+        modalPlayer.on('error', () => {
+          showToast(`Stream error for "${title}". Loading via stream proxy...`);
+        });
       }
 
       modalPlayer.src({
-        src: getPlaybackUrl(currentRawStreamUrl, useProxy),
+        src: getPlaybackUrl(targetUrl, useProxy),
         type: 'application/x-mpegURL'
       });
-      modalPlayer.play().catch(e => console.log(e));
+      modalPlayer.play().catch(e => {
+        console.log('[StreamBox Modal Playback]', e);
+      });
     }
+    showToast(`Streaming: ${title}`);
+  }
+
+  function loadInHeroPlayer(title, streamUrl) {
+    if (!heroPlayer) return;
+    currentRawStreamUrl = streamUrl;
+    const titleEl = document.querySelector('.player-stream-title');
+    if (titleEl) titleEl.textContent = title;
+    const statsEl = document.getElementById('heroStreamStats');
+    if (statsEl) statsEl.textContent = `Live Stream • ${title}`;
+
+    heroPlayer.src({
+      src: getPlaybackUrl(streamUrl, useProxy),
+      type: 'application/x-mpegURL'
+    });
+    heroPlayer.play().catch(e => console.log(e));
+
+    const heroSection = document.getElementById('home');
+    if (heroSection) heroSection.scrollIntoView({ behavior: 'smooth' });
+    showToast(`Loaded ${title} in Main Player`);
   }
 
   function closeTheaterModal() {
@@ -168,51 +231,311 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (startWatchingBtn) {
     startWatchingBtn.addEventListener('click', () => {
-      openTheaterModal('Chrono Station • Live Stream Feed');
+      openTheaterModal('Chrono Station • Live Stream Feed', currentRawStreamUrl);
     });
   }
 
   if (watchNowBtn) {
     watchNowBtn.addEventListener('click', () => {
-      openTheaterModal('Live Channel Premiere');
+      openTheaterModal('Live Channel Premiere', currentRawStreamUrl);
     });
   }
 
   if (explorePlayerBtn) {
     explorePlayerBtn.addEventListener('click', () => {
-      document.querySelector('.featured-section').scrollIntoView({ behavior: 'smooth' });
+      const exploreSec = document.getElementById('explore');
+      if (exploreSec) exploreSec.scrollIntoView({ behavior: 'smooth' });
     });
   }
 
-  // Content cards click to play
-  const contentCards = document.querySelectorAll('.content-card');
-  contentCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const title = card.querySelector('.card-title')?.textContent || 'StreamBox Content';
-      openTheaterModal(title);
-    });
-  });
-
-  // --- Category Tabs Filtering ---
+  // --- Dynamic Movie Channels Loader & Controller ---
+  const channelsGrid = document.getElementById('channelsGrid');
+  const channelSearchInput = document.getElementById('channelSearchInput');
+  const navbarSearchInput = document.getElementById('searchInput');
+  const showingCountEl = document.getElementById('showingCount');
+  const totalCountEl = document.getElementById('totalCount');
+  const loadMoreBtn = document.getElementById('loadMoreChannelsBtn');
+  const loadMoreContainer = document.getElementById('loadMoreContainer');
+  const noChannelsFound = document.getElementById('noChannelsFound');
+  const searchQueryEcho = document.getElementById('searchQueryEcho');
+  const clearSearchBtn = document.getElementById('clearSearchBtn');
   const filterTabs = document.querySelectorAll('.filter-tab');
+
+  let allChannels = [];
+  let filteredChannels = [];
+  let currentCategory = 'all';
+  let currentSearchQuery = '';
+  const PAGE_SIZE = 24;
+  let visibleCount = PAGE_SIZE;
+
+  // Category counts badge updater
+  function updateCategoryBadges() {
+    const counts = { all: allChannels.length, bollywood: 0, action: 0, premium: 0, classic: 0, comedy: 0 };
+    allChannels.forEach(ch => {
+      if (counts[ch.category] !== undefined) counts[ch.category]++;
+    });
+    filterTabs.forEach(tab => {
+      const filter = tab.getAttribute('data-filter');
+      const badge = tab.querySelector('.tab-badge');
+      if (badge && counts[filter] !== undefined) {
+        badge.textContent = counts[filter];
+      }
+    });
+  }
+
+  // Create Channel Card HTML Element
+  function createChannelCard(ch) {
+    const card = document.createElement('article');
+    card.className = 'channel-card';
+    card.setAttribute('data-category', ch.category);
+
+    const resClass = ch.resolution === '1080P' ? 'res-1080p' : '';
+    const initials = ch.name.split(' ').map(w => w[0]).filter(Boolean).slice(0, 3).join('').toUpperCase();
+
+    // Thumbnail / Logo Box
+    const thumbBox = document.createElement('div');
+    thumbBox.className = 'channel-thumb-box';
+
+    // Live tag
+    const liveTag = document.createElement('span');
+    liveTag.className = 'badge-live-tag';
+    liveTag.innerHTML = `<span class="live-dot" style="width:5px; height:5px;"></span> LIVE`;
+    thumbBox.appendChild(liveTag);
+
+    // Resolution tag
+    const resTag = document.createElement('span');
+    resTag.className = `badge-resolution ${resClass}`;
+    resTag.textContent = ch.resolution;
+    thumbBox.appendChild(resTag);
+
+    // Channel Logo or Stylized Fallback
+    if (ch.logo) {
+      const img = document.createElement('img');
+      img.src = ch.logo;
+      img.alt = ch.name;
+      img.loading = 'lazy';
+      img.onerror = () => {
+        img.remove();
+        thumbBox.appendChild(createPlaceholder(initials, ch.name));
+      };
+      thumbBox.appendChild(img);
+    } else {
+      thumbBox.appendChild(createPlaceholder(initials, ch.name));
+    }
+
+    // Hover Play Overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'channel-play-overlay';
+
+    const playBtn = document.createElement('button');
+    playBtn.className = 'btn-overlay-play';
+    playBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+      Watch Now
+    `;
+    playBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openTheaterModal(ch.name, ch.url);
+    });
+
+    const heroBtn = document.createElement('button');
+    heroBtn.className = 'btn-overlay-hero';
+    heroBtn.title = 'Play in Main Billboard Player';
+    heroBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+        <path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/>
+      </svg>
+      Hero
+    `;
+    heroBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      loadInHeroPlayer(ch.name, ch.url);
+    });
+
+    overlay.appendChild(playBtn);
+    overlay.appendChild(heroBtn);
+    thumbBox.appendChild(overlay);
+    card.appendChild(thumbBox);
+
+    // Card Body
+    const body = document.createElement('div');
+    body.className = 'channel-body';
+
+    const titleEl = document.createElement('h3');
+    titleEl.className = 'channel-title';
+    titleEl.title = ch.name;
+    titleEl.textContent = ch.name;
+    body.appendChild(titleEl);
+
+    const metaBottom = document.createElement('div');
+    metaBottom.className = 'channel-meta-bottom';
+
+    const catTag = document.createElement('span');
+    catTag.className = 'channel-cat-tag';
+    catTag.textContent = ch.category;
+    metaBottom.appendChild(catTag);
+
+    const subText = document.createElement('span');
+    subText.textContent = 'IPTV HLS';
+    metaBottom.appendChild(subText);
+
+    body.appendChild(metaBottom);
+    card.appendChild(body);
+
+    // Clicking card opens theater modal
+    card.addEventListener('click', () => {
+      openTheaterModal(ch.name, ch.url);
+    });
+
+    return card;
+  }
+
+  function createPlaceholder(initials, name) {
+    const ph = document.createElement('div');
+    ph.className = 'channel-placeholder-logo';
+    ph.innerHTML = `
+      <svg viewBox="0 0 24 24">
+        <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+      </svg>
+      <span class="channel-initials">${initials || 'TV'}</span>
+    `;
+    return ph;
+  }
+
+  // Render channels into the DOM
+  function renderChannels() {
+    if (!channelsGrid) return;
+
+    // Filter by Category & Search Query
+    filteredChannels = allChannels.filter(ch => {
+      const matchCat = (currentCategory === 'all' || ch.category === currentCategory);
+      if (!matchCat) return false;
+      if (!currentSearchQuery) return true;
+      const q = currentSearchQuery.toLowerCase();
+      return ch.name.toLowerCase().includes(q) ||
+             ch.raw_name.toLowerCase().includes(q) ||
+             ch.category.toLowerCase().includes(q) ||
+             ch.group.toLowerCase().includes(q);
+    });
+
+    if (totalCountEl) totalCountEl.textContent = filteredChannels.length;
+
+    if (filteredChannels.length === 0) {
+      channelsGrid.innerHTML = '';
+      if (noChannelsFound) {
+        noChannelsFound.style.display = 'block';
+        if (searchQueryEcho) searchQueryEcho.textContent = currentSearchQuery || currentCategory;
+      }
+      if (loadMoreContainer) loadMoreContainer.style.display = 'none';
+      if (showingCountEl) showingCountEl.textContent = '0';
+      return;
+    }
+
+    if (noChannelsFound) noChannelsFound.style.display = 'none';
+
+    // Slice for pagination
+    const toRender = filteredChannels.slice(0, visibleCount);
+    channelsGrid.innerHTML = '';
+
+    const fragment = document.createDocumentFragment();
+    toRender.forEach(ch => {
+      fragment.appendChild(createChannelCard(ch));
+    });
+    channelsGrid.appendChild(fragment);
+
+    if (showingCountEl) showingCountEl.textContent = toRender.length;
+
+    // Load More Visibility
+    if (loadMoreContainer) {
+      if (visibleCount >= filteredChannels.length) {
+        loadMoreContainer.style.display = 'none';
+      } else {
+        loadMoreContainer.style.display = 'flex';
+      }
+    }
+  }
+
+  // Load More Button Event
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', () => {
+      visibleCount += PAGE_SIZE;
+      renderChannels();
+    });
+  }
+
+  // Filter Tabs Event
   filterTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       filterTabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-
-      const filterValue = tab.getAttribute('data-filter');
-
-      contentCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filterValue === 'all' || category === filterValue || (filterValue === 'live' && card.hasAttribute('data-live'))) {
-          card.style.display = 'flex';
-          card.style.animation = 'fadeIn 0.3s ease';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      currentCategory = tab.getAttribute('data-filter') || 'all';
+      visibleCount = PAGE_SIZE;
+      renderChannels();
     });
   });
+
+  // Search input events with debouncing
+  let searchTimer = null;
+  function handleSearchInput(val) {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      currentSearchQuery = val.trim();
+      visibleCount = PAGE_SIZE;
+      renderChannels();
+    }, 150);
+  }
+
+  if (channelSearchInput) {
+    channelSearchInput.addEventListener('input', (e) => {
+      handleSearchInput(e.target.value);
+    });
+  }
+
+  if (navbarSearchInput) {
+    navbarSearchInput.addEventListener('input', (e) => {
+      handleSearchInput(e.target.value);
+      if (channelSearchInput) channelSearchInput.value = e.target.value;
+      const exploreSec = document.getElementById('explore');
+      if (exploreSec) exploreSec.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  if (clearSearchBtn) {
+    clearSearchBtn.addEventListener('click', () => {
+      currentSearchQuery = '';
+      if (channelSearchInput) channelSearchInput.value = '';
+      if (navbarSearchInput) navbarSearchInput.value = '';
+      visibleCount = PAGE_SIZE;
+      renderChannels();
+    });
+  }
+
+  // Fetch channels list from static json or api
+  fetch('/static/channels.json')
+    .then(res => {
+      if (!res.ok) throw new Error('Failed to load channels');
+      return res.json();
+    })
+    .then(data => {
+      allChannels = data;
+      filteredChannels = data;
+      updateCategoryBadges();
+      renderChannels();
+      console.log(`[StreamBox] Loaded ${allChannels.length} movie channels successfully.`);
+    })
+    .catch(err => {
+      console.warn('[StreamBox] Fallback to /api/channels:', err);
+      fetch('/api/channels')
+        .then(r => r.json())
+        .then(res => {
+          allChannels = res.channels || [];
+          filteredChannels = allChannels;
+          updateCategoryBadges();
+          renderChannels();
+        });
+    });
 
   // --- Stream URL Configuration Modal ---
   const streamConfigModal = document.getElementById('streamConfigModal');

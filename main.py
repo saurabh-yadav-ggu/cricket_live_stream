@@ -1,3 +1,4 @@
+import json
 import re
 import urllib.parse
 from pathlib import Path
@@ -41,6 +42,23 @@ DEFAULT_STREAM_URL = (
     "?hdnea=exp=1792700326~acl=/*~id=89575885627351036019877985996111~hmac=48f8e7b8b2d4e6e264fde915a7a48abc6341d1d3a34c237c4190dcdd2e580a99"
 )
 
+# Channel catalog cache
+CHANNELS_CACHE = None
+
+def load_channels():
+    global CHANNELS_CACHE
+    if CHANNELS_CACHE is None:
+        channels_file = static_dir / "channels.json"
+        if channels_file.exists():
+            try:
+                with open(channels_file, "r", encoding="utf-8") as f:
+                    CHANNELS_CACHE = json.load(f)
+            except Exception:
+                CHANNELS_CACHE = []
+        else:
+            CHANNELS_CACHE = []
+    return CHANNELS_CACHE
+
 
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
@@ -60,6 +78,26 @@ async def get_default_stream():
         "proxied_url": f"/api/stream/proxy?url={urllib.parse.quote(DEFAULT_STREAM_URL, safe='')}",
         "protocol": "hls",
         "is_live": True,
+    }
+
+
+@app.get("/api/channels")
+async def get_channels(
+    category: str = Query("all", description="Category filter"),
+    query: str = Query("", description="Search term"),
+    limit: int = Query(600, description="Max channels")
+):
+    """Returns curated movie channels parsed from movie.md"""
+    channels = load_channels()
+    filtered = channels
+    if category and category.lower() != "all":
+        filtered = [c for c in filtered if c.get("category") == category.lower()]
+    if query:
+        q = query.lower().strip()
+        filtered = [c for c in filtered if q in c.get("name", "").lower() or q in c.get("raw_name", "").lower()]
+    return {
+        "total": len(filtered),
+        "channels": filtered[:limit]
     }
 
 
