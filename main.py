@@ -54,8 +54,8 @@ templates = Jinja2Templates(directory=str(templates_dir))
 
 # Default user-provided live HLS stream URL (Akamai signed stream)
 DEFAULT_STREAM_URL = (
-    "https://sonydaime.akamaized.net/hls/live/2119921/cricodi_2210/HIN/std_lrh-800300010.m3u8"
-    "?hdnea=exp=1792700326~acl=/*~id=89575885627351036019877985996111~hmac=48f8e7b8b2d4e6e264fde915a7a48abc6341d1d3a34c237c4190dcdd2e580a99"
+    "https://sonydaime.akamaized.net/hls/live/2119921/cricodi_2410/HIN/std_lrh-800300010.m3u8"
+    "?hdnea=exp=1792868449~acl=/*~id=39183153768115659634580807583499~hmac=94bb3c2e2345bf9917ed73694d9d436d6a6bd9a0f858c942d7b6f07b882e889b"
 )
 
 # Channel catalog cache
