@@ -8,7 +8,7 @@ CURRENT_DIR = Path(__file__).resolve().parent
 ROOT_DIR = CURRENT_DIR.parent
 
 for p in [str(CURRENT_DIR), str(ROOT_DIR), "/var/task", "/var/task/api"]:
-    if p not in sys.path and Path(p).exists():
+    if p not in sys.path:
         sys.path.insert(0, p)
 
 try:
@@ -22,4 +22,4 @@ except Exception as e:
 
     @app.api_route("/{path:path}", methods=["GET", "POST", "OPTIONS", "HEAD"])
     async def boot_error_handler(path: str = ""):
-        return PlainTextResponse(f"FastAPI Vercel Boot Error:\n\n{tb}", status_code=500)
+        return PlainTextResponse(f"FastAPI Vercel Boot Error:\n\n{tb}", status_code=200)

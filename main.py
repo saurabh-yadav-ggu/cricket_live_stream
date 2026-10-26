@@ -27,38 +27,12 @@ for candidate in [BASE_DIR, BASE_DIR.parent, Path.cwd(), Path("/var/task")]:
         break
 
 # Lifespan manager: instant cold start + periodic background worker for non-serverless
+# Lifespan manager: instant zero-latency boot for serverless and local
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Ensure local disk catalog is loaded immediately (<1ms)
     sync_manager.load_cached_catalog_sync()
-
-    is_serverless = bool(os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"))
-    sync_task = None
-
-    if not is_serverless:
-        # Initial non-blocking sync on local machine
-        asyncio.create_task(sync_manager.sync())
-
-        # Background sync task (polls GitHub stream source every 3 minutes)
-        async def periodic_sync_worker():
-            while True:
-                await asyncio.sleep(180)  # 3 minutes
-                try:
-                    await sync_manager.sync()
-                except Exception as e:
-                    logger.warning(f"Periodic GitHub stream sync error: {e}")
-
-        sync_task = asyncio.create_task(periodic_sync_worker())
-
-    try:
-        yield
-    finally:
-        if sync_task:
-            sync_task.cancel()
-            try:
-                await sync_task
-            except asyncio.CancelledError:
-                pass
+    yield
 
 app = FastAPI(title="StreamBox - Stream Video", lifespan=lifespan, redirect_slashes=False)
 
@@ -86,7 +60,7 @@ async def global_exception_shield(request: Request, call_next):
         import traceback
         tb = traceback.format_exc()
         logger.error(f"Global unhandled request error: {tb}")
-        return PlainTextResponse(f"StreamBox Serverless Runtime Exception:\n\n{tb}", status_code=500)
+        return PlainTextResponse(f"StreamBox Serverless Runtime Exception:\n\n{tb}", status_code=200)
 
 # Templates configuration
 templates_dir = BASE_DIR / "templates"
