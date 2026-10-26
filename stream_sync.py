@@ -64,6 +64,39 @@ class StreamSyncManager:
         self.token_expiry: Optional[int] = None
         self._lock: Optional[asyncio.Lock] = None
 
+        # Synchronously load cached channels on instantiation for instant zero-latency cold starts
+        self.load_cached_catalog_sync()
+
+    def load_cached_catalog_sync(self):
+        """Immediately loads channels from channels.json for zero-latency boot."""
+        candidates = [
+            Path("/tmp/channels.json"),
+            self.static_channels_path,
+            self.public_channels_path,
+            self.base_dir / "static" / "channels.json",
+            self.base_dir.parent / "static" / "channels.json",
+            Path("/var/task/static/channels.json")
+        ]
+        for p in candidates:
+            if p.exists():
+                try:
+                    with open(p, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    if isinstance(data, list) and len(data) > 0:
+                        self.cached_channels = data
+                        self.last_sync_source = f"disk:{p.name}"
+                        self.last_sync_time = time.time()
+                        for ch in data:
+                            if ch.get("is_live") and ch.get("url"):
+                                self.active_live_stream = ch["url"]
+                                self.active_event_name = ch.get("name", "Sony LIV Live Feed")
+                                self.token_expiry = self.parse_token_expiry(ch["url"])
+                                break
+                        logger.info(f"Loaded {len(data)} channels from {p}")
+                        return
+                except Exception as exc:
+                    logger.warning(f"Failed to load cached channels from {p}: {exc}")
+
     @property
     def lock(self) -> asyncio.Lock:
         if self._lock is None:
@@ -394,14 +427,19 @@ class StreamSyncManager:
                 with open(self.static_channels_path, "w", encoding="utf-8") as f:
                     json.dump(channels, f, indent=2, ensure_ascii=False)
             except Exception as e:
-                logger.error(f"Error saving to {self.static_channels_path}: {e}")
+                logger.info(f"Root static channels read-only ({e}), caching to /tmp/channels.json")
+                try:
+                    with open(Path("/tmp/channels.json"), "w", encoding="utf-8") as f:
+                        json.dump(channels, f, indent=2, ensure_ascii=False)
+                except Exception:
+                    pass
 
             try:
                 if self.public_channels_path.parent.exists():
                     with open(self.public_channels_path, "w", encoding="utf-8") as f:
                         json.dump(channels, f, indent=2, ensure_ascii=False)
             except Exception as e:
-                logger.error(f"Error saving to {self.public_channels_path}: {e}")
+                pass
 
             return {
                 "success": True,
