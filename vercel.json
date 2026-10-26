@@ -3,7 +3,7 @@
   "regions": ["bom1"],
   "rewrites": [
     {
-      "source": "/((?!static/|api/test_raw).*)",
+      "source": "/((?!static/).*)",
       "destination": "/api/index.py"
     }
   ]
