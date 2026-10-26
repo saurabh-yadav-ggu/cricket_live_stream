@@ -1192,4 +1192,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Mobile Bottom Navigation Controller ---
+  const mobileNavHome = document.getElementById('mobileNavHome');
+  const mobileNavLive = document.getElementById('mobileNavLive');
+  const mobileNavSync = document.getElementById('mobileNavSync');
+  const mobileNavSearch = document.getElementById('mobileNavSearch');
+  const mobileNavSettings = document.getElementById('mobileNavSettings');
+
+  if (mobileNavHome) {
+    mobileNavHome.addEventListener('click', (e) => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.querySelectorAll('.mobile-nav-btn').forEach(b => b.classList.remove('active'));
+      mobileNavHome.classList.add('active');
+    });
+  }
+
+  if (mobileNavLive) {
+    mobileNavLive.addEventListener('click', (e) => {
+      const liveSection = document.getElementById('liveSection') || document.querySelector('.channels-section') || document.getElementById('explore');
+      if (liveSection) {
+        liveSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      document.querySelectorAll('.mobile-nav-btn').forEach(b => b.classList.remove('active'));
+      mobileNavLive.classList.add('active');
+    });
+  }
+
+  if (mobileNavSync && syncGithubBtn) {
+    mobileNavSync.addEventListener('click', () => {
+      syncGithubBtn.click();
+    });
+  }
+
+  if (mobileNavSearch && searchBtn) {
+    mobileNavSearch.addEventListener('click', () => {
+      searchBtn.click();
+    });
+  }
+
+  if (mobileNavSettings) {
+    mobileNavSettings.addEventListener('click', () => {
+      openStreamConfigModal();
+    });
+  }
+
 });

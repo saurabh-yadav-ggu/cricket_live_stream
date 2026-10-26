@@ -281,3 +281,31 @@
   font-size: 36px;
   margin-bottom: 12px;
 }
+
+
+/* Mobile Video.js Touch & Screen Optimizations */
+@media (max-width: 640px) {
+  .video-js .vjs-control-bar {
+    height: 42px !important;
+    padding: 0 4px !important;
+  }
+  .video-js .vjs-button {
+    width: 32px !important;
+  }
+  .video-js .vjs-big-play-button {
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 22px !important;
+    line-height: 52px !important;
+  }
+  .video-js .vjs-playback-rate {
+    display: none !important;
+  }
+  .video-js .vjs-picture-in-picture-control {
+    display: none !important;
+  }
+  .video-js .vjs-time-control {
+    padding: 0 2px !important;
+    font-size: 11px !important;
+  }
+}
