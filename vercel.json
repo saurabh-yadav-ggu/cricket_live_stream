@@ -1,20 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "regions": ["bom1"],
-  "functions": {
-    "api/**/*.py": {
-      "includeFiles": [
-        "*.py",
-        "api/**",
-        "templates/**",
-        "static/**",
-        "public/**"
-      ]
-    }
-  },
   "rewrites": [
     {
-      "source": "/((?!static/|api/health).*)",
+      "source": "/((?!static/).*)",
       "destination": "/api/index.py"
     }
   ]
