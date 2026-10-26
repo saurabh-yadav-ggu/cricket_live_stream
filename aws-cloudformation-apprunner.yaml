@@ -1,0 +1,67 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'StreamBox - AWS App Runner Automated Deployment Template'
+
+Parameters:
+  GitHubRepoUrl:
+    Type: String
+    Description: 'The full URL of your GitHub repository'
+    Default: 'https://github.com/saurabh-yadav-ggu/cricket_live_stream'
+  GitHubBranch:
+    Type: String
+    Description: 'The Git branch to monitor and deploy'
+    Default: 'main'
+  AppPort:
+    Type: String
+    Description: 'The internal port the FastAPI application runs on'
+    Default: '8000'
+  ConnectionArn:
+    Type: String
+    Description: 'AWS App Runner GitHub Connection ARN (Created in AWS App Runner Console -> GitHub connection)'
+    Default: ''
+
+Conditions:
+  HasConnectionArn:
+    Fn::Not:
+      - Fn::Equals:
+          - Ref: ConnectionArn
+          - ''
+
+Resources:
+  StreamBoxAppRunnerService:
+    Type: AWS::AppRunner::Service
+    Condition: HasConnectionArn
+    Properties:
+      ServiceName: streambox-video-service
+      SourceConfiguration:
+        AutoDeploymentsEnabled: true
+        AuthenticationConfiguration:
+          ConnectionArn:
+            Ref: ConnectionArn
+        CodeRepository:
+          RepositoryUrl:
+            Ref: GitHubRepoUrl
+          SourceCodeVersion:
+            Type: BRANCH
+            Value:
+              Ref: GitHubBranch
+          CodeConfiguration:
+            ConfigurationSource: REPOSITORY
+      InstanceConfiguration:
+        Cpu: '1 vCPU'
+        Memory: '2 GB'
+      HealthCheckConfiguration:
+        Protocol: HTTP
+        Path: /health
+        Interval: 20
+        Timeout: 5
+        HealthyThreshold: 1
+        UnhealthyThreshold: 3
+
+Outputs:
+  ServiceUrl:
+    Description: 'Public HTTPS URL for StreamBox'
+    Value:
+      Fn::GetAtt:
+        - StreamBoxAppRunnerService
+        - ServiceUrl
+    Condition: HasConnectionArn

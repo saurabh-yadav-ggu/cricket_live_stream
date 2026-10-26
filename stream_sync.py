@@ -52,7 +52,6 @@ class StreamSyncManager:
     def __init__(self, base_dir: Path):
         self.base_dir = base_dir
         self.static_channels_path = base_dir / "static" / "channels.json"
-        self.public_channels_path = base_dir / "public" / "static" / "channels.json"
         self.local_repo_path = base_dir / "SONYLIV-AUTO-UPDATED-PLAYLIST"
         
         self.last_sync_time: Optional[float] = None
@@ -70,12 +69,9 @@ class StreamSyncManager:
     def load_cached_catalog_sync(self):
         """Immediately loads channels from channels.json for zero-latency boot."""
         candidates = [
-            Path("/tmp/channels.json"),
             self.static_channels_path,
-            self.public_channels_path,
             self.base_dir / "static" / "channels.json",
-            self.base_dir.parent / "static" / "channels.json",
-            Path("/var/task/static/channels.json")
+            Path("/tmp/channels.json")
         ]
         for p in candidates:
             if p.exists():
@@ -433,13 +429,6 @@ class StreamSyncManager:
                         json.dump(channels, f, indent=2, ensure_ascii=False)
                 except Exception:
                     pass
-
-            try:
-                if self.public_channels_path.parent.exists():
-                    with open(self.public_channels_path, "w", encoding="utf-8") as f:
-                        json.dump(channels, f, indent=2, ensure_ascii=False)
-            except Exception as e:
-                pass
 
             return {
                 "success": True,

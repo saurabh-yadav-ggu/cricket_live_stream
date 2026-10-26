@@ -1,0 +1,17 @@
+.git
+.gitignore
+.venv
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+imagekit-video-player/
+SONYLIV-AUTO-UPDATED-PLAYLIST/
+*.md
+!README.md

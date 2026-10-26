@@ -49,11 +49,35 @@ Visit [http://127.0.0.1:8000](http://127.0.0.1:8000) to start watching the live 
 
 ---
 
+## ☁️ AWS Deployment
+
+StreamBox is fully configured for production deployment on **AWS** across multiple architectures:
+
+- **AWS App Runner (Recommended)**: 100% managed container service with automatic SSL, zero server management, and auto-scaling.
+- **AWS Lightsail / EC2 with Docker**: Most budget-friendly option ($3.50/mo or free tier) using `docker compose` and Nginx.
+- **AWS ECS (Fargate)**: Enterprise container scaling using ECR and ECS.
+
+👉 **See the complete step-by-step guide in [AWS_DEPLOYMENT_GUIDE.md](AWS_DEPLOYMENT_GUIDE.md).**
+
+### Quick Docker Launch:
+```bash
+docker compose up -d --build
+```
+
+---
+
 ## 🛠 Project Structure
 
 ```text
 ├── main.py                  # FastAPI application & HLS proxy server
-├── pyproject.toml           # Project dependencies & metadata
+├── stream_sync.py           # Background sync & stream fallback manager
+├── Dockerfile               # Production multi-stage Docker container
+├── docker-compose.yml       # Local & EC2 container orchestration
+├── apprunner.yaml           # AWS App Runner native deployment manifest
+├── ecs-task-definition.json # AWS ECS Fargate task definition
+├── nginx.conf               # High-performance Nginx reverse proxy configuration
+├── deploy-ec2.sh            # 1-click automated setup script for Ubuntu EC2/Lightsail
+├── AWS_DEPLOYMENT_GUIDE.md  # Detailed AWS deployment documentation
 ├── templates/
 │   └── index.html           # Main player interface template
 ├── static/

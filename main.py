@@ -7,6 +7,7 @@ import os
 import re
 import urllib.parse
 from pathlib import Path
+from typing import Optional, Any, Dict, List
 
 import httpx
 from fastapi import FastAPI, Request, Query, HTTPException
@@ -19,15 +20,10 @@ from stream_sync import sync_manager, STANDBY_STREAM_URL
 
 logger = logging.getLogger("stream_video")
 
-# Robust BASE_DIR resolution for both local and Vercel serverless environments
+# Project base directory
 BASE_DIR = Path(__file__).resolve().parent
-for candidate in [BASE_DIR, BASE_DIR.parent, Path.cwd(), Path("/var/task")]:
-    if (candidate / "templates").exists() and (candidate / "static").exists():
-        BASE_DIR = candidate
-        break
 
-# Lifespan manager: instant cold start + periodic background worker for non-serverless
-# Lifespan manager: instant zero-latency boot for serverless and local
+# Lifespan manager: instant zero-latency boot
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Ensure local disk catalog is loaded immediately (<1ms)
@@ -49,7 +45,6 @@ app.add_middleware(
 static_dir = BASE_DIR / "static"
 if static_dir.exists():
     app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
-    app.mount("/api/static", StaticFiles(directory=str(static_dir)), name="api_static")
 
 # Global exception shield to prevent container-level crashes
 @app.middleware("http")
@@ -60,7 +55,7 @@ async def global_exception_shield(request: Request, call_next):
         import traceback
         tb = traceback.format_exc()
         logger.error(f"Global unhandled request error: {tb}")
-        return PlainTextResponse(f"StreamBox Serverless Runtime Exception:\n\n{tb}", status_code=200)
+        return PlainTextResponse(f"StreamBox Server Error:\n\n{tb}", status_code=500)
 
 # Templates configuration
 templates_dir = BASE_DIR / "templates"
@@ -76,26 +71,10 @@ def get_current_live_url() -> str:
 
 @app.get("/", response_class=HTMLResponse)
 @app.get("/index.html", response_class=HTMLResponse)
-@app.get("/api", response_class=HTMLResponse)
-@app.get("/api/", response_class=HTMLResponse)
-@app.get("/api/index.py", response_class=HTMLResponse)
-@app.get("/api/index", response_class=HTMLResponse)
 async def root(request: Request):
     # If a url query parameter is present, delegate directly to stream proxy
     if "url" in request.query_params:
         return await stream_proxy(request, request.query_params["url"])
-
-    # If Vercel rewrote a specific endpoint to /api/index.py, delegate cleanly
-    matched = (
-        request.headers.get("x-matched-path")
-        or request.headers.get("x-forwarded-uri")
-        or request.headers.get("x-vercel-matched-path")
-        or ""
-    )
-    if "status" in matched:
-        return await get_stream_status()
-    if "channels" in matched:
-        return await get_channels()
 
     live_url = get_current_live_url()
     try:
@@ -114,6 +93,17 @@ async def root(request: Request):
             html_content = html_fallback_path.read_text(encoding="utf-8")
             return HTMLResponse(content=html_content)
         return HTMLResponse(content=f"<html><body><h1>StreamBox Live</h1><p>Active Event: {sync_manager.active_event_name}</p></body></html>")
+
+
+@app.get("/health")
+@app.get("/healthz")
+async def health_check():
+    """AWS ALB, App Runner, ECS, and Docker container healthcheck endpoint."""
+    return {
+        "status": "healthy",
+        "service": "streambox",
+        "active_stream": sync_manager.active_live_stream is not None
+    }
 
 
 @app.get("/api/stream/status")
@@ -423,4 +413,6 @@ async def stream_proxy(
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    port = int(os.environ.get("PORT", 8000))
+    host = os.environ.get("HOST", "0.0.0.0")
+    uvicorn.run("main:app", host=host, port=port, reload=False)
