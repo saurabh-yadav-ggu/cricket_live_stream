@@ -228,16 +228,23 @@ async def get_channels(
 
 # Shared persistent connection client for HLS reverse proxying
 _proxy_client: Optional[httpx.AsyncClient] = None
+_client_loop: Any = None
 
 def get_proxy_client() -> httpx.AsyncClient:
-    global _proxy_client
-    if _proxy_client is None or _proxy_client.is_closed:
+    global _proxy_client, _client_loop
+    try:
+        current_loop = asyncio.get_running_loop()
+    except RuntimeError:
+        current_loop = None
+
+    if _proxy_client is None or _proxy_client.is_closed or _client_loop != current_loop:
         _proxy_client = httpx.AsyncClient(
             verify=False,
             timeout=httpx.Timeout(16.0, connect=5.0),
             follow_redirects=True,
             limits=httpx.Limits(max_keepalive_connections=40, max_connections=80)
         )
+        _client_loop = current_loop
     return _proxy_client
 
 

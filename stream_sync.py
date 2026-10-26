@@ -62,7 +62,13 @@ class StreamSyncManager:
         self.active_live_stream: Optional[str] = None
         self.active_event_name: str = "Sony LIV Sports Feed"
         self.token_expiry: Optional[int] = None
-        self._lock = asyncio.Lock()
+        self._lock: Optional[asyncio.Lock] = None
+
+    @property
+    def lock(self) -> asyncio.Lock:
+        if self._lock is None:
+            self._lock = asyncio.Lock()
+        return self._lock
         
     def parse_token_expiry(self, url: str) -> Optional[int]:
         """Extracts exp=<timestamp> from Akamai / signed URL."""
@@ -232,7 +238,7 @@ class StreamSyncManager:
 
     async def sync(self) -> Dict[str, Any]:
         """Performs full synchronization, channel building, and disk persistence."""
-        async with self._lock:
+        async with self.lock:
             data, source = await self.fetch_remote_json()
             if not data:
                 # If unable to fetch, read existing channels.json from disk

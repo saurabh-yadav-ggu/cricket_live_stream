@@ -3,8 +3,7 @@
   "regions": ["bom1"],
   "functions": {
     "api/index.py": {
-      "includeFiles": "{templates/**,static/**,public/**}",
-      "maxDuration": 15
+      "includeFiles": "{main.py,stream_sync.py,templates/**,static/**,public/**}"
     }
   },
   "rewrites": [
