@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamBox — Every Stream. One Experience.</title>
+  <meta name="description" content="A seamless home for live channels, ultra-low latency interactive feeds, and pristine adaptive 4K playback. Built natively for the modern dark theater canvas.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Video.js 8 Base Stylesheet -->
+  <link rel="stylesheet" href="/static/css/video-js.min.css">
+
+  <!-- ImageKit Prebuilt Video Player Theme Stylesheet (Globo Codex Dark) -->
+  <link rel="stylesheet" href="/static/css/imagekit-theme.css">
+
+  <!-- Codex App Theme Stylesheet -->
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <!-- Video.js 8 Core Engine -->
+  <script src="/static/js/video.min.js"></script>
+
+  <!-- Video.js Quality Levels & HTTP Source Selector Plugins (from ImageKit) -->
+  <script src="/static/js/videojs-contrib-quality-levels.min.js"></script>
+  <script src="/static/js/videojs-http-source-selector.min.js"></script>
+</head>
+<body>
+
+  <!-- ======================================================================
+       NAVBAR (AppBar)
+       ====================================================================== -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <!-- Brand Logo -->
+      <a href="/" class="logo" aria-label="StreamBox Home">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6zm6 3v6l5-3-5-3z"/>
+          </svg>
+        </div>
+        <span class="logo-text">Stream<span>Box</span></span>
+      </a>
+
+      <!-- Center Navigation Pills -->
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#home" class="nav-item active">Home</a>
+        <a href="#explore" class="nav-item">Explore</a>
+        <a href="#live" class="nav-item">Live <span class="live-dot"></span></a>
+        <a href="#about" class="nav-item">About</a>
+      </nav>
+
+        <!-- Sync with GitHub Stream Source Button -->
+        <button class="btn-sync-github" id="syncGithubBtn" title="Sync live matches from GitHub repository" style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+            <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
+          </svg>
+          <span id="syncBtnText">Sync GitHub</span>
+        </button>
+
+        <!-- Stream URL Settings -->
+        <button class="icon-btn" id="streamSettingsNavBtn" title="Update Stream URL / Token" aria-label="Stream Settings">
+          <svg viewBox="0 0 24 24">
+            <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+          </svg>
+        </button>
+
+        <!-- Search Button -->
+        <button class="icon-btn" id="searchBtn" title="Search" aria-label="Search">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+        </button>
+
+        <!-- Cast Button -->
+        <button class="icon-btn" id="castBtn" title="Cast to TV" aria-label="Cast to TV">
+          <svg viewBox="0 0 24 24">
+            <path d="M1 18v3h3c0-1.66-1.34-3-3-3zm0-4v2c2.76 0 5 2.24 5 5h2c0-3.87-3.13-7-7-7zm0-4v2c4.97 0 9 4.03 9 9h2c0-6.08-4.93-11-11-11zm20-7H3c-1.1 0-2 .9-2 2v3h2V5h18v14h-7v2h7c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+          </svg>
+        </button>
+
+        <!-- Watch Now CTA -->
+        <button class="btn-cta-nav" id="watchNowBtn">
+          Watch Now
+        </button>
+
+        <!-- User Profile Avatar -->
+        <div class="user-avatar" title="Account Profile" tabindex="0">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#B3B3B3">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search Drawer Overlay -->
+  <div class="search-drawer" id="searchDrawer">
+    <div class="container">
+      <div class="search-input-box">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="#757575">
+          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search streams, titles, genres, 4K live feeds..." autocomplete="off">
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       HERO BILLBOARD SECTION
+       ====================================================================== -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left Hero Text & Actions -->
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="eyebrow-dot"></span>
+            YOUR ENTERTAINMENT, REIMAGINED
+          </div>
+
+          <h1 class="hero-title">
+            Every Stream.
+            <span class="text-highlight">One Experience.</span>
+          </h1>
+
+          <p class="hero-desc">
+            A seamless home for live channels, ultra-low latency interactive feeds, and pristine adaptive 4K playback. Built natively for the modern dark theater canvas.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="hero-cta-group">
+            <button class="btn-primary" id="startWatchingBtn">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              Start Watching
+            </button>
+            <button class="btn-secondary" id="explorePlayerBtn">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/>
+              </svg>
+              Explore Player
+            </button>
+          </div>
+
+          <!-- Metrics Row -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-val">4K HDR</span>
+              <span class="stat-label">MASTER BITRATE</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-val">&lt; 85ms</span>
+              <span class="stat-label">GLASS-TO-GLASS</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-val">100%</span>
+              <span class="stat-label">AD-FREE HLS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Live Player Card with Prebuilt ImageKit Video.js UI -->
+        <div class="hero-player-wrap">
+          <div class="player-card">
+            
+            <!-- Video Stage with Prebuilt ImageKit Video.js UI -->
+            <div class="player-video-stage" id="heroPlayerContainer" style="aspect-ratio: 16/9; position: relative;">
+              <video
+                id="heroVideoPlayer"
+                class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid"
+                controls
+                preload="auto"
+                playsinline
+                poster="/static/images/cyberpunk_street.jpg">
+              </video>
+            </div>
+
+            <!-- Player Meta Panel -->
+            <div class="player-meta-panel">
+              <div class="player-meta-top">
+                <span class="now-streaming-tag">NOW STREAMING • LIVE HLS</span>
+                <span class="quality-badge" id="heroBitrateBadge">1080p50 • Adaptive ABR</span>
+              </div>
+              <h3 class="player-stream-title">{{ active_event or "Sony LIV Live Sports Feed" }}</h3>
+              <p class="player-stream-desc" id="heroStreamStats">Live Akamai Stream • Synced from GitHub (saurabh-yadav-ggu)</p>
+
+              <!-- Footer with Audio Waveform & Status -->
+              <div class="player-sync-footer">
+                <div class="sync-status">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                  </svg>
+                  <span id="heroSyncStatusText">Spatial Stream Synced (Dolby Atmos / Stereo)</span>
+                </div>
+                <div class="sound-wave" title="Audio Stream Synced" id="heroSoundWave">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+  <!-- ======================================================================
+       EXPLORE INDIAN CHANNELS (54 Live Streams)
+       ====================================================================== -->
+  <section class="featured-section" id="explore">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-header" style="flex-direction: column; align-items: flex-start; gap: 16px;">
+        <div class="section-title-wrap">
+          <div class="section-eyebrow">
+            <span class="section-eyebrow-bar"></span>
+            SONY LIV LIVE SPORTS • CRICKET & FOOTBALL FEEDS
+          </div>
+          <h2 class="section-title">Explore Sony LIV Channels & Live Matches</h2>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">
+            Click on any Sony LIV match or channel to stream instantly in adaptive 1080p HLS.
+          </p>
+        </div>
+
+        <!-- Toolbar: Search Bar + Status -->
+        <div class="explore-toolbar" style="width: 100%;">
+          <div class="explore-search-wrap">
+            <svg class="explore-search-icon" viewBox="0 0 24 24">
+              <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 14z"/>
+            </svg>
+            <input type="text" id="channelSearchInput" class="explore-search-input" placeholder="Search live matches by team, tournament, channel, or language (e.g. India vs NZ, ISL, Ten 5, Hindi)..." autocomplete="off">
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="filter-tabs" role="tablist" style="margin-top: 4px;">
+            <button class="filter-tab active" data-filter="all">All Feeds <span class="tab-badge" id="badgeAll">33</span></button>
+            <button class="filter-tab" data-filter="cricket">Cricket <span class="tab-badge">0</span></button>
+            <button class="filter-tab" data-filter="football">Football / ISL <span class="tab-badge">0</span></button>
+            <button class="filter-tab" data-filter="hindi">Hindi Audio <span class="tab-badge">0</span></button>
+            <button class="filter-tab" data-filter="english">English Audio <span class="tab-badge">0</span></button>
+            <button class="filter-tab" data-filter="regional">Regional <span class="tab-badge">0</span></button>
+          </div>
+
+          <div class="explore-status-line">
+            <span>Showing <strong id="showingCount" style="color: var(--text-primary);">0</strong> of <span id="totalCount">33</span> live channels</span>
+            <span style="display: flex; align-items: center; gap: 6px;">
+              <span class="live-dot" style="width: 6px; height: 6px;"></span>
+              Click card to play
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Channels Grid -->
+      <div class="cards-grid" id="channelsGrid">
+        <!-- Rendered dynamically by static/js/main.js -->
+      </div>
+
+      <!-- No Channels Found Alert -->
+      <div id="noChannelsFound" class="no-channels-found" style="display: none;">
+        <svg viewBox="0 0 24 24" width="40" height="40" fill="var(--text-tertiary)" style="margin-bottom: 8px;">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+        <p>No channels found matching "<span id="searchQueryEcho"></span>".</p>
+        <button id="clearSearchBtn" class="btn-secondary" style="margin-top: 12px; padding: 6px 16px; font-size: 12px;">Clear Search</button>
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-wrap" id="loadMoreContainer">
+        <button id="loadMoreChannelsBtn" class="btn-load-more" type="button">
+          <span>Load More Channels</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <a href="/" class="logo">
+          <div class="logo-icon" style="width: 22px; height: 22px;">
+            <svg viewBox="0 0 24 24" style="width: 13px; height: 13px;">
+              <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6zm6 3v6l5-3-5-3z"/>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 16px;">Stream<span>Box</span></span>
+        </a>
+        <span class="footer-copyright">© 2026 StreamBox Media Corp. All rights reserved.</span>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer Navigation">
+        <a href="#about" class="footer-link">About</a>
+        <a href="#player" class="footer-link">Player</a>
+        <a href="#privacy" class="footer-link">Privacy</a>
+        <a href="#terms" class="footer-link">Terms</a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       YOUTUBE WATCH VIEW INTERFACE (Full YouTube-style Experience)
+       ====================================================================== -->
+  <div class="yt-watch-overlay" id="youtubeWatchView" role="dialog" aria-modal="true" aria-hidden="true">
+    
+    <!-- YouTube Watch Sticky Top Header -->
+    <header class="yt-watch-header">
+      <div class="yt-header-left">
+        <button class="yt-icon-btn yt-back-btn" id="ytBackBtn" title="Back to Browse" aria-label="Back">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+          </svg>
+        </button>
+        <a href="/" class="logo" style="text-decoration: none;">
+          <div class="logo-icon" style="width: 28px; height: 28px;">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6zm6 3v6l5-3-5-3z"/>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 17px;">Stream<span>Box</span></span>
+        </a>
+      </div>
+
+      <div class="yt-header-center">
+        <div class="yt-search-bar">
+          <input type="text" id="ytSearchInput" placeholder="Search Sony LIV streams, sports, teams..." autocomplete="off">
+          <button class="yt-search-btn" id="ytSearchSubmit" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="yt-header-right">
+        <span class="yt-live-pill" id="ytHeaderLivePill">
+          <span class="live-dot" style="width: 6px; height: 6px;"></span>
+          LIVE
+        </span>
+        <button class="yt-icon-btn" id="ytTheaterToggleBtn" title="Toggle Theater Mode">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M19 6H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H5V8h14v8z"/>
+          </svg>
+        </button>
+        <button class="yt-icon-btn yt-close-btn" id="ytCloseBtn" title="Close Watch Mode (Esc)">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- YouTube Watch Main Body -->
+    <div class="yt-watch-container">
+      <div class="yt-watch-columns" id="ytWatchColumns">
+        
+        <!-- Left Main Column (Video Player + Metadata + Chat/Comments) -->
+        <main class="yt-primary-col">
+          
+          <!-- Cinema Stage with Ambient Glow Effect -->
+          <div class="yt-player-stage" id="ytPlayerStage">
+            <div class="yt-ambient-glow" id="ytAmbientGlow"></div>
+            <div class="yt-video-wrapper">
+              <video
+                id="modalVideoPlayer"
+                class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid"
+                controls
+                preload="auto"
+                playsinline>
+              </video>
+            </div>
+          </div>
+
+          <!-- Video Details Under Player -->
+          <div class="yt-details-wrap">
+            <h1 class="yt-video-title" id="ytVideoTitle">Now Playing • Sony Sports Live Feed</h1>
+
+            <!-- Broadcaster & Actions Row -->
+            <div class="yt-actions-row">
+              <!-- Channel / Broadcaster Info -->
+              <div class="yt-channel-info">
+                <div class="yt-channel-avatar" id="ytChannelAvatar">
+                  <span id="ytChannelInitials">SL</span>
+                </div>
+                <div class="yt-channel-text">
+                  <div class="yt-channel-name-wrap">
+                    <span class="yt-channel-name" id="ytChannelName">Sony Sports Network</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="#aaa" class="yt-verified-badge" title="Verified Broadcast">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                  </div>
+                  <span class="yt-sub-count" id="ytSubCount">Official Live Broadcast • 4.82M subscribers</span>
+                </div>
+                <button class="yt-btn-subscribe" id="ytSubscribeBtn">
+                  <span>Subscribe</span>
+                </button>
+              </div>
+
+              <!-- Action Pills (Like, Dislike, Share, Quality, Chat Toggle) -->
+              <div class="yt-action-pills">
+                <div class="yt-pill-group">
+                  <button class="yt-pill-btn yt-like-btn" id="ytLikeBtn" title="I like this">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                      <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/>
+                    </svg>
+                    <span id="ytLikeCount">24K</span>
+                  </button>
+                  <div class="yt-pill-divider"></div>
+                  <button class="yt-pill-btn yt-dislike-btn" id="ytDislikeBtn" title="I dislike this">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                      <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/>
+                    </svg>
+                  </button>
+                </div>
+
+                <button class="yt-pill-btn" id="ytShareBtn" title="Share Stream">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                    <path d="M14 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z"/>
+                  </svg>
+                  <span>Share</span>
+                </button>
+
+                <button class="yt-pill-btn" id="ytTheaterBtn" title="Theater Mode">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                    <path d="M19 7H5c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 8H5V9h14v6z"/>
+                  </svg>
+                  <span>Theater</span>
+                </button>
+
+                <div class="yt-quality-badge" id="ytStreamQualityPill">1080P • HLS</div>
+              </div>
+            </div>
+
+            <!-- YouTube-style Expandable Description Card -->
+            <div class="yt-description-box" id="ytDescriptionBox">
+              <div class="yt-desc-header">
+                <span class="yt-view-stat" id="ytLiveViewerCount">🔴 148,200 watching now</span>
+                <span class="yt-dot-sep">•</span>
+                <span id="ytStreamStartInfo">Live Akamai Stream</span>
+                <span class="yt-dot-sep">•</span>
+                <span class="yt-tag-list">#SonyLIV #LiveSports #Cricket #ISL</span>
+              </div>
+              <div class="yt-desc-content" id="ytDescContent">
+                Official high-definition live stream broadcast feed powered by Akamai edge CDN and auto-synchronized dynamically from GitHub. Enjoy pristine low-latency multi-bitrate HLS playback with stadium stereo audio commentary.
+              </div>
+              <button class="yt-desc-toggle" id="ytDescToggle">...more</button>
+            </div>
+
+            <!-- YouTube Live Chat / Fan Comments Section -->
+            <div class="yt-comments-section">
+              <div class="yt-comments-header">
+                <div class="yt-comments-count-title">
+                  <span id="ytCommentsCount">2,842</span> Live Fan Comments
+                </div>
+                <div class="yt-comments-sort">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/>
+                  </svg>
+                  <span>Top Chat</span>
+                </div>
+              </div>
+
+              <!-- Comment Input Form -->
+              <div class="yt-comment-input-box">
+                <div class="yt-user-avatar">U</div>
+                <div class="yt-input-wrap">
+                  <input type="text" id="ytCommentInput" placeholder="Add a comment to the live stream..." autocomplete="off">
+                  <div class="yt-input-actions" id="ytInputActions" style="display: none;">
+                    <button class="yt-btn-cancel" id="ytCommentCancel" type="button">Cancel</button>
+                    <button class="yt-btn-submit" id="ytCommentSubmit" type="button" disabled>Comment</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Comments List -->
+              <div class="yt-comments-feed" id="ytCommentsFeed">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+          </div>
+        </main>
+
+        <!-- Right Secondary Column (Related Videos & Up Next Playlist) -->
+        <aside class="yt-secondary-col">
+          
+          <!-- Category Filter Chips -->
+          <div class="yt-related-chips" role="tablist">
+            <button class="yt-chip active" data-ytfilter="all">All</button>
+            <button class="yt-chip" data-ytfilter="cricket">Cricket</button>
+            <button class="yt-chip" data-ytfilter="football">Football</button>
+            <button class="yt-chip" data-ytfilter="hindi">Hindi</button>
+            <button class="yt-chip" data-ytfilter="live">Live Now</button>
+          </div>
+
+          <!-- Related Videos List -->
+          <div class="yt-related-list" id="ytRelatedList">
+            <!-- Dynamically populated from allChannels -->
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       STREAM CONFIG / TOKEN RENEWAL MODAL
+       ====================================================================== -->
+  <div class="stream-config-modal" id="streamConfigModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="stream-config-card">
+      <div class="stream-config-header">
+        <div style="font-size: 15px; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--brand-red)">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+          </svg>
+          HLS Stream & Token Configuration
+        </div>
+        <button class="modal-close-btn" id="streamConfigCloseBtn" aria-label="Close Configuration">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="stream-config-body">
+        <p style="font-size: 12px; line-height: 1.5; color: var(--text-secondary);">
+          Akamai CDN signed URLs include an expiration timestamp (<code>hdnea=exp=...</code>) and cryptographic HMAC. If a token expires, update it below to refresh the live stream immediately without reloading.
+        </p>
+
+        <label class="stream-input-label" for="streamUrlInput">HLS Stream Manifest URL (Signed or Direct)</label>
+        <textarea id="streamUrlInput" class="stream-input-field" rows="3" spellcheck="false" placeholder="https://.../std_lrh-800300010.m3u8?hdnea=exp=..."></textarea>
+
+        <div style="display: flex; align-items: center; gap: 10px; margin-top: 4px;">
+          <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); cursor: pointer;">
+            <input type="checkbox" id="useProxyCheckbox" checked>
+            <span>Enable Backend Streaming Proxy (Bypasses browser CORS & rewrites child manifests)</span>
+          </label>
+        </div>
+
+        <div class="stream-config-actions">
+          <button class="btn-update-token" id="resetStreamBtn" type="button">Reset to Default</button>
+          <button class="btn-retry" id="applyStreamBtn" type="button">Apply & Play Stream</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Player and Interactivity Controller Script -->
+  <script src="/static/js/main.js"></script>
+</body>
+</html>

@@ -124,16 +124,42 @@ def get_current_live_url() -> str:
 @app.get("/index.html", response_class=HTMLResponse)
 @app.get("/api", response_class=HTMLResponse)
 @app.get("/api/", response_class=HTMLResponse)
+@app.get("/api/index.py", response_class=HTMLResponse)
+@app.get("/api/index", response_class=HTMLResponse)
 async def root(request: Request):
-    live_url = get_current_live_url()
-    return templates.TemplateResponse(
-        request=request,
-        name="index.html",
-        context={
-            "default_stream_url": live_url,
-            "active_event": sync_manager.active_event_name
-        }
+    # If a url query parameter is present, delegate directly to stream proxy
+    if "url" in request.query_params:
+        return await stream_proxy(request, request.query_params["url"])
+
+    # If Vercel rewrote a specific endpoint to /api/index.py, delegate cleanly
+    matched = (
+        request.headers.get("x-matched-path")
+        or request.headers.get("x-forwarded-uri")
+        or request.headers.get("x-vercel-matched-path")
+        or ""
     )
+    if "status" in matched:
+        return await get_stream_status()
+    if "channels" in matched:
+        return await get_channels()
+
+    live_url = get_current_live_url()
+    try:
+        return templates.TemplateResponse(
+            request=request,
+            name="index.html",
+            context={
+                "default_stream_url": live_url,
+                "active_event": sync_manager.active_event_name
+            }
+        )
+    except Exception as exc:
+        logger.error(f"Template rendering failed: {exc}")
+        html_fallback_path = templates_dir / "index.html"
+        if html_fallback_path.exists():
+            html_content = html_fallback_path.read_text(encoding="utf-8")
+            return HTMLResponse(content=html_content)
+        return HTMLResponse(content=f"<html><body><h1>StreamBox Live</h1><p>Active Event: {sync_manager.active_event_name}</p></body></html>")
 
 
 @app.get("/api/stream/status")
