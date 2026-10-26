@@ -351,6 +351,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function loadInHeroPlayer(title, streamUrl) {
+    if (!streamUrl) return;
+    currentRawStreamUrl = streamUrl;
+    const titleEl = document.querySelector('.player-stream-title');
+    if (titleEl && title) titleEl.textContent = title;
+
+    if (heroPlayer) {
+      heroPlayer.src({
+        src: getPlaybackUrl(streamUrl, useProxy),
+        type: 'application/x-mpegURL'
+      });
+      heroPlayer.play().catch(e => console.log('Autoplay in hero player:', e));
+    }
+    showToast(`Loaded in Player: ${title || 'Live Stream'}`);
+  }
+
   function openYouTubeWatch(channelObj, streamUrl) {
     if (!youtubeWatchView) return;
 
@@ -1042,9 +1058,13 @@ document.addEventListener('DOMContentLoaded', () => {
       syncGithubBtn.style.opacity = '0.7';
 
       fetch('/api/stream/sync', { method: 'POST' })
-        .then(r => r.json())
+        .then(r => {
+          if (!r.ok) throw new Error(`HTTP ${r.status}`);
+          return r.json();
+        })
         .then(res => {
-          showToast(`Synced ${res.result?.total_channels || 0} channels from GitHub!`);
+          const count = res.result?.total_channels ?? res.current_status?.total_channels ?? 0;
+          showToast(`Synced ${count} channels from GitHub!`);
           if (syncBtnText) syncBtnText.textContent = 'Synced!';
           setTimeout(() => {
             if (syncBtnText) syncBtnText.textContent = 'Sync GitHub';
@@ -1059,16 +1079,21 @@ document.addEventListener('DOMContentLoaded', () => {
               filteredChannels = allChannels;
               updateCategoryBadges();
               renderChannels();
-            });
+            })
+            .catch(e => console.warn('Channel list refresh error:', e));
 
           // Refresh live feed if active event changed
           if (res.current_status?.active_stream_url) {
-            loadInHeroPlayer(res.current_status.active_event, res.current_status.active_stream_url);
+            try {
+              loadInHeroPlayer(res.current_status.active_event, res.current_status.active_stream_url);
+            } catch (err) {
+              console.warn('Hero player update notice:', err);
+            }
           }
         })
         .catch(err => {
           console.error('Manual sync failed:', err);
-          showToast('Failed to sync with GitHub repository.');
+          showToast('Failed to sync with GitHub: ' + (err.message || 'Network error'));
           if (syncBtnText) syncBtnText.textContent = 'Sync Failed';
           setTimeout(() => {
             if (syncBtnText) syncBtnText.textContent = 'Sync GitHub';

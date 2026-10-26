@@ -29,10 +29,10 @@ logger = logging.getLogger("stream_sync")
 BASE_DIR = Path(__file__).resolve().parent
 
 # GitHub stream source endpoints
-GITHUB_PRIMARY_JSON = "https://raw.githubusercontent.com/saurabh-yadav-ggu/SONYLIV-AUTO-UPDATED-PLAYLIST/main/sonyliv.json"
-GITHUB_PRIMARY_M3U = "https://raw.githubusercontent.com/saurabh-yadav-ggu/SONYLIV-AUTO-UPDATED-PLAYLIST/main/sonyliv.m3u"
-GITHUB_FALLBACK_JSON = "https://raw.githubusercontent.com/sayanpal514-hue/SONYLIV-AUTO-UPDATED-PLAYLIST/main/sonyliv.json"
-GITHUB_FALLBACK_M3U = "https://raw.githubusercontent.com/sayanpal514-hue/SONYLIV-AUTO-UPDATED-PLAYLIST/main/sonyliv.m3u"
+GITHUB_PRIMARY_JSON = "https://raw.githubusercontent.com/sayanpal514-hue/SONYLIV-AUTO-UPDATED-PLAYLIST/main/sonyliv.json"
+GITHUB_PRIMARY_M3U = "https://raw.githubusercontent.com/sayanpal514-hue/SONYLIV-AUTO-UPDATED-PLAYLIST/main/sonyliv.m3u"
+GITHUB_FALLBACK_JSON = "https://raw.githubusercontent.com/saurabh-yadav-ggu/SONYLIV-AUTO-UPDATED-PLAYLIST/main/sonyliv.json"
+GITHUB_FALLBACK_M3U = "https://raw.githubusercontent.com/saurabh-yadav-ggu/SONYLIV-AUTO-UPDATED-PLAYLIST/main/sonyliv.m3u"
 
 # High-reliability standby HLS stream when no match is live
 STANDBY_STREAM_URL = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
@@ -137,23 +137,23 @@ class StreamSyncManager:
     async def fetch_remote_json(self) -> Tuple[Optional[dict], str]:
         """Fetches sonyliv.json from primary GitHub, fallback GitHub, or local clone."""
         async with httpx.AsyncClient(timeout=6.0, follow_redirects=True) as client:
-            # 1. Primary GitHub repo
+            # 1. Primary GitHub repo (sayanpal514-hue)
             try:
                 r = await client.get(GITHUB_PRIMARY_JSON, headers={"Cache-Control": "no-cache"})
                 if r.status_code == 200:
                     data = r.json()
                     if isinstance(data, dict) and "matches" in data:
-                        return data, "github:saurabh-yadav-ggu"
+                        return data, "github:sayanpal514-hue"
             except Exception as e:
                 logger.warning(f"Primary GitHub fetch failed: {e}")
 
-            # 2. Fallback upstream repo
+            # 2. Fallback upstream repo (saurabh-yadav-ggu)
             try:
                 r = await client.get(GITHUB_FALLBACK_JSON, headers={"Cache-Control": "no-cache"})
                 if r.status_code == 200:
                     data = r.json()
                     if isinstance(data, dict) and "matches" in data:
-                        return data, "github:sayanpal514-hue"
+                        return data, "github:saurabh-yadav-ggu"
             except Exception as e:
                 logger.warning(f"Fallback GitHub fetch failed: {e}")
 
