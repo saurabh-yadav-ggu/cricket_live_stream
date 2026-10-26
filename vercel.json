@@ -2,8 +2,9 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "regions": ["bom1"],
   "functions": {
-    "api/**/*.py": {
-      "includeFiles": "{templates/**,static/**,public/**}"
+    "api/index.py": {
+      "includeFiles": "{templates/**,static/**,public/**}",
+      "maxDuration": 15
     }
   },
   "rewrites": [

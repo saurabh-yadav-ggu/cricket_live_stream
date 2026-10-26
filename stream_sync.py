@@ -233,18 +233,6 @@ class StreamSyncManager:
     async def sync(self) -> Dict[str, Any]:
         """Performs full synchronization, channel building, and disk persistence."""
         async with self._lock:
-            # 0. Automatically pull latest updates from remote repository if local clone exists
-            if self.local_repo_path.exists():
-                try:
-                    subprocess.run(
-                        ["git", "pull", "--ff-only"],
-                        cwd=self.local_repo_path,
-                        capture_output=True,
-                        timeout=8
-                    )
-                except Exception as e:
-                    logger.debug(f"Local repo git pull skipped: {e}")
-
             data, source = await self.fetch_remote_json()
             if not data:
                 # If unable to fetch, read existing channels.json from disk

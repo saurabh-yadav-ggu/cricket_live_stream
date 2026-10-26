@@ -82,6 +82,25 @@ async def static_fallback_middleware(request: Request, call_next):
             return FileResponse(file_path, media_type=content_type or "application/octet-stream")
     return await call_next(request)
 
+@app.middleware("http")
+async def vercel_routing_middleware(request: Request, call_next):
+    """Ensures Vercel rewrites to /api/index.py correctly preserve target API endpoints."""
+    path = request.scope.get("path", "")
+    if path in ("/api/index.py", "/api/index", "/api/index/"):
+        forwarded = (
+            request.headers.get("x-forwarded-uri")
+            or request.headers.get("x-matched-path")
+            or request.headers.get("x-vercel-matched-path")
+        )
+        if forwarded and not forwarded.startswith("/api/index"):
+            request.scope["path"] = forwarded.split("?")[0]
+        elif "url" in request.query_params:
+            request.scope["path"] = "/api/stream/proxy"
+        else:
+            request.scope["path"] = "/"
+
+    return await call_next(request)
+
 # Templates configuration
 templates_dir = BASE_DIR / "templates"
 if not templates_dir.exists():
@@ -98,8 +117,6 @@ def get_current_live_url() -> str:
 @app.get("/index.html", response_class=HTMLResponse)
 @app.get("/api", response_class=HTMLResponse)
 @app.get("/api/", response_class=HTMLResponse)
-@app.get("/api/index", response_class=HTMLResponse)
-@app.get("/api/index.py", response_class=HTMLResponse)
 async def root(request: Request):
     live_url = get_current_live_url()
     return templates.TemplateResponse(
@@ -209,6 +226,53 @@ async def get_channels(
     }
 
 
+# Shared persistent connection client for HLS reverse proxying
+_proxy_client: Optional[httpx.AsyncClient] = None
+
+def get_proxy_client() -> httpx.AsyncClient:
+    global _proxy_client
+    if _proxy_client is None or _proxy_client.is_closed:
+        _proxy_client = httpx.AsyncClient(
+            verify=False,
+            timeout=httpx.Timeout(16.0, connect=5.0),
+            follow_redirects=True,
+            limits=httpx.Limits(max_keepalive_connections=40, max_connections=80)
+        )
+    return _proxy_client
+
+
+@app.options("/api/stream/proxy")
+@app.options("/stream/proxy")
+async def stream_proxy_options():
+    """Handles CORS preflight requests for Video.js cross-origin playback."""
+    return Response(
+        status_code=200,
+        headers={
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Max-Age": "86400",
+        }
+    )
+
+
+@app.head("/api/stream/proxy")
+@app.head("/stream/proxy")
+async def stream_proxy_head(request: Request, url: str = Query(...)):
+    """Handles HEAD probe requests from Video.js VHS player engine."""
+    is_m3u8 = ".m3u8" in url.lower()
+    return Response(
+        status_code=200,
+        media_type="application/vnd.apple.mpegurl" if is_m3u8 else "video/MP2T",
+        headers={
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Expose-Headers": "Content-Length, Content-Range",
+        }
+    )
+
+
 @app.get("/api/stream/proxy")
 @app.get("/stream/proxy")
 async def stream_proxy(
@@ -219,7 +283,7 @@ async def stream_proxy(
     High-performance HLS reverse proxy that:
     1. Forwards signed requests to Akamai/CDN while resolving browser CORS limitations.
     2. Dynamically rewrites child playlists and relative segment URLs.
-    3. Streams video chunks without memory bloat.
+    3. Streams video chunks with connection pooling and Range request support.
     4. Resilient Fallback: If an expired token returns 401/403, triggers background sync
        and returns a valid fallback stream instead of crashing the player with format errors.
     """
@@ -232,32 +296,23 @@ async def stream_proxy(
     if parsed.scheme not in ("http", "https"):
         raise HTTPException(status_code=400, detail="Only HTTP/HTTPS streams supported")
 
+    # Standard clean browser request headers (DO NOT forward X-Forwarded-For or True-Client-IP as Akamai blocks them with 403)
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
         "Accept": "*/*",
+        "Accept-Encoding": "identity",
         "Connection": "keep-alive",
     }
+    if "range" in request.headers:
+        headers["Range"] = request.headers["range"]
 
-    # Forward client IP for geo-targeted Akamai tokens
-    client_ip = (
-        request.headers.get("x-forwarded-for", "").split(",")[0].strip()
-        or request.headers.get("x-real-ip", "").strip()
-        or (request.client.host if request.client else "")
-    )
-    if client_ip and client_ip not in ("127.0.0.1", "localhost", "::1"):
-        headers["X-Forwarded-For"] = client_ip
-        headers["True-Client-IP"] = client_ip
-
-    client = httpx.AsyncClient(verify=False, timeout=12.0, follow_redirects=True)
-
+    client = get_proxy_client()
     is_manifest = (".m3u8" in target_url.lower())
 
     try:
         req = client.build_request("GET", target_url, headers=headers)
         upstream_resp = await client.send(req, stream=True)
     except httpx.RequestError as exc:
-        await client.aclose()
-        # If manifest failed due to network error, fall back to standby
         if is_manifest:
             logger.warning(f"Upstream request failed ({exc}), falling back to standby stream")
             fallback_target = f"/api/stream/proxy?url={urllib.parse.quote(STANDBY_STREAM_URL, safe='')}"
@@ -271,7 +326,6 @@ async def stream_proxy(
     # Handle token expiration (HTTP 401 / 403 / 404) gracefully
     if upstream_resp.status_code in (401, 403, 404):
         await upstream_resp.aread()
-        await client.aclose()
 
         # Trigger background sync to attempt acquiring fresh tokens from GitHub
         asyncio.create_task(sync_manager.sync())
@@ -308,7 +362,6 @@ async def stream_proxy(
     if is_m3u8:
         # Read full playlist and rewrite relative lines
         body_bytes = await upstream_resp.aread()
-        await client.aclose()
 
         try:
             content_str = body_bytes.decode("utf-8")
@@ -339,30 +392,32 @@ async def stream_proxy(
                 resolved_child = urllib.parse.urljoin(target_url, line_str)
                 proxied_url = f"/api/stream/proxy?url={urllib.parse.quote(resolved_child, safe='')}"
                 rewritten_lines.append(proxied_url)
-
         final_playlist = "\n".join(rewritten_lines) + "\n"
         return Response(
             content=final_playlist,
             media_type="application/vnd.apple.mpegurl",
             headers={
                 "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET, OPTIONS",
+                "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
                 "Access-Control-Allow-Headers": "*",
+                "Access-Control-Expose-Headers": "Content-Length, Content-Range",
                 "Cache-Control": "no-cache, no-store, must-revalidate",
             }
         )
     else:
         # TS segment or binary stream
         body_bytes = await upstream_resp.aread()
-        await client.aclose()
 
         headers_out = {
             "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET, OPTIONS",
+            "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
             "Access-Control-Allow-Headers": "*",
+            "Access-Control-Expose-Headers": "Content-Length, Content-Range",
             "Cache-Control": "public, max-age=3600",
             "Content-Length": str(len(body_bytes)),
         }
+        if "content-range" in upstream_resp.headers:
+            headers_out["Content-Range"] = upstream_resp.headers["content-range"]
 
         return Response(
             content=body_bytes,
