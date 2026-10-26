@@ -11,7 +11,7 @@ from pathlib import Path
 import httpx
 from fastapi import FastAPI, Request, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, Response, JSONResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, Response, JSONResponse, RedirectResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -77,36 +77,16 @@ if static_dir.exists():
     app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
     app.mount("/api/static", StaticFiles(directory=str(static_dir)), name="api_static")
 
+# Global exception shield to prevent container-level crashes
 @app.middleware("http")
-async def static_fallback_middleware(request: Request, call_next):
-    path = request.url.path
-    if path.startswith("/static/"):
-        relative_path = path[len("/static/"):]
-        file_path = static_dir / relative_path
-        if file_path.exists() and file_path.is_file():
-            from fastapi.responses import FileResponse
-            content_type, _ = mimetypes.guess_type(str(file_path))
-            return FileResponse(file_path, media_type=content_type or "application/octet-stream")
-    return await call_next(request)
-
-@app.middleware("http")
-async def vercel_routing_middleware(request: Request, call_next):
-    """Ensures Vercel rewrites to /api/index.py correctly preserve target API endpoints."""
-    path = request.scope.get("path", "")
-    if path in ("/api/index.py", "/api/index", "/api/index/"):
-        forwarded = (
-            request.headers.get("x-forwarded-uri")
-            or request.headers.get("x-matched-path")
-            or request.headers.get("x-vercel-matched-path")
-        )
-        if forwarded and not forwarded.startswith("/api/index"):
-            request.scope["path"] = forwarded.split("?")[0]
-        elif "url" in request.query_params:
-            request.scope["path"] = "/api/stream/proxy"
-        else:
-            request.scope["path"] = "/"
-
-    return await call_next(request)
+async def global_exception_shield(request: Request, call_next):
+    try:
+        return await call_next(request)
+    except Exception as exc:
+        import traceback
+        tb = traceback.format_exc()
+        logger.error(f"Global unhandled request error: {tb}")
+        return PlainTextResponse(f"StreamBox Serverless Runtime Exception:\n\n{tb}", status_code=500)
 
 # Templates configuration
 templates_dir = BASE_DIR / "templates"
