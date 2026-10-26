@@ -17,5 +17,7 @@ imagekit-video-player/
 # IDE and OS files
 .vscode/
 .idea/
-.DS_Store
 *.log
+
+# External stream repository
+SONYLIV-AUTO-UPDATED-PLAYLIST/

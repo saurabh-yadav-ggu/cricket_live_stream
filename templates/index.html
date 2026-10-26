@@ -52,8 +52,14 @@
         <a href="#about" class="nav-item">About</a>
       </nav>
 
-      <!-- Right Nav Actions -->
-      <div class="nav-actions">
+        <!-- Sync with GitHub Stream Source Button -->
+        <button class="btn-sync-github" id="syncGithubBtn" title="Sync live matches from GitHub repository" style="display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+            <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
+          </svg>
+          <span id="syncBtnText">Sync GitHub</span>
+        </button>
+
         <!-- Stream URL Settings -->
         <button class="icon-btn" id="streamSettingsNavBtn" title="Update Stream URL / Token" aria-label="Stream Settings">
           <svg viewBox="0 0 24 24">
@@ -173,7 +179,6 @@
                 preload="auto"
                 playsinline
                 poster="/static/images/cyberpunk_street.jpg">
-                <source src="/api/stream/proxy?url={{ default_stream_url | urlencode }}" type="application/x-mpegURL">
               </video>
             </div>
 
@@ -183,8 +188,8 @@
                 <span class="now-streaming-tag">NOW STREAMING • LIVE HLS</span>
                 <span class="quality-badge" id="heroBitrateBadge">1080p50 • Adaptive ABR</span>
               </div>
-              <h3 class="player-stream-title">Chrono Station • Episode 04</h3>
-              <p class="player-stream-desc" id="heroStreamStats">Live Akamai Stream (HIN) • Low Latency Edge Buffer</p>
+              <h3 class="player-stream-title">{{ active_event or "Sony LIV Live Sports Feed" }}</h3>
+              <p class="player-stream-desc" id="heroStreamStats">Live Akamai Stream • Synced from GitHub (saurabh-yadav-ggu)</p>
 
               <!-- Footer with Audio Waveform & Status -->
               <div class="player-sync-footer">
@@ -223,11 +228,11 @@
         <div class="section-title-wrap">
           <div class="section-eyebrow">
             <span class="section-eyebrow-bar"></span>
-            LIVE IPTV CHANNELS • INDIAN MOVIE & ENTERTAINMENT
+            SONY LIV LIVE SPORTS • CRICKET & FOOTBALL FEEDS
           </div>
-          <h2 class="section-title">Explore Indian Channels</h2>
+          <h2 class="section-title">Explore Sony LIV Channels & Live Matches</h2>
           <p style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">
-            Click on any Indian channel to stream instantly in adaptive HLS with zero buffering.
+            Click on any Sony LIV match or channel to stream instantly in adaptive 1080p HLS.
           </p>
         </div>
 
@@ -237,21 +242,21 @@
             <svg class="explore-search-icon" viewBox="0 0 24 24">
               <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 14z"/>
             </svg>
-            <input type="text" id="channelSearchInput" class="explore-search-input" placeholder="Search Indian channels by name, language, or resolution (e.g. Zee, Star Gold, Sony Max, Bhojpuri)..." autocomplete="off">
+            <input type="text" id="channelSearchInput" class="explore-search-input" placeholder="Search live matches by team, tournament, channel, or language (e.g. India vs NZ, ISL, Ten 5, Hindi)..." autocomplete="off">
           </div>
 
           <!-- Category Filter Tabs -->
           <div class="filter-tabs" role="tablist" style="margin-top: 4px;">
-            <button class="filter-tab active" data-filter="all">All Channels <span class="tab-badge" id="badgeAll">54</span></button>
-            <button class="filter-tab" data-filter="bollywood">Bollywood & Hindi <span class="tab-badge">28</span></button>
-            <button class="filter-tab" data-filter="south">South Indian <span class="tab-badge">10</span></button>
-            <button class="filter-tab" data-filter="regional">Regional & Punjabi <span class="tab-badge">7</span></button>
-            <button class="filter-tab" data-filter="bhojpuri">Bhojpuri <span class="tab-badge">5</span></button>
-            <button class="filter-tab" data-filter="action">Action Movies <span class="tab-badge">4</span></button>
+            <button class="filter-tab active" data-filter="all">All Feeds <span class="tab-badge" id="badgeAll">33</span></button>
+            <button class="filter-tab" data-filter="cricket">Cricket <span class="tab-badge">0</span></button>
+            <button class="filter-tab" data-filter="football">Football / ISL <span class="tab-badge">0</span></button>
+            <button class="filter-tab" data-filter="hindi">Hindi Audio <span class="tab-badge">0</span></button>
+            <button class="filter-tab" data-filter="english">English Audio <span class="tab-badge">0</span></button>
+            <button class="filter-tab" data-filter="regional">Regional <span class="tab-badge">0</span></button>
           </div>
 
           <div class="explore-status-line">
-            <span>Showing <strong id="showingCount" style="color: var(--text-primary);">0</strong> of <span id="totalCount">54</span> live channels</span>
+            <span>Showing <strong id="showingCount" style="color: var(--text-primary);">0</strong> of <span id="totalCount">33</span> live channels</span>
             <span style="display: flex; align-items: center; gap: 6px;">
               <span class="live-dot" style="width: 6px; height: 6px;"></span>
               Click card to play
@@ -315,39 +320,206 @@
   </footer>
 
   <!-- ======================================================================
-       THEATER VIDEO PLAYER MODAL
+       YOUTUBE WATCH VIEW INTERFACE (Full YouTube-style Experience)
        ====================================================================== -->
-  <div class="modal-backdrop" id="videoModal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-title">
-          <span class="live-dot" style="width: 6px; height: 6px;"></span>
-          <span id="modalTitle">Now Playing • Chrono Station</span>
+  <div class="yt-watch-overlay" id="youtubeWatchView" role="dialog" aria-modal="true" aria-hidden="true">
+    
+    <!-- YouTube Watch Sticky Top Header -->
+    <header class="yt-watch-header">
+      <div class="yt-header-left">
+        <button class="yt-icon-btn yt-back-btn" id="ytBackBtn" title="Back to Browse" aria-label="Back">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+          </svg>
+        </button>
+        <a href="/" class="logo" style="text-decoration: none;">
+          <div class="logo-icon" style="width: 28px; height: 28px;">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6zm6 3v6l5-3-5-3z"/>
+            </svg>
+          </div>
+          <span class="logo-text" style="font-size: 17px;">Stream<span>Box</span></span>
+        </a>
+      </div>
+
+      <div class="yt-header-center">
+        <div class="yt-search-bar">
+          <input type="text" id="ytSearchInput" placeholder="Search Sony LIV streams, sports, teams..." autocomplete="off">
+          <button class="yt-search-btn" id="ytSearchSubmit" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+          </button>
         </div>
-        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Preview">
+      </div>
+
+      <div class="yt-header-right">
+        <span class="yt-live-pill" id="ytHeaderLivePill">
+          <span class="live-dot" style="width: 6px; height: 6px;"></span>
+          LIVE
+        </span>
+        <button class="yt-icon-btn" id="ytTheaterToggleBtn" title="Toggle Theater Mode">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M19 6H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H5V8h14v8z"/>
+          </svg>
+        </button>
+        <button class="yt-icon-btn yt-close-btn" id="ytCloseBtn" title="Close Watch Mode (Esc)">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
             <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
           </svg>
         </button>
       </div>
+    </header>
 
-      <div class="modal-video-box" style="aspect-ratio: 16/9; position: relative;">
-        <video
-          id="modalVideoPlayer"
-          class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid"
-          controls
-          preload="auto"
-          playsinline
-          poster="/static/images/cyberpunk_street.jpg">
-        </video>
-      </div>
+    <!-- YouTube Watch Main Body -->
+    <div class="yt-watch-container">
+      <div class="yt-watch-columns" id="ytWatchColumns">
+        
+        <!-- Left Main Column (Video Player + Metadata + Chat/Comments) -->
+        <main class="yt-primary-col">
+          
+          <!-- Cinema Stage with Ambient Glow Effect -->
+          <div class="yt-player-stage" id="ytPlayerStage">
+            <div class="yt-ambient-glow" id="ytAmbientGlow"></div>
+            <div class="yt-video-wrapper">
+              <video
+                id="modalVideoPlayer"
+                class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid"
+                controls
+                preload="auto"
+                playsinline>
+              </video>
+            </div>
+          </div>
 
-      <div class="modal-playback-controls">
-        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-tertiary);">
-          <span id="modalLiveStatus" style="color: var(--feedback-live); font-weight: 700;">● LIVE FEED</span>
-          <span id="modalQualityInfo">HLS Adaptive Multi-Bitrate</span>
-          <span>Ultra-Low Latency</span>
-        </div>
+          <!-- Video Details Under Player -->
+          <div class="yt-details-wrap">
+            <h1 class="yt-video-title" id="ytVideoTitle">Now Playing • Sony Sports Live Feed</h1>
+
+            <!-- Broadcaster & Actions Row -->
+            <div class="yt-actions-row">
+              <!-- Channel / Broadcaster Info -->
+              <div class="yt-channel-info">
+                <div class="yt-channel-avatar" id="ytChannelAvatar">
+                  <span id="ytChannelInitials">SL</span>
+                </div>
+                <div class="yt-channel-text">
+                  <div class="yt-channel-name-wrap">
+                    <span class="yt-channel-name" id="ytChannelName">Sony Sports Network</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="#aaa" class="yt-verified-badge" title="Verified Broadcast">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                  </div>
+                  <span class="yt-sub-count" id="ytSubCount">Official Live Broadcast • 4.82M subscribers</span>
+                </div>
+                <button class="yt-btn-subscribe" id="ytSubscribeBtn">
+                  <span>Subscribe</span>
+                </button>
+              </div>
+
+              <!-- Action Pills (Like, Dislike, Share, Quality, Chat Toggle) -->
+              <div class="yt-action-pills">
+                <div class="yt-pill-group">
+                  <button class="yt-pill-btn yt-like-btn" id="ytLikeBtn" title="I like this">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                      <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/>
+                    </svg>
+                    <span id="ytLikeCount">24K</span>
+                  </button>
+                  <div class="yt-pill-divider"></div>
+                  <button class="yt-pill-btn yt-dislike-btn" id="ytDislikeBtn" title="I dislike this">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                      <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/>
+                    </svg>
+                  </button>
+                </div>
+
+                <button class="yt-pill-btn" id="ytShareBtn" title="Share Stream">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                    <path d="M14 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z"/>
+                  </svg>
+                  <span>Share</span>
+                </button>
+
+                <button class="yt-pill-btn" id="ytTheaterBtn" title="Theater Mode">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                    <path d="M19 7H5c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 8H5V9h14v6z"/>
+                  </svg>
+                  <span>Theater</span>
+                </button>
+
+                <div class="yt-quality-badge" id="ytStreamQualityPill">1080P • HLS</div>
+              </div>
+            </div>
+
+            <!-- YouTube-style Expandable Description Card -->
+            <div class="yt-description-box" id="ytDescriptionBox">
+              <div class="yt-desc-header">
+                <span class="yt-view-stat" id="ytLiveViewerCount">🔴 148,200 watching now</span>
+                <span class="yt-dot-sep">•</span>
+                <span id="ytStreamStartInfo">Live Akamai Stream</span>
+                <span class="yt-dot-sep">•</span>
+                <span class="yt-tag-list">#SonyLIV #LiveSports #Cricket #ISL</span>
+              </div>
+              <div class="yt-desc-content" id="ytDescContent">
+                Official high-definition live stream broadcast feed powered by Akamai edge CDN and auto-synchronized dynamically from GitHub. Enjoy pristine low-latency multi-bitrate HLS playback with stadium stereo audio commentary.
+              </div>
+              <button class="yt-desc-toggle" id="ytDescToggle">...more</button>
+            </div>
+
+            <!-- YouTube Live Chat / Fan Comments Section -->
+            <div class="yt-comments-section">
+              <div class="yt-comments-header">
+                <div class="yt-comments-count-title">
+                  <span id="ytCommentsCount">2,842</span> Live Fan Comments
+                </div>
+                <div class="yt-comments-sort">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/>
+                  </svg>
+                  <span>Top Chat</span>
+                </div>
+              </div>
+
+              <!-- Comment Input Form -->
+              <div class="yt-comment-input-box">
+                <div class="yt-user-avatar">U</div>
+                <div class="yt-input-wrap">
+                  <input type="text" id="ytCommentInput" placeholder="Add a comment to the live stream..." autocomplete="off">
+                  <div class="yt-input-actions" id="ytInputActions" style="display: none;">
+                    <button class="yt-btn-cancel" id="ytCommentCancel" type="button">Cancel</button>
+                    <button class="yt-btn-submit" id="ytCommentSubmit" type="button" disabled>Comment</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Comments List -->
+              <div class="yt-comments-feed" id="ytCommentsFeed">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+          </div>
+        </main>
+
+        <!-- Right Secondary Column (Related Videos & Up Next Playlist) -->
+        <aside class="yt-secondary-col">
+          
+          <!-- Category Filter Chips -->
+          <div class="yt-related-chips" role="tablist">
+            <button class="yt-chip active" data-ytfilter="all">All</button>
+            <button class="yt-chip" data-ytfilter="cricket">Cricket</button>
+            <button class="yt-chip" data-ytfilter="football">Football</button>
+            <button class="yt-chip" data-ytfilter="hindi">Hindi</button>
+            <button class="yt-chip" data-ytfilter="live">Live Now</button>
+          </div>
+
+          <!-- Related Videos List -->
+          <div class="yt-related-list" id="ytRelatedList">
+            <!-- Dynamically populated from allChannels -->
+          </div>
+        </aside>
+
       </div>
     </div>
   </div>

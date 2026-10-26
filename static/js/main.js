@@ -5,8 +5,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const DEFAULT_STREAM_URL = 
-    "https://sonydaime.akamaized.net/hls/live/2119921/cricodi_2410/HIN/std_lrh-800300010.m3u8" +
-    "?hdnea=exp=1792868449~acl=/*~id=39183153768115659634580807583499~hmac=94bb3c2e2345bf9917ed73694d9d436d6a6bd9a0f858c942d7b6f07b882e889b";
+    "https://sonydaime.akamaized.net/hls/live/2120299/criclive2510/ENG/std_lrh-800300010.m3u8" +
+    "?hdnea=exp=1793035238~acl=/*~id=18099076327276705816667492716645~hmac=eec76f4accd97679463d9e836335ad1ef2c75da286b24c372d7b62ce327bbc76";
 
   let currentRawStreamUrl = DEFAULT_STREAM_URL;
   let useProxy = true;
@@ -85,26 +85,70 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Graceful error handling for expired tokens or network errors
+    // Graceful self-healing error handling for expired tokens or network errors
+    let isRecovering = false;
     heroPlayer.on('error', () => {
       const err = heroPlayer.error();
       console.warn('[StreamBox Video.js Error]', err);
-      showToast('Stream token expired or connection failed. Open stream settings to refresh token.');
-      if (heroSyncStatusText) heroSyncStatusText.textContent = 'Stream Offline (Expired Token / Network Error)';
-      if (heroSoundWave) {
-        heroSoundWave.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
+
+      if (!isRecovering) {
+        isRecovering = true;
+        showToast('Stream token refreshed or reconnecting. Auto-syncing with GitHub...');
+        if (heroSyncStatusText) heroSyncStatusText.textContent = 'Syncing freshest stream from GitHub...';
+
+        fetch('/api/stream/live')
+          .then(r => r.json())
+          .then(data => {
+            if (data && data.stream_url) {
+              currentRawStreamUrl = data.stream_url;
+              if (data.title) {
+                const titleEl = document.querySelector('.player-stream-title');
+                if (titleEl) titleEl.textContent = data.title;
+              }
+              heroPlayer.src({
+                src: getPlaybackUrl(data.stream_url, useProxy),
+                type: 'application/x-mpegURL'
+              });
+              heroPlayer.play().catch(e => console.log('Autoplay after recovery:', e));
+              showToast(`Resumed: ${data.title}`);
+            }
+          })
+          .catch(e => console.error('Auto-recovery failed:', e))
+          .finally(() => {
+            setTimeout(() => { isRecovering = false; }, 3500);
+          });
       }
     });
 
-    // Attempt initial play
+    // Attempt initial play: first probe /api/stream/live for freshest active stream
     heroPlayer.ready(() => {
-      heroPlayer.src({
-        src: getPlaybackUrl(currentRawStreamUrl, useProxy),
-        type: 'application/x-mpegURL'
-      });
-      heroPlayer.play().catch(err => {
-        console.log('[StreamBox] Autoplay was deferred by browser policy:', err);
-      });
+      fetch('/api/stream/live')
+        .then(r => r.json())
+        .then(liveData => {
+          if (liveData && liveData.stream_url) {
+            currentRawStreamUrl = liveData.stream_url;
+            if (liveData.title) {
+              const titleEl = document.querySelector('.player-stream-title');
+              if (titleEl) titleEl.textContent = liveData.title;
+            }
+          }
+          heroPlayer.src({
+            src: getPlaybackUrl(currentRawStreamUrl, useProxy),
+            type: 'application/x-mpegURL'
+          });
+          heroPlayer.play().catch(err => {
+            console.log('[StreamBox] Autoplay was deferred by browser policy:', err);
+          });
+        })
+        .catch(() => {
+          heroPlayer.src({
+            src: getPlaybackUrl(currentRawStreamUrl, useProxy),
+            type: 'application/x-mpegURL'
+          });
+          heroPlayer.play().catch(err => {
+            console.log('[StreamBox] Autoplay was deferred by browser policy:', err);
+          });
+        });
     });
   }
 
@@ -144,19 +188,261 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3500);
   }
 
-  // --- Theater Modal Video.js Player ---
-  const videoModal = document.getElementById('videoModal');
-  const modalCloseBtn = document.getElementById('modalCloseBtn');
+// --- YouTube Watch View Interface Controller (YouTube UI) ---
+  const youtubeWatchView = document.getElementById('youtubeWatchView');
+  const ytBackBtn = document.getElementById('ytBackBtn');
+  const ytCloseBtn = document.getElementById('ytCloseBtn');
+  const ytTheaterToggleBtn = document.getElementById('ytTheaterToggleBtn');
+  const ytTheaterBtn = document.getElementById('ytTheaterBtn');
+  const ytWatchColumns = document.getElementById('ytWatchColumns');
   const modalVideoEl = document.getElementById('modalVideoPlayer');
-  const modalTitle = document.getElementById('modalTitle');
+  const ytVideoTitle = document.getElementById('ytVideoTitle');
+  const ytChannelAvatar = document.getElementById('ytChannelAvatar');
+  const ytChannelInitials = document.getElementById('ytChannelInitials');
+  const ytChannelName = document.getElementById('ytChannelName');
+  const ytSubCount = document.getElementById('ytSubCount');
+  const ytSubscribeBtn = document.getElementById('ytSubscribeBtn');
+  const ytLikeBtn = document.getElementById('ytLikeBtn');
+  const ytLikeCount = document.getElementById('ytLikeCount');
+  const ytDislikeBtn = document.getElementById('ytDislikeBtn');
+  const ytShareBtn = document.getElementById('ytShareBtn');
+  const ytStreamQualityPill = document.getElementById('ytStreamQualityPill');
+  const ytDescriptionBox = document.getElementById('ytDescriptionBox');
+  const ytLiveViewerCount = document.getElementById('ytLiveViewerCount');
+  const ytStreamStartInfo = document.getElementById('ytStreamStartInfo');
+  const ytDescContent = document.getElementById('ytDescContent');
+  const ytDescToggle = document.getElementById('ytDescToggle');
+  const ytCommentsCount = document.getElementById('ytCommentsCount');
+  const ytCommentInput = document.getElementById('ytCommentInput');
+  const ytInputActions = document.getElementById('ytInputActions');
+  const ytCommentCancel = document.getElementById('ytCommentCancel');
+  const ytCommentSubmit = document.getElementById('ytCommentSubmit');
+  const ytCommentsFeed = document.getElementById('ytCommentsFeed');
+  const ytRelatedList = document.getElementById('ytRelatedList');
+  const ytRelatedChips = document.querySelectorAll('.yt-chip');
+  const ytSearchInput = document.getElementById('ytSearchInput');
+  const ytSearchSubmit = document.getElementById('ytSearchSubmit');
+
   let modalPlayer = null;
+  let currentWatchChannel = null;
+  let currentYtFilter = 'all';
+  let ytLikes = 24800;
+  let isLiked = false;
+  let isDisliked = false;
+  let isSubscribed = false;
 
-  function openTheaterModal(title, streamUrl) {
-    if (!videoModal) return;
-    const targetUrl = streamUrl || currentRawStreamUrl;
-    if (modalTitle) modalTitle.textContent = `Now Playing • ${title}`;
-    videoModal.classList.add('open');
+  const SAMPLE_COMMENTS = [
+    {
+      author: 'CricketMaster_99',
+      avatar: 'C',
+      time: '2 minutes ago',
+      color: '#e50914',
+      text: 'Incredible camera angles on the boundary! The 1080p stream is buttery smooth with zero buffering 🔥'
+    },
+    {
+      author: 'RohitFanatic_India',
+      avatar: 'R',
+      time: '5 minutes ago',
+      color: '#0070f3',
+      text: 'Stadium sound commentary in Hindi is crisp. Best live feed for this match by far! 🇮🇳🏏'
+    },
+    {
+      author: 'Aarav Sharma',
+      avatar: 'A',
+      time: '12 minutes ago',
+      color: '#00c853',
+      text: 'Akamai edge CDN doing heavy lifting today, super low latency compared to TV broadcast.'
+    },
+    {
+      author: 'Priya Patel',
+      avatar: 'P',
+      time: '19 minutes ago',
+      color: '#ff6d00',
+      text: 'What a delivery! That inswinger was unplayable. Match is in full swing now!'
+    },
+    {
+      author: 'SportsJunkie_24',
+      avatar: 'S',
+      time: '26 minutes ago',
+      color: '#aa00ff',
+      text: 'Quality levels selector works great. Switched to 1080p50 on fiber optic, crystal clear.'
+    }
+  ];
 
+  function populateComments() {
+    if (!ytCommentsFeed) return;
+    if (ytCommentsCount) ytCommentsCount.textContent = (SAMPLE_COMMENTS.length + 2840).toLocaleString();
+    ytCommentsFeed.innerHTML = '';
+    
+    SAMPLE_COMMENTS.forEach(c => {
+      const item = document.createElement('div');
+      item.className = 'yt-comment-item';
+      item.innerHTML = `
+        <div class="yt-comment-avatar" style="background: ${c.color};">${c.avatar}</div>
+        <div class="yt-comment-body">
+          <div class="yt-comment-author-line">
+            <span class="yt-comment-author">${c.author}</span>
+            <span class="yt-comment-time">${c.time}</span>
+          </div>
+          <div class="yt-comment-text">${c.text}</div>
+        </div>
+      `;
+      ytCommentsFeed.appendChild(item);
+    });
+  }
+
+  function renderRelatedVideos(filter = 'all', searchQuery = '') {
+    if (!ytRelatedList) return;
+    ytRelatedList.innerHTML = '';
+
+    const list = allChannels.filter(ch => {
+      if (filter === 'cricket' && ch.category !== 'cricket') return false;
+      if (filter === 'football' && ch.category !== 'football') return false;
+      if (filter === 'hindi') {
+        const lang = (ch.language || ch.audioLanguageName || ch.language_code || '').toLowerCase();
+        if (lang !== 'hindi' && lang !== 'hin') return false;
+      }
+      if (searchQuery) {
+        const q = searchQuery.toLowerCase();
+        return (ch.name || '').toLowerCase().includes(q) || (ch.category || '').toLowerCase().includes(q);
+      }
+      return true;
+    });
+
+    const displayList = list.length > 0 ? list : allChannels.slice(0, 15);
+
+    displayList.forEach(ch => {
+      const isCurrent = currentWatchChannel && currentWatchChannel.url === ch.url;
+      const item = document.createElement('div');
+      item.className = `yt-related-item ${isCurrent ? 'playing-now' : ''}`;
+      
+      const initials = (ch.name || 'TV').split(' ').map(w => w[0]).filter(Boolean).slice(0, 2).join('').toUpperCase();
+      const thumbContent = ch.logo
+        ? `<img src="${ch.logo}" alt="${ch.name}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'channel-placeholder-logo\'><span class=\'channel-initials\'>${initials}</span></div>';">`
+        : `<div class="channel-placeholder-logo"><span class="channel-initials">${initials}</span></div>`;
+
+      const viewers = (Math.floor(Math.random() * 45) + 12) + 'K watching';
+
+      item.innerHTML = `
+        <div class="yt-thumb-box">
+          ${thumbContent}
+          <span class="yt-thumb-badge-res">${ch.resolution || '1080P'}</span>
+          <span class="yt-thumb-badge-live">
+            <span class="live-dot" style="width: 4px; height: 4px;"></span>
+            LIVE
+          </span>
+        </div>
+        <div class="yt-related-info">
+          <h4 class="yt-related-title" title="${ch.name}">${ch.name}</h4>
+          <span class="yt-related-channel">${ch.broadcast_channel || 'Sony LIV Sports'}</span>
+          <div class="yt-related-meta">
+            <span>${viewers}</span>
+            <span>&bull;</span>
+            <span>${ch.language || 'English'}</span>
+          </div>
+        </div>
+      `;
+
+      item.addEventListener('click', () => {
+        openYouTubeWatch(ch);
+      });
+
+      ytRelatedList.appendChild(item);
+    });
+  }
+
+  function openYouTubeWatch(channelObj, streamUrl) {
+    if (!youtubeWatchView) return;
+
+    let targetChannel = null;
+    if (typeof channelObj === 'object' && channelObj !== null) {
+      targetChannel = channelObj;
+    } else if (typeof channelObj === 'string') {
+      const found = allChannels.find(c => c.name === channelObj || c.url === streamUrl);
+      targetChannel = found || {
+        name: channelObj,
+        url: streamUrl || currentRawStreamUrl,
+        category: 'Sports',
+        resolution: '1080P',
+        broadcast_channel: 'Sony LIV Sports'
+      };
+    } else {
+      targetChannel = allChannels[0] || {
+        name: 'Sony LIV Live Sports Feed',
+        url: currentRawStreamUrl,
+        category: 'Cricket',
+        resolution: '1080P'
+      };
+    }
+
+    currentWatchChannel = targetChannel;
+
+    // Pause hero background player to prevent overlapping audio
+    if (heroPlayer && typeof heroPlayer.paused === 'function' && !heroPlayer.paused()) {
+      heroPlayer.pause();
+    }
+
+    // Set YouTube Watch view metadata
+    if (ytVideoTitle) ytVideoTitle.textContent = targetChannel.name;
+    document.title = `${targetChannel.name} • StreamBox Live`;
+
+    // Channel profile & initials
+    if (ytChannelName) {
+      ytChannelName.textContent = targetChannel.broadcast_channel || 
+        (targetChannel.category ? `Sony ${targetChannel.category.toUpperCase()} Live` : 'Sony LIV Sports');
+    }
+
+    const initials = (targetChannel.name || 'SL').split(' ').map(w => w[0]).filter(Boolean).slice(0, 2).join('').toUpperCase() || 'SL';
+    if (ytChannelInitials) ytChannelInitials.textContent = initials;
+
+    if (ytChannelAvatar) {
+      if (targetChannel.logo) {
+        ytChannelAvatar.innerHTML = `<img src="${targetChannel.logo}" alt="${targetChannel.name}" onerror="this.remove(); document.getElementById('ytChannelInitials').style.display='block';"><span id="ytChannelInitials" style="display:none;">${initials}</span>`;
+      } else {
+        ytChannelAvatar.innerHTML = `<span id="ytChannelInitials">${initials}</span>`;
+      }
+    }
+
+    if (ytSubCount) {
+      const subNumber = targetChannel.category === 'cricket' ? '14.8M' : '8.6M';
+      ytSubCount.textContent = `Official Live Broadcast • ${subNumber} subscribers`;
+    }
+
+    // Dynamic viewer count with live pulse dot
+    if (ytLiveViewerCount) {
+      const viewerCount = (Math.floor(Math.random() * 40) + 130).toLocaleString() + ',' + (Math.floor(Math.random() * 850) + 100);
+      ytLiveViewerCount.innerHTML = `<span class="live-dot" style="width: 7px; height: 7px; display:inline-block; margin-right: 5px;"></span>🔴 ${viewerCount} watching now`;
+    }
+
+    if (ytStreamQualityPill) {
+      ytStreamQualityPill.textContent = `${targetChannel.resolution || '1080P'} • HLS`;
+    }
+
+    if (ytStreamStartInfo) {
+      ytStreamStartInfo.textContent = `Live Akamai Stream • Synced from GitHub`;
+    }
+
+    if (ytDescContent) {
+      ytDescContent.innerHTML = `
+        <strong>${targetChannel.name}</strong> - Official multi-bitrate high definition live stream broadcast.<br>
+        <strong>Category:</strong> ${(targetChannel.category || 'Live Sports').toUpperCase()} &bull; 
+        <strong>Audio Track:</strong> ${targetChannel.language || 'English / Hindi Stadium Stereo'} &bull; 
+        <strong>Resolution:</strong> ${targetChannel.resolution || '1080p50 Adaptive ABR'}<br>
+        Delivered via high-speed Akamai edge CDN nodes and auto-synchronized dynamically from GitHub with zero buffer lag.
+      `;
+    }
+
+    // Populate comments & related playlist
+    populateComments();
+    renderRelatedVideos(currentYtFilter);
+
+    // Open full YouTube Watch View overlay & lock background scroll
+    youtubeWatchView.classList.add('open');
+    youtubeWatchView.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    youtubeWatchView.scrollTop = 0;
+
+    // Load Video.js player in YouTube cinema stage
     if (modalVideoEl && typeof videojs !== 'undefined') {
       if (!modalPlayer) {
         modalPlayer = videojs(modalVideoEl, {
@@ -164,7 +450,15 @@ document.addEventListener('DOMContentLoaded', () => {
           controls: true,
           preload: 'auto',
           fluid: true,
-          liveui: true
+          liveui: true,
+          playbackRates: [0.5, 1, 1.25, 1.5, 2],
+          html5: {
+            vhs: {
+              overrideNative: true,
+              handlePartialData: true,
+              experimentalBufferBasedABR: true
+            }
+          }
         });
 
         if (typeof modalPlayer.qualityLevels === 'function') {
@@ -175,52 +469,240 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         modalPlayer.on('error', () => {
-          showToast(`Stream error for "${title}". Loading via stream proxy...`);
+          console.warn('[StreamBox YouTube Player Error] Loading proxy fallback...');
+          showToast(`Token refreshed for "${targetChannel.name}". Auto-syncing...`);
+          fetch('/api/stream/live')
+            .then(r => r.json())
+            .then(data => {
+              if (data && data.stream_url) {
+                modalPlayer.src({
+                  src: getPlaybackUrl(data.stream_url, useProxy),
+                  type: 'application/x-mpegURL'
+                });
+                modalPlayer.play().catch(e => console.log('Autoplay deferred:', e));
+              }
+            });
         });
       }
 
+      const targetUrl = targetChannel.url || currentRawStreamUrl;
       modalPlayer.src({
         src: getPlaybackUrl(targetUrl, useProxy),
         type: 'application/x-mpegURL'
       });
       modalPlayer.play().catch(e => {
-        console.log('[StreamBox Modal Playback]', e);
+        console.log('[StreamBox YouTube Autoplay Deferred]', e);
       });
     }
-    showToast(`Streaming: ${title}`);
+
+    showToast(`Streaming: ${targetChannel.name}`);
   }
 
-  function loadInHeroPlayer(title, streamUrl) {
-    if (!heroPlayer) return;
-    currentRawStreamUrl = streamUrl;
-    const titleEl = document.querySelector('.player-stream-title');
-    if (titleEl) titleEl.textContent = title;
-    const statsEl = document.getElementById('heroStreamStats');
-    if (statsEl) statsEl.textContent = `Live Stream • ${title}`;
-
-    heroPlayer.src({
-      src: getPlaybackUrl(streamUrl, useProxy),
-      type: 'application/x-mpegURL'
-    });
-    heroPlayer.play().catch(e => console.log(e));
-
-    const heroSection = document.getElementById('home');
-    if (heroSection) heroSection.scrollIntoView({ behavior: 'smooth' });
-    showToast(`Loaded ${title} in Main Player`);
-  }
-
-  function closeTheaterModal() {
-    if (!videoModal) return;
-    videoModal.classList.remove('open');
+  function closeYouTubeWatch() {
+    if (!youtubeWatchView) return;
+    youtubeWatchView.classList.remove('open');
+    youtubeWatchView.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
     if (modalPlayer) {
       modalPlayer.pause();
     }
+    document.title = 'StreamBox - Live Video Streaming Platform';
   }
 
-  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeTheaterModal);
-  if (videoModal) {
-    videoModal.addEventListener('click', (e) => {
-      if (e.target === videoModal) closeTheaterModal();
+  // Aliases for backward compatibility
+  function openTheaterModal(title, streamUrl) {
+    openYouTubeWatch({ name: title, url: streamUrl });
+  }
+
+  function closeTheaterModal() {
+    closeYouTubeWatch();
+  }
+
+  // YouTube UI Top Controls Event Listeners
+  if (ytBackBtn) ytBackBtn.addEventListener('click', closeYouTubeWatch);
+  if (ytCloseBtn) ytCloseBtn.addEventListener('click', closeYouTubeWatch);
+
+  // Subscribe button toggle
+  if (ytSubscribeBtn) {
+    ytSubscribeBtn.addEventListener('click', () => {
+      isSubscribed = !isSubscribed;
+      if (isSubscribed) {
+        ytSubscribeBtn.classList.add('subscribed');
+        ytSubscribeBtn.querySelector('span').textContent = 'Subscribed ✓';
+        showToast(`Subscribed to ${ytChannelName ? ytChannelName.textContent : 'Channel'}!`);
+      } else {
+        ytSubscribeBtn.classList.remove('subscribed');
+        ytSubscribeBtn.querySelector('span').textContent = 'Subscribe';
+        showToast(`Unsubscribed from ${ytChannelName ? ytChannelName.textContent : 'Channel'}`);
+      }
+    });
+  }
+
+  // Like & Dislike pills
+  if (ytLikeBtn) {
+    ytLikeBtn.addEventListener('click', () => {
+      isLiked = !isLiked;
+      if (isLiked) {
+        ytLikes++;
+        ytLikeBtn.style.color = '#3ea6ff';
+        if (isDisliked) {
+          isDisliked = false;
+          if (ytDislikeBtn) ytDislikeBtn.style.color = '';
+        }
+        showToast('Added to liked streams 👍');
+      } else {
+        ytLikes--;
+        ytLikeBtn.style.color = '';
+      }
+      if (ytLikeCount) ytLikeCount.textContent = (ytLikes / 1000).toFixed(1) + 'K';
+    });
+  }
+
+  if (ytDislikeBtn) {
+    ytDislikeBtn.addEventListener('click', () => {
+      isDisliked = !isDisliked;
+      if (isDisliked) {
+        ytDislikeBtn.style.color = '#3ea6ff';
+        if (isLiked) {
+          isLiked = false;
+          ytLikes--;
+          if (ytLikeBtn) ytLikeBtn.style.color = '';
+          if (ytLikeCount) ytLikeCount.textContent = (ytLikes / 1000).toFixed(1) + 'K';
+        }
+      } else {
+        ytDislikeBtn.style.color = '';
+      }
+    });
+  }
+
+  // Share button
+  if (ytShareBtn) {
+    ytShareBtn.addEventListener('click', () => {
+      const shareUrl = currentWatchChannel ? (window.location.origin + '/api/stream/proxy?url=' + encodeURIComponent(currentWatchChannel.url)) : window.location.href;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          showToast('Stream link copied to clipboard! 📋');
+        }).catch(() => {
+          showToast('Link ready: ' + (currentWatchChannel ? currentWatchChannel.name : 'StreamBox'));
+        });
+      } else {
+        showToast('Stream link ready to share!');
+      }
+    });
+  }
+
+  // Theater Mode Toggle
+  function toggleTheaterMode() {
+    if (ytWatchColumns) {
+      ytWatchColumns.classList.toggle('theater-mode');
+      const isTheater = ytWatchColumns.classList.contains('theater-mode');
+      showToast(isTheater ? 'Theater mode enabled' : 'Default view enabled');
+    }
+  }
+
+  if (ytTheaterToggleBtn) ytTheaterToggleBtn.addEventListener('click', toggleTheaterMode);
+  if (ytTheaterBtn) ytTheaterBtn.addEventListener('click', toggleTheaterMode);
+
+  // Description Box expand/collapse
+  if (ytDescToggle) {
+    ytDescToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (ytDescriptionBox) {
+        ytDescriptionBox.classList.toggle('expanded');
+        ytDescToggle.textContent = ytDescriptionBox.classList.contains('expanded') ? 'Show less' : '...more';
+      }
+    });
+  }
+
+  if (ytDescriptionBox) {
+    ytDescriptionBox.addEventListener('click', () => {
+      ytDescriptionBox.classList.toggle('expanded');
+      if (ytDescToggle) {
+        ytDescToggle.textContent = ytDescriptionBox.classList.contains('expanded') ? 'Show less' : '...more';
+      }
+    });
+  }
+
+  // Live Chat / Comments Submission
+  if (ytCommentInput) {
+    ytCommentInput.addEventListener('focus', () => {
+      if (ytInputActions) ytInputActions.style.display = 'flex';
+    });
+
+    ytCommentInput.addEventListener('input', () => {
+      if (ytCommentSubmit) {
+        ytCommentSubmit.disabled = !ytCommentInput.value.trim();
+      }
+    });
+
+    ytCommentInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && ytCommentInput.value.trim()) {
+        postComment();
+      }
+    });
+  }
+
+  if (ytCommentCancel) {
+    ytCommentCancel.addEventListener('click', () => {
+      if (ytCommentInput) ytCommentInput.value = '';
+      if (ytCommentSubmit) ytCommentSubmit.disabled = true;
+      if (ytInputActions) ytInputActions.style.display = 'none';
+    });
+  }
+
+  function postComment() {
+    if (!ytCommentInput) return;
+    const text = ytCommentInput.value.trim();
+    if (!text) return;
+
+    const newComment = document.createElement('div');
+    newComment.className = 'yt-comment-item';
+    newComment.style.animation = 'fadeIn 0.3s ease';
+    newComment.innerHTML = `
+      <div class="yt-comment-avatar" style="background: #3ea6ff;">U</div>
+      <div class="yt-comment-body">
+        <div class="yt-comment-author-line">
+          <span class="yt-comment-author">You</span>
+          <span class="yt-comment-time">Just now</span>
+        </div>
+        <div class="yt-comment-text">${text}</div>
+      </div>
+    `;
+
+    if (ytCommentsFeed) ytCommentsFeed.prepend(newComment);
+    if (ytCommentsCount) {
+      const current = parseInt(ytCommentsCount.textContent.replace(/,/g, ''), 10) || 0;
+      ytCommentsCount.textContent = (current + 1).toLocaleString();
+    }
+
+    ytCommentInput.value = '';
+    if (ytCommentSubmit) ytCommentSubmit.disabled = true;
+    if (ytInputActions) ytInputActions.style.display = 'none';
+    showToast('Comment posted to live stream! 💬');
+  }
+
+  if (ytCommentSubmit) ytCommentSubmit.addEventListener('click', postComment);
+
+  // Related Category Chips
+  ytRelatedChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      ytRelatedChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      currentYtFilter = chip.getAttribute('data-ytfilter') || 'all';
+      renderRelatedVideos(currentYtFilter, ytSearchInput ? ytSearchInput.value.trim() : '');
+    });
+  });
+
+  // YouTube Watch Search Bar
+  if (ytSearchInput) {
+    ytSearchInput.addEventListener('input', (e) => {
+      renderRelatedVideos(currentYtFilter, e.target.value.trim());
+    });
+  }
+
+  if (ytSearchSubmit) {
+    ytSearchSubmit.addEventListener('click', () => {
+      if (ytSearchInput) renderRelatedVideos(currentYtFilter, ytSearchInput.value.trim());
     });
   }
 
@@ -231,13 +713,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (startWatchingBtn) {
     startWatchingBtn.addEventListener('click', () => {
-      openTheaterModal('Chrono Station • Live Stream Feed', currentRawStreamUrl);
+      const target = allChannels.length > 0 ? allChannels[0] : { name: 'Chrono Station • Live Stream Feed', url: currentRawStreamUrl }; openYouTubeWatch(target);
     });
   }
 
   if (watchNowBtn) {
     watchNowBtn.addEventListener('click', () => {
-      openTheaterModal('Live Channel Premiere', currentRawStreamUrl);
+      const target = allChannels.length > 0 ? allChannels[0] : { name: 'Live Channel Premiere', url: currentRawStreamUrl }; openYouTubeWatch(target);
     });
   }
 
@@ -270,9 +752,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Category counts badge updater
   function updateCategoryBadges() {
-    const counts = { all: allChannels.length, bollywood: 0, south: 0, regional: 0, bhojpuri: 0, action: 0 };
+    const counts = { all: allChannels.length, cricket: 0, football: 0, hindi: 0, english: 0, regional: 0 };
     allChannels.forEach(ch => {
-      if (counts[ch.category] !== undefined) counts[ch.category]++;
+      const cat = (ch.category || '').toLowerCase();
+      const lang = (ch.language_code || ch.audioLanguageName || ch.language || '').toLowerCase();
+      if (counts[cat] !== undefined) counts[cat]++;
+      if (lang === 'hin' || lang === 'hindi') counts['hindi']++;
+      else if (lang === 'eng' || lang === 'english') counts['english']++;
+      else if (['tam', 'tamil', 'kan', 'kannada', 'tel', 'telugu', 'mal', 'malayalam'].includes(lang)) counts['regional']++;
     });
     filterTabs.forEach(tab => {
       const filter = tab.getAttribute('data-filter');
@@ -337,7 +824,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     playBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      openTheaterModal(ch.name, ch.url);
+      openYouTubeWatch(ch);
     });
 
     const heroBtn = document.createElement('button');
@@ -374,11 +861,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const catTag = document.createElement('span');
     catTag.className = 'channel-cat-tag';
-    catTag.textContent = ch.category;
+    catTag.textContent = ch.language ? `${(ch.category || 'LIVE').toUpperCase()} • ${ch.language}` : (ch.category || 'LIVE').toUpperCase();
     metaBottom.appendChild(catTag);
 
     const subText = document.createElement('span');
-    subText.textContent = 'IPTV HLS';
+    subText.textContent = ch.broadcast_channel || 'Sony LIV';
     metaBottom.appendChild(subText);
 
     body.appendChild(metaBottom);
@@ -386,7 +873,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Clicking card opens theater modal
     card.addEventListener('click', () => {
-      openTheaterModal(ch.name, ch.url);
+      openYouTubeWatch(ch);
     });
 
     return card;
@@ -410,14 +897,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Filter by Category & Search Query
     filteredChannels = allChannels.filter(ch => {
-      const matchCat = (currentCategory === 'all' || ch.category === currentCategory);
+      let matchCat = (currentCategory === 'all');
+      if (!matchCat) {
+        const cat = (ch.category || '').toLowerCase();
+        const lang = (ch.language_code || ch.audioLanguageName || ch.language || '').toLowerCase();
+        if (currentCategory === cat) matchCat = true;
+        else if (currentCategory === 'hindi' && (lang === 'hin' || lang === 'hindi')) matchCat = true;
+        else if (currentCategory === 'english' && (lang === 'eng' || lang === 'english')) matchCat = true;
+        else if (currentCategory === 'regional' && ['tam', 'tamil', 'kan', 'kannada', 'tel', 'telugu', 'mal', 'malayalam'].includes(lang)) matchCat = true;
+      }
       if (!matchCat) return false;
       if (!currentSearchQuery) return true;
       const q = currentSearchQuery.toLowerCase();
-      return ch.name.toLowerCase().includes(q) ||
-             ch.raw_name.toLowerCase().includes(q) ||
-             ch.category.toLowerCase().includes(q) ||
-             ch.group.toLowerCase().includes(q);
+      return (ch.name || '').toLowerCase().includes(q) ||
+             (ch.raw_name || '').toLowerCase().includes(q) ||
+             (ch.category || '').toLowerCase().includes(q) ||
+             (ch.language || '').toLowerCase().includes(q) ||
+             (ch.broadcast_channel || '').toLowerCase().includes(q) ||
+             (ch.group || '').toLowerCase().includes(q);
     });
 
     if (totalCountEl) totalCountEl.textContent = filteredChannels.length;
@@ -512,30 +1009,74 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Fetch channels list from static json or api
-  fetch('/static/channels.json')
-    .then(res => {
-      if (!res.ok) throw new Error('Failed to load channels');
-      return res.json();
+  // Fetch channels list from dynamic API (with fallback to static JSON)
+  fetch('/api/channels')
+    .then(r => {
+      if (!r.ok) throw new Error('API channels returned non-200');
+      return r.json();
     })
     .then(data => {
-      allChannels = data;
-      filteredChannels = data;
+      allChannels = data.channels || [];
+      filteredChannels = allChannels;
       updateCategoryBadges();
       renderChannels();
-      console.log(`[StreamBox] Loaded ${allChannels.length} movie channels successfully.`);
+      console.log(`[StreamBox] Synced ${allChannels.length} Sony LIV channels from ${data.source || 'GitHub'}.`);
     })
-    .catch(err => {
-      console.warn('[StreamBox] Fallback to /api/channels:', err);
-      fetch('/api/channels')
-        .then(r => r.json())
-        .then(res => {
-          allChannels = res.channels || [];
-          filteredChannels = allChannels;
+    .catch(() => {
+      fetch('/static/channels.json')
+        .then(res => res.json())
+        .then(data => {
+          allChannels = data;
+          filteredChannels = data;
           updateCategoryBadges();
           renderChannels();
         });
     });
+
+  // --- GitHub Stream Repository Manual Sync Button ---
+  const syncGithubBtn = document.getElementById('syncGithubBtn');
+  const syncBtnText = document.getElementById('syncBtnText');
+  if (syncGithubBtn) {
+    syncGithubBtn.addEventListener('click', () => {
+      if (syncBtnText) syncBtnText.textContent = 'Syncing...';
+      syncGithubBtn.style.opacity = '0.7';
+
+      fetch('/api/stream/sync', { method: 'POST' })
+        .then(r => r.json())
+        .then(res => {
+          showToast(`Synced ${res.result?.total_channels || 0} channels from GitHub!`);
+          if (syncBtnText) syncBtnText.textContent = 'Synced!';
+          setTimeout(() => {
+            if (syncBtnText) syncBtnText.textContent = 'Sync GitHub';
+            syncGithubBtn.style.opacity = '1';
+          }, 2000);
+
+          // Refresh channel grid
+          fetch('/api/channels')
+            .then(r => r.json())
+            .then(data => {
+              allChannels = data.channels || [];
+              filteredChannels = allChannels;
+              updateCategoryBadges();
+              renderChannels();
+            });
+
+          // Refresh live feed if active event changed
+          if (res.current_status?.active_stream_url) {
+            loadInHeroPlayer(res.current_status.active_event, res.current_status.active_stream_url);
+          }
+        })
+        .catch(err => {
+          console.error('Manual sync failed:', err);
+          showToast('Failed to sync with GitHub repository.');
+          if (syncBtnText) syncBtnText.textContent = 'Sync Failed';
+          setTimeout(() => {
+            if (syncBtnText) syncBtnText.textContent = 'Sync GitHub';
+            syncGithubBtn.style.opacity = '1';
+          }, 2500);
+        });
+    });
+  }
 
   // --- Stream URL Configuration Modal ---
   const streamConfigModal = document.getElementById('streamConfigModal');
@@ -614,7 +1155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       if (searchDrawer) searchDrawer.classList.remove('open');
       closeStreamConfigModal();
-      closeTheaterModal();
+      closeYouTubeWatch();
     }
   });
 
@@ -626,15 +1167,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function showToast(msg) {
-    let toast = document.querySelector('.streambox-toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'streambox-toast';
-      document.body.appendChild(toast);
-    }
-    toast.textContent = msg;
-    toast.classList.add('visible');
-    setTimeout(() => toast.classList.remove('visible'), 3200);
-  }
 });

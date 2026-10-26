@@ -1,13 +1,22 @@
+import asyncio
+from contextlib import asynccontextmanager
 import json
+import logging
+import mimetypes
 import re
 import urllib.parse
 from pathlib import Path
+
 import httpx
 from fastapi import FastAPI, Request, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, Response, JSONResponse
+from fastapi.responses import HTMLResponse, Response, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+
+from stream_sync import sync_manager, STANDBY_STREAM_URL
+
+logger = logging.getLogger("stream_video")
 
 # Robust BASE_DIR resolution for both local and Vercel serverless environments
 BASE_DIR = Path(__file__).resolve().parent
@@ -16,7 +25,35 @@ for candidate in [BASE_DIR, BASE_DIR.parent, Path.cwd(), Path("/var/task")]:
         BASE_DIR = candidate
         break
 
-app = FastAPI(title="StreamBox - Stream Video", redirect_slashes=False)
+# Lifespan manager: runs startup sync and periodic background polling
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Initial sync on boot
+    try:
+        await sync_manager.sync()
+    except Exception as e:
+        logger.error(f"Initial stream sync error: {e}")
+
+    # Background sync task (polls GitHub stream source every 3 minutes)
+    async def periodic_sync_worker():
+        while True:
+            await asyncio.sleep(180)  # 3 minutes
+            try:
+                await sync_manager.sync()
+            except Exception as e:
+                logger.warning(f"Periodic GitHub stream sync error: {e}")
+
+    sync_task = asyncio.create_task(periodic_sync_worker())
+    try:
+        yield
+    finally:
+        sync_task.cancel()
+        try:
+            await sync_task
+        except asyncio.CancelledError:
+            pass
+
+app = FastAPI(title="StreamBox - Stream Video", lifespan=lifespan, redirect_slashes=False)
 
 # Enable CORS for cross-origin player requests and preflight checks
 app.add_middleware(
@@ -41,7 +78,6 @@ async def static_fallback_middleware(request: Request, call_next):
         file_path = static_dir / relative_path
         if file_path.exists() and file_path.is_file():
             from fastapi.responses import FileResponse
-            import mimetypes
             content_type, _ = mimetypes.guess_type(str(file_path))
             return FileResponse(file_path, media_type=content_type or "application/octet-stream")
     return await call_next(request)
@@ -52,28 +88,10 @@ if not templates_dir.exists():
     templates_dir = BASE_DIR / "template"
 templates = Jinja2Templates(directory=str(templates_dir))
 
-# Default user-provided live HLS stream URL (Akamai signed stream)
-DEFAULT_STREAM_URL = (
-    "https://sonydaime.akamaized.net/hls/live/2119921/cricodi_2410/HIN/std_lrh-800300010.m3u8"
-    "?hdnea=exp=1792868449~acl=/*~id=39183153768115659634580807583499~hmac=94bb3c2e2345bf9917ed73694d9d436d6a6bd9a0f858c942d7b6f07b882e889b"
-)
 
-# Channel catalog cache
-CHANNELS_CACHE = None
-
-def load_channels():
-    global CHANNELS_CACHE
-    if CHANNELS_CACHE is None:
-        channels_file = static_dir / "channels.json"
-        if channels_file.exists():
-            try:
-                with open(channels_file, "r", encoding="utf-8") as f:
-                    CHANNELS_CACHE = json.load(f)
-            except Exception:
-                CHANNELS_CACHE = []
-        else:
-            CHANNELS_CACHE = []
-    return CHANNELS_CACHE
+def get_current_live_url() -> str:
+    """Returns the freshest verified stream URL or standby fallback."""
+    return sync_manager.active_live_stream or STANDBY_STREAM_URL
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -83,23 +101,65 @@ def load_channels():
 @app.get("/api/index", response_class=HTMLResponse)
 @app.get("/api/index.py", response_class=HTMLResponse)
 async def root(request: Request):
+    live_url = get_current_live_url()
     return templates.TemplateResponse(
         request=request,
         name="index.html",
-        context={"default_stream_url": DEFAULT_STREAM_URL}
+        context={
+            "default_stream_url": live_url,
+            "active_event": sync_manager.active_event_name
+        }
     )
+
+
+@app.get("/api/stream/status")
+@app.get("/stream/status")
+async def get_stream_status():
+    """Returns real-time sync metrics, token expiration countdown, and active match info."""
+    return sync_manager.get_status()
+
+
+@app.get("/api/stream/sync")
+@app.post("/api/stream/sync")
+async def trigger_stream_sync():
+    """Forces an immediate synchronization with the GitHub stream repository."""
+    result = await sync_manager.sync()
+    return {
+        "status": "synchronized",
+        "result": result,
+        "current_status": sync_manager.get_status()
+    }
+
+
+@app.get("/api/stream/live")
+@app.get("/stream/live")
+async def get_live_stream():
+    """Returns the currently active live match stream URL and metadata."""
+    live_url = get_current_live_url()
+    proxied_url = f"/api/stream/proxy?url={urllib.parse.quote(live_url, safe='')}"
+    status = sync_manager.get_status()
+    return {
+        "title": sync_manager.active_event_name,
+        "stream_url": live_url,
+        "proxied_url": proxied_url,
+        "is_live": status["has_real_stream"],
+        "token_valid": status["token_valid"],
+        "token_seconds_left": status["token_seconds_left"],
+        "last_sync_source": status["last_sync_source"]
+    }
 
 
 @app.get("/api/stream/default")
 @app.get("/stream/default")
 async def get_default_stream():
     """Returns the default active HLS stream URL for client playback without exposing secrets."""
+    live_url = get_current_live_url()
     return {
-        "title": "Chrono Station • Live Feed (HLS)",
-        "stream_url": DEFAULT_STREAM_URL,
-        "proxied_url": f"/api/stream/proxy?url={urllib.parse.quote(DEFAULT_STREAM_URL, safe='')}",
+        "title": sync_manager.active_event_name,
+        "stream_url": live_url,
+        "proxied_url": f"/api/stream/proxy?url={urllib.parse.quote(live_url, safe='')}",
         "protocol": "hls",
-        "is_live": True,
+        "is_live": sync_manager.active_live_stream != STANDBY_STREAM_URL,
     }
 
 
@@ -110,16 +170,41 @@ async def get_channels(
     query: str = Query("", description="Search term"),
     limit: int = Query(600, description="Max channels")
 ):
-    """Returns curated movie channels parsed from movie.md"""
-    channels = load_channels()
+    """Returns live channels synced dynamically from GitHub sonyliv.json."""
+    channels = sync_manager.cached_channels
+    if not channels and sync_manager.static_channels_path.exists():
+        try:
+            with open(sync_manager.static_channels_path, "r", encoding="utf-8") as f:
+                channels = json.load(f)
+                sync_manager.cached_channels = channels
+        except Exception:
+            channels = []
+
     filtered = channels
     if category and category.lower() != "all":
-        filtered = [c for c in filtered if c.get("category") == category.lower()]
+        cat_lower = category.lower()
+        if cat_lower == "hindi":
+            filtered = [c for c in filtered if (c.get("language_code") or "").lower() == "hin"]
+        elif cat_lower == "english":
+            filtered = [c for c in filtered if (c.get("language_code") or "").lower() == "eng"]
+        elif cat_lower == "regional":
+            filtered = [c for c in filtered if (c.get("language_code") or "").lower() in ["tam", "kan", "tel", "mal"]]
+        else:
+            filtered = [c for c in filtered if c.get("category") == cat_lower]
+
     if query:
         q = query.lower().strip()
-        filtered = [c for c in filtered if q in c.get("name", "").lower() or q in c.get("raw_name", "").lower()]
+        filtered = [
+            c for c in filtered
+            if q in c.get("name", "").lower()
+            or q in c.get("raw_name", "").lower()
+            or q in c.get("language", "").lower()
+            or q in c.get("broadcast_channel", "").lower()
+        ]
+
     return {
         "total": len(filtered),
+        "source": sync_manager.last_sync_source,
         "channels": filtered[:limit]
     }
 
@@ -131,11 +216,12 @@ async def stream_proxy(
     url: str = Query(..., description="Target HLS manifest or segment URL")
 ):
     """
-    High-performance HLS proxy that:
-    1. Forwards signed requests to CDN while resolving browser CORS limitations.
+    High-performance HLS reverse proxy that:
+    1. Forwards signed requests to Akamai/CDN while resolving browser CORS limitations.
     2. Dynamically rewrites child playlists and relative segment URLs.
     3. Streams video chunks without memory bloat.
-    4. Accurately reports HTTP 401/403 token expiration and network errors.
+    4. Resilient Fallback: If an expired token returns 401/403, triggers background sync
+       and returns a valid fallback stream instead of crashing the player with format errors.
     """
     try:
         target_url = urllib.parse.unquote(url)
@@ -152,7 +238,7 @@ async def stream_proxy(
         "Connection": "keep-alive",
     }
 
-    # Forward client IP to help Akamai/CDN authenticate geolocated tokens
+    # Forward client IP for geo-targeted Akamai tokens
     client_ip = (
         request.headers.get("x-forwarded-for", "").split(",")[0].strip()
         or request.headers.get("x-real-ip", "").strip()
@@ -162,61 +248,62 @@ async def stream_proxy(
         headers["X-Forwarded-For"] = client_ip
         headers["True-Client-IP"] = client_ip
 
-    client = httpx.AsyncClient(verify=False, timeout=15.0, follow_redirects=True)
+    client = httpx.AsyncClient(verify=False, timeout=12.0, follow_redirects=True)
+
+    is_manifest = (".m3u8" in target_url.lower())
 
     try:
         req = client.build_request("GET", target_url, headers=headers)
         upstream_resp = await client.send(req, stream=True)
     except httpx.RequestError as exc:
         await client.aclose()
+        # If manifest failed due to network error, fall back to standby
+        if is_manifest:
+            logger.warning(f"Upstream request failed ({exc}), falling back to standby stream")
+            fallback_target = f"/api/stream/proxy?url={urllib.parse.quote(STANDBY_STREAM_URL, safe='')}"
+            return RedirectResponse(url=fallback_target, status_code=307)
         return JSONResponse(
-            content={
-                "error": "Upstream connection failure",
-                "error_code": "NETWORK_ERROR",
-                "details": str(exc),
-            },
+            content={"error": "Upstream connection failure", "details": str(exc)},
             status_code=502,
             headers={"Access-Control-Allow-Origin": "*"}
         )
 
-    # Check for authentication / token expiration
-    if upstream_resp.status_code in (401, 403):
-        error_body_bytes = await upstream_resp.aread()
-        await client.aclose()
-        error_text = error_body_bytes.decode("utf-8", errors="replace")[:500]
-        error_type = upstream_resp.headers.get("x-error-type", "")
-        return JSONResponse(
-            content={
-                "error": "Signed token expired or stream access forbidden",
-                "error_code": "TOKEN_EXPIRED" if "token" in error_type.lower() else "ACCESS_FORBIDDEN",
-                "status_code": upstream_resp.status_code,
-                "upstream_error_type": error_type,
-                "upstream_pop": upstream_resp.headers.get("x-akamai-pop", ""),
-                "message": (
-                    "The authentication token in the signed URL has expired."
-                    if "token" in error_type.lower()
-                    else "Upstream CDN rejected access from this server's region or IP. If deployed on Vercel, Akamai may block US cloud datacenter IPs."
-                ),
-                "details": error_text,
-            },
-            status_code=upstream_resp.status_code,
-            headers={"Access-Control-Allow-Origin": "*"}
-        )
-    elif upstream_resp.status_code >= 400:
+    # Handle token expiration (HTTP 401 / 403 / 404) gracefully
+    if upstream_resp.status_code in (401, 403, 404):
         await upstream_resp.aread()
         await client.aclose()
+
+        # Trigger background sync to attempt acquiring fresh tokens from GitHub
+        asyncio.create_task(sync_manager.sync())
+
+        # If an M3U8 manifest was requested, redirect to working fallback so Video.js doesn't crash
+        if is_manifest:
+            active_live = sync_manager.active_live_stream
+            if active_live and active_live != target_url and sync_manager.is_token_valid(active_live):
+                fallback_url = f"/api/stream/proxy?url={urllib.parse.quote(active_live, safe='')}"
+            else:
+                fallback_url = f"/api/stream/proxy?url={urllib.parse.quote(STANDBY_STREAM_URL, safe='')}"
+            return RedirectResponse(
+                url=fallback_url,
+                status_code=307,
+                headers={
+                    "X-Stream-Status": "standby-fallback",
+                    "Access-Control-Allow-Origin": "*"
+                }
+            )
+
         return JSONResponse(
             content={
-                "error": f"Upstream HTTP error {upstream_resp.status_code}",
-                "error_code": "UPSTREAM_ERROR",
+                "error": "Stream access expired or unavailable",
                 "status_code": upstream_resp.status_code,
+                "message": "The stream token for this match is expired or not currently broadcasting."
             },
             status_code=upstream_resp.status_code,
             headers={"Access-Control-Allow-Origin": "*"}
         )
 
     content_type = upstream_resp.headers.get("content-type", "")
-    is_m3u8 = (".m3u8" in target_url.lower()) or ("mpegurl" in content_type.lower())
+    is_m3u8 = is_manifest or ("mpegurl" in content_type.lower())
 
     if is_m3u8:
         # Read full playlist and rewrite relative lines
@@ -265,7 +352,7 @@ async def stream_proxy(
             }
         )
     else:
-        # TS segment or binary stream (buffered for full compatibility with Vercel serverless functions)
+        # TS segment or binary stream
         body_bytes = await upstream_resp.aread()
         await client.aclose()
 

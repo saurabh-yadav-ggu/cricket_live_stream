@@ -64,13 +64,49 @@
 
 /* Control Bar (Frosted Glass Floating Bar) */
 .video-js .vjs-control-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
   background: rgba(15, 15, 15, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   height: 48px;
   padding: 0 8px;
-  align-items: center;
+}
+
+/* Spacer pushing right-side controls to the right end */
+.video-js .vjs-custom-control-spacer {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  min-width: 12px;
+}
+
+/* Right-side controls (1x, Picture-in-Picture, Fullscreen) anchor to the right */
+.video-js .vjs-playback-rate {
+  margin-left: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer;
+}
+
+.video-js .vjs-playback-rate .vjs-playback-rate-value {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 48px !important;
+  color: #FFFFFF !important;
+}
+
+.video-js .vjs-picture-in-picture-control,
+.video-js .vjs-fullscreen-control {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.video-js .vjs-fullscreen-control {
+  margin-right: 4px;
 }
 
 /* Control Icons */
