@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Toast Notification Helper ---
-  function showToast(message) {
+  function showToast(message, type = 'info') {
     let toast = document.getElementById('globalToast');
     if (!toast) {
       toast = document.createElement('div');
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         color: #fff;
         padding: 12px 22px;
         border-radius: 8px;
-        border-left: 4px solid #FF0000;
+        border-left: 4px solid #0099FF;
         box-shadow: 0 12px 32px rgba(0,0,0,0.85);
         font-size: 13px;
         font-weight: 500;
@@ -177,6 +177,13 @@ document.addEventListener('DOMContentLoaded', () => {
         pointer-events: none;
       `;
       document.body.appendChild(toast);
+    }
+    if (type === 'success') {
+      toast.style.borderLeftColor = '#00C853';
+    } else if (type === 'error') {
+      toast.style.borderLeftColor = '#FF0000';
+    } else {
+      toast.style.borderLeftColor = '#0099FF';
     }
     toast.textContent = message;
     toast.style.opacity = '1';
@@ -1049,58 +1056,66 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-  // --- GitHub Stream Repository Manual Sync Button ---
-  const syncGithubBtn = document.getElementById('syncGithubBtn');
-  const syncBtnText = document.getElementById('syncBtnText');
-  if (syncGithubBtn) {
-    syncGithubBtn.addEventListener('click', () => {
-      if (syncBtnText) syncBtnText.textContent = 'Syncing...';
-      syncGithubBtn.style.opacity = '0.7';
+  // --- GitHub Stream Repository Manual Sync Button & Mobile Nav Sync ---
+  function performSync() {
+    const syncGithubBtn = document.getElementById('syncGithubBtn');
+    const syncBtnText = document.getElementById('syncBtnText');
+    const mobileNavSyncBtn = document.getElementById('mobileNavSync');
 
-      fetch('/api/stream/sync', { method: 'POST' })
-        .then(r => {
-          if (!r.ok) throw new Error(`HTTP ${r.status}`);
-          return r.json();
-        })
-        .then(res => {
-          const count = res.result?.total_channels ?? res.current_status?.total_channels ?? 0;
-          showToast(`Synced ${count} channels from GitHub!`);
-          if (syncBtnText) syncBtnText.textContent = 'Synced!';
-          setTimeout(() => {
-            if (syncBtnText) syncBtnText.textContent = 'Sync GitHub';
-            syncGithubBtn.style.opacity = '1';
-          }, 2000);
+    if (syncBtnText) syncBtnText.textContent = 'Syncing...';
+    if (syncGithubBtn) syncGithubBtn.style.opacity = '0.7';
+    if (mobileNavSyncBtn) mobileNavSyncBtn.style.opacity = '0.7';
 
-          // Refresh channel grid
-          fetch('/api/channels')
-            .then(r => r.json())
-            .then(data => {
-              allChannels = data.channels || [];
-              filteredChannels = allChannels;
-              updateCategoryBadges();
-              renderChannels();
-            })
-            .catch(e => console.warn('Channel list refresh error:', e));
+    fetch('/api/stream/sync', { method: 'POST' })
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
+      .then(res => {
+        const count = res.result?.total_channels ?? res.current_status?.total_channels ?? 0;
+        showToast(`Synced ${count} channels from GitHub!`, 'success');
+        if (syncBtnText) syncBtnText.textContent = 'Synced!';
+        setTimeout(() => {
+          if (syncBtnText) syncBtnText.textContent = 'Sync GitHub';
+          if (syncGithubBtn) syncGithubBtn.style.opacity = '1';
+          if (mobileNavSyncBtn) mobileNavSyncBtn.style.opacity = '1';
+        }, 2000);
 
-          // Refresh live feed if active event changed
-          if (res.current_status?.active_stream_url) {
-            try {
-              loadInHeroPlayer(res.current_status.active_event, res.current_status.active_stream_url);
-            } catch (err) {
-              console.warn('Hero player update notice:', err);
-            }
+        // Refresh channel grid
+        fetch('/api/channels')
+          .then(r => r.json())
+          .then(data => {
+            allChannels = data.channels || [];
+            filteredChannels = allChannels;
+            updateCategoryBadges();
+            renderChannels();
+          })
+          .catch(e => console.warn('Channel list refresh error:', e));
+
+        // Refresh live feed if active event changed
+        if (res.current_status?.active_stream_url) {
+          try {
+            loadInHeroPlayer(res.current_status.active_event, res.current_status.active_stream_url);
+          } catch (err) {
+            console.warn('Hero player update notice:', err);
           }
-        })
-        .catch(err => {
-          console.error('Manual sync failed:', err);
-          showToast('Failed to sync with GitHub: ' + (err.message || 'Network error'));
-          if (syncBtnText) syncBtnText.textContent = 'Sync Failed';
-          setTimeout(() => {
-            if (syncBtnText) syncBtnText.textContent = 'Sync GitHub';
-            syncGithubBtn.style.opacity = '1';
-          }, 2500);
-        });
-    });
+        }
+      })
+      .catch(err => {
+        console.error('Manual sync failed:', err);
+        showToast('Failed to sync with GitHub: ' + (err.message || 'Network error'), 'error');
+        if (syncBtnText) syncBtnText.textContent = 'Sync Failed';
+        setTimeout(() => {
+          if (syncBtnText) syncBtnText.textContent = 'Sync GitHub';
+          if (syncGithubBtn) syncGithubBtn.style.opacity = '1';
+          if (mobileNavSyncBtn) mobileNavSyncBtn.style.opacity = '1';
+        }, 2500);
+      });
+  }
+
+  const syncGithubBtn = document.getElementById('syncGithubBtn');
+  if (syncGithubBtn) {
+    syncGithubBtn.addEventListener('click', performSync);
   }
 
   // --- Stream URL Configuration Modal ---
@@ -1194,10 +1209,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Mobile Bottom Navigation Controller ---
   const mobileNavHome = document.getElementById('mobileNavHome');
+  const mobileNavChannels = document.getElementById('mobileNavChannels');
   const mobileNavLive = document.getElementById('mobileNavLive');
   const mobileNavSync = document.getElementById('mobileNavSync');
   const mobileNavSearch = document.getElementById('mobileNavSearch');
   const mobileNavSettings = document.getElementById('mobileNavSettings');
+
+  if (mobileNavChannels) {
+    mobileNavChannels.addEventListener('click', (e) => {
+      if (youtubeWatchView && youtubeWatchView.classList.contains('active')) {
+        closeYouTubeWatch();
+      }
+      const grid = document.getElementById('channelsGridSection') || document.querySelector('.channels-section');
+      if (grid) {
+        grid.scrollIntoView({ behavior: 'smooth' });
+      }
+      document.querySelectorAll('.mobile-nav-btn').forEach(b => b.classList.remove('active'));
+      mobileNavChannels.classList.add('active');
+    });
+  }
 
   if (mobileNavHome) {
     mobileNavHome.addEventListener('click', (e) => {

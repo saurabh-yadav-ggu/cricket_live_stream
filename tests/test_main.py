@@ -78,3 +78,14 @@ def test_stream_proxy_invalid_url():
     """Verify stream proxy rejects non-HTTP/HTTPS schemes."""
     response = client.get("/api/stream/proxy?url=ftp://example.com/test.m3u8")
     assert response.status_code == 400
+
+
+def test_stream_sync_endpoint():
+    """Verify manual stream sync endpoint returns valid json."""
+    response = client.post("/api/stream/sync")
+    assert response.status_code == 200
+    data = response.json()
+    assert data.get("status") == "synchronized"
+    assert "result" in data
+    assert "current_status" in data
+
