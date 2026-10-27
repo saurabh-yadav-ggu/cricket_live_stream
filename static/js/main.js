@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showToast('Stream token refreshed or reconnecting. Auto-syncing with GitHub...');
         if (heroSyncStatusText) heroSyncStatusText.textContent = 'Syncing freshest stream from GitHub...';
 
-        fetch('/api/stream/live')
+        fetch(`/api/stream/live?t=${Date.now()}`, { cache: 'no-store' })
           .then(r => r.json())
           .then(data => {
             if (data && data.stream_url) {
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Attempt initial play: first probe /api/stream/live for freshest active stream
     heroPlayer.ready(() => {
-      fetch('/api/stream/live')
+      fetch(`/api/stream/live?t=${Date.now()}`, { cache: 'no-store' })
         .then(r => r.json())
         .then(liveData => {
           if (liveData && liveData.stream_url) {
@@ -499,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalPlayer.on('error', () => {
           console.warn('[StreamBox YouTube Player Error] Loading proxy fallback...');
           showToast(`Token refreshed for "${targetChannel.name}". Auto-syncing...`);
-          fetch('/api/stream/live')
+          fetch(`/api/stream/live?t=${Date.now()}`, { cache: 'no-store' })
             .then(r => r.json())
             .then(data => {
               if (data && data.stream_url) {
@@ -1040,7 +1040,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Fetch channels list from dynamic API (with fallback to static JSON)
-  fetch('/api/channels')
+  fetch(`/api/channels?t=${Date.now()}`, { cache: 'no-store' })
     .then(r => {
       if (!r.ok) throw new Error('API channels returned non-200');
       return r.json();
@@ -1053,7 +1053,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(`[StreamBox] Synced ${allChannels.length} Sony LIV channels from ${data.source || 'GitHub'}.`);
     })
     .catch(() => {
-      fetch('/static/channels.json')
+      fetch(`/static/channels.json?t=${Date.now()}`, { cache: 'no-store' })
         .then(res => res.json())
         .then(data => {
           allChannels = data;
@@ -1089,7 +1089,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
 
         // Refresh channel grid
-        fetch('/api/channels')
+        fetch(`/api/channels?t=${Date.now()}`, { cache: 'no-store' })
           .then(r => r.json())
           .then(data => {
             allChannels = data.channels || [];

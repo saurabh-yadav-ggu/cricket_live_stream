@@ -25,6 +25,7 @@ COPY main.py /app/main.py
 COPY stream_sync.py /app/stream_sync.py
 COPY templates/ /app/templates/
 COPY static/ /app/static/
+COPY Sonyliv-Playlist-Autoupdate/ /app/Sonyliv-Playlist-Autoupdate/
 
 # Create a non-privileged user for security compliance in cloud environments
 RUN useradd -u 1001 -m -s /bin/bash appuser && \
