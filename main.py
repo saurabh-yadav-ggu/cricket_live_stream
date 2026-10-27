@@ -182,7 +182,11 @@ async def get_channels(
         elif cat_lower == "english":
             filtered = [c for c in filtered if (c.get("language_code") or "").lower() == "eng"]
         elif cat_lower == "regional":
-            filtered = [c for c in filtered if (c.get("language_code") or "").lower() in ["tam", "kan", "tel", "mal"]]
+            filtered = [c for c in filtered if (c.get("language_code") or "").lower() in ["tam", "kan", "tel", "mal", "mar", "ben"]]
+        elif cat_lower == "sports":
+            filtered = [c for c in filtered if c.get("category") in ("sports", "cricket", "football")]
+        elif cat_lower == "live":
+            filtered = [c for c in filtered if bool(c.get("is_live"))]
         else:
             filtered = [c for c in filtered if c.get("category") == cat_lower]
 
@@ -194,6 +198,8 @@ async def get_channels(
             or q in c.get("raw_name", "").lower()
             or q in c.get("language", "").lower()
             or q in c.get("broadcast_channel", "").lower()
+            or q in c.get("group", "").lower()
+            or q in c.get("category", "").lower()
         ]
 
     return {
@@ -280,13 +286,16 @@ async def stream_proxy(
     if parsed.scheme not in ("http", "https"):
         raise HTTPException(status_code=400, detail="Only HTTP/HTTPS streams supported")
 
-    # Standard clean browser request headers (DO NOT forward X-Forwarded-For or True-Client-IP as Akamai blocks them with 403)
+    # Standard clean browser request headers
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
         "Accept": "*/*",
         "Accept-Encoding": "identity",
         "Connection": "keep-alive",
     }
+    if "slivcdn.com" in parsed.netloc or "sonyliv.com" in parsed.netloc:
+        headers["Referer"] = "https://www.sonyliv.com/"
+        headers["Origin"] = "https://www.sonyliv.com"
     if "range" in request.headers:
         headers["Range"] = request.headers["range"]
 

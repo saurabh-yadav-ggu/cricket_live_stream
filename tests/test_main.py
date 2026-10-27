@@ -88,4 +88,16 @@ def test_stream_sync_endpoint():
     assert data.get("status") == "synchronized"
     assert "result" in data
     assert "current_status" in data
+    assert data["result"].get("total_channels", 0) >= 20
+
+
+def test_channels_categories_and_entertainment():
+    """Verify channels can be filtered by entertainment and sports."""
+    resp_ent = client.get("/api/channels?category=entertainment")
+    assert resp_ent.status_code == 200
+    assert len(resp_ent.json().get("channels", [])) > 0
+
+    resp_sports = client.get("/api/channels?category=sports")
+    assert resp_sports.status_code == 200
+    assert len(resp_sports.json().get("channels", [])) > 0
 

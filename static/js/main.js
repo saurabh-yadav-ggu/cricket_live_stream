@@ -5,8 +5,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const DEFAULT_STREAM_URL = 
-    "https://sonydaime.akamaized.net/hls/live/2120299/criclive2510/ENG/std_lrh-800300010.m3u8" +
-    "?hdnea=exp=1793035238~acl=/*~id=18099076327276705816667492716645~hmac=eec76f4accd97679463d9e836335ad1ef2c75da286b24c372d7b62ce327bbc76";
+    "https://sonydaime.akamaized.net/hls/live/2119931/cricodi_2710/ENG/std_lrh-800300010.m3u8" +
+    "?hdnea=exp=1793128621~acl=/*~id=54754174312327563560352154764462~hmac=78514acc79ea5d72d8269b6aef751dfa0c6c0693f380e205362f50e9063dfd4c";
 
   let currentRawStreamUrl = DEFAULT_STREAM_URL;
   let useProxy = true;
@@ -303,15 +303,20 @@ document.addEventListener('DOMContentLoaded', () => {
     ytRelatedList.innerHTML = '';
 
     const list = allChannels.filter(ch => {
-      if (filter === 'cricket' && ch.category !== 'cricket') return false;
-      if (filter === 'football' && ch.category !== 'football') return false;
+      const cat = (ch.category || '').toLowerCase();
+      if (filter === 'cricket' && cat !== 'cricket') return false;
+      if (filter === 'football' && cat !== 'football') return false;
+      if (filter === 'sports' && !['sports', 'cricket', 'football'].includes(cat)) return false;
+      if (filter === 'entertainment' && cat !== 'entertainment') return false;
+      if (filter === 'movies' && cat !== 'movies') return false;
+      if (filter === 'live' && !ch.is_live) return false;
       if (filter === 'hindi') {
         const lang = (ch.language || ch.audioLanguageName || ch.language_code || '').toLowerCase();
         if (lang !== 'hindi' && lang !== 'hin') return false;
       }
       if (searchQuery) {
         const q = searchQuery.toLowerCase();
-        return (ch.name || '').toLowerCase().includes(q) || (ch.category || '').toLowerCase().includes(q);
+        return (ch.name || '').toLowerCase().includes(q) || (ch.category || '').toLowerCase().includes(q) || (ch.group || '').toLowerCase().includes(q);
       }
       return true;
     });
@@ -775,14 +780,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Category counts badge updater
   function updateCategoryBadges() {
-    const counts = { all: allChannels.length, cricket: 0, football: 0, hindi: 0, english: 0, regional: 0 };
+    const counts = { all: allChannels.length, cricket: 0, football: 0, sports: 0, entertainment: 0, movies: 0, hindi: 0, english: 0, regional: 0 };
     allChannels.forEach(ch => {
       const cat = (ch.category || '').toLowerCase();
       const lang = (ch.language_code || ch.audioLanguageName || ch.language || '').toLowerCase();
       if (counts[cat] !== undefined) counts[cat]++;
+      if (cat === 'cricket' || cat === 'football') counts['sports']++;
       if (lang === 'hin' || lang === 'hindi') counts['hindi']++;
       else if (lang === 'eng' || lang === 'english') counts['english']++;
-      else if (['tam', 'tamil', 'kan', 'kannada', 'tel', 'telugu', 'mal', 'malayalam'].includes(lang)) counts['regional']++;
+      else if (['tam', 'tamil', 'kan', 'kannada', 'tel', 'telugu', 'mal', 'malayalam', 'mar', 'marathi', 'ben', 'bengali'].includes(lang)) counts['regional']++;
     });
     filterTabs.forEach(tab => {
       const filter = tab.getAttribute('data-filter');
@@ -925,9 +931,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const cat = (ch.category || '').toLowerCase();
         const lang = (ch.language_code || ch.audioLanguageName || ch.language || '').toLowerCase();
         if (currentCategory === cat) matchCat = true;
+        else if (currentCategory === 'sports' && ['sports', 'cricket', 'football'].includes(cat)) matchCat = true;
         else if (currentCategory === 'hindi' && (lang === 'hin' || lang === 'hindi')) matchCat = true;
         else if (currentCategory === 'english' && (lang === 'eng' || lang === 'english')) matchCat = true;
-        else if (currentCategory === 'regional' && ['tam', 'tamil', 'kan', 'kannada', 'tel', 'telugu', 'mal', 'malayalam'].includes(lang)) matchCat = true;
+        else if (currentCategory === 'regional' && ['tam', 'tamil', 'kan', 'kannada', 'tel', 'telugu', 'mal', 'malayalam', 'mar', 'marathi', 'ben', 'bengali'].includes(lang)) matchCat = true;
       }
       if (!matchCat) return false;
       if (!currentSearchQuery) return true;
