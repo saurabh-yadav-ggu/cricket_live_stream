@@ -4,7 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const DEFAULT_STREAM_URL = 
+  const DEFAULT_STREAM_URL =
     "https://sonydaime.akamaized.net/hls/live/2119931/cricodi_2710/ENG/std_lrh-800300010.m3u8" +
     "?hdnea=exp=1793128621~acl=/*~id=54754174312327563560352154764462~hmac=78514acc79ea5d72d8269b6aef751dfa0c6c0693f380e205362f50e9063dfd4c";
 
@@ -17,140 +17,55 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Initialize Hero Video.js Player with ImageKit Prebuilt UI ---
-  const heroVideoEl = document.getElementById('heroVideoPlayer');
-  let heroPlayer = null;
+  const heroPlayerFrame = document.getElementById('heroPlayerFrame');
   const heroSoundWave = document.getElementById('heroSoundWave');
   const heroSyncStatusText = document.getElementById('heroSyncStatusText');
   const heroBitrateBadge = document.getElementById('heroBitrateBadge');
 
-  if (heroVideoEl && typeof videojs !== 'undefined') {
-    heroPlayer = videojs(heroVideoEl, {
-      autoplay: 'muted', // Start muted so modern browsers immediately autoplay the live stream
-      muted: true,
-      controls: true,
-      preload: 'auto',
-      fluid: true,
-      liveui: true,
-      playbackRates: [0.5, 1, 1.25, 1.5, 2],
-      html5: {
-        vhs: {
-          overrideNative: true,
-          handlePartialData: true,
-          experimentalBufferBasedABR: true
-        }
-      }
-    });
-
-    // Initialize ImageKit / Video.js Quality Levels & Source Selector
-    if (typeof heroPlayer.qualityLevels === 'function') {
-      const qLevels = heroPlayer.qualityLevels();
-      
-      qLevels.on('change', () => {
-        for (let i = 0; i < qLevels.length; i++) {
-          const q = qLevels[i];
-          if (q.enabled && q.height) {
-            const height = `${q.height}p`;
-            const bitrate = q.bitrate ? ` • ${(q.bitrate / 1000000).toFixed(1)} Mbps` : '';
-            if (heroBitrateBadge) heroBitrateBadge.textContent = `${height}${bitrate}`;
-            break;
-          }
-        }
-      });
+  function loadInHeroPlayer(title, streamUrl) {
+    if (title) {
+      const titleEl = document.querySelector('.player-stream-title');
+      if (titleEl) titleEl.textContent = title;
+    }
+    if (streamUrl) {
+      currentRawStreamUrl = streamUrl;
     }
 
-    if (typeof heroPlayer.httpSourceSelector === 'function') {
-      heroPlayer.httpSourceSelector({ default: 'auto' });
+    if (heroPlayerFrame && heroPlayerFrame.contentWindow) {
+      heroPlayerFrame.contentWindow.postMessage({
+        action: 'load',
+        url: currentRawStreamUrl,
+        autoplay: true,
+        muted: true
+      }, '*');
     }
+  }
 
-    // Sound wave & sync status bindings
-    heroPlayer.on('play', () => {
+  // Handle messages from sandboxed player iframes
+  window.addEventListener('message', (event) => {
+    if (!event.data || typeof event.data !== 'object') return;
+    if (event.data.type === 'streambox:playing') {
       if (heroSoundWave) {
         heroSoundWave.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'running');
       }
-      if (heroSyncStatusText) {
-        heroSyncStatusText.textContent = heroPlayer.muted() ? 'Audio Muted (Click speaker to unmute)' : 'Spatial Stream Synced (Dolby Atmos / Stereo)';
+      if (heroSyncStatusText) heroSyncStatusText.textContent = 'Live Feed Synced (Stadium Sound / Stereo)';
+    } else if (event.data.type === 'streambox:ready') {
+      if (heroBitrateBadge) heroBitrateBadge.textContent = '1080p50 • Adaptive ABR';
+    }
+  });
+
+  // Probe /api/stream/live for freshest active stream
+  fetch(`/api/stream/live?t=${Date.now()}`, { cache: 'no-store' })
+    .then(r => r.json())
+    .then(liveData => {
+      if (liveData && liveData.stream_url) {
+        currentRawStreamUrl = liveData.stream_url;
+        loadInHeroPlayer(liveData.title, liveData.stream_url);
       }
+    })
+    .catch(() => {
+      loadInHeroPlayer('Live Cricket Feed', currentRawStreamUrl);
     });
-
-    heroPlayer.on('pause', () => {
-      if (heroSoundWave) {
-        heroSoundWave.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
-      }
-      if (heroSyncStatusText) heroSyncStatusText.textContent = 'Playback Paused';
-    });
-
-    heroPlayer.on('volumechange', () => {
-      if (heroSyncStatusText) {
-        heroSyncStatusText.textContent = heroPlayer.muted() ? 'Audio Muted (Click speaker to unmute)' : 'Spatial Stream Synced (Dolby Atmos / Stereo)';
-      }
-    });
-
-    // Graceful self-healing error handling for expired tokens or network errors
-    let isRecovering = false;
-    heroPlayer.on('error', () => {
-      const err = heroPlayer.error();
-      console.warn('[StreamBox Video.js Error]', err);
-
-      if (!isRecovering) {
-        isRecovering = true;
-        showToast('Stream token refreshed or reconnecting. Auto-syncing with GitHub...');
-        if (heroSyncStatusText) heroSyncStatusText.textContent = 'Syncing freshest stream from GitHub...';
-
-        fetch(`/api/stream/live?t=${Date.now()}`, { cache: 'no-store' })
-          .then(r => r.json())
-          .then(data => {
-            if (data && data.stream_url) {
-              currentRawStreamUrl = data.stream_url;
-              if (data.title) {
-                const titleEl = document.querySelector('.player-stream-title');
-                if (titleEl) titleEl.textContent = data.title;
-              }
-              heroPlayer.src({
-                src: getPlaybackUrl(data.stream_url, useProxy),
-                type: 'application/x-mpegURL'
-              });
-              heroPlayer.play().catch(e => console.log('Autoplay after recovery:', e));
-              showToast(`Resumed: ${data.title}`);
-            }
-          })
-          .catch(e => console.error('Auto-recovery failed:', e))
-          .finally(() => {
-            setTimeout(() => { isRecovering = false; }, 3500);
-          });
-      }
-    });
-
-    // Attempt initial play: first probe /api/stream/live for freshest active stream
-    heroPlayer.ready(() => {
-      fetch(`/api/stream/live?t=${Date.now()}`, { cache: 'no-store' })
-        .then(r => r.json())
-        .then(liveData => {
-          if (liveData && liveData.stream_url) {
-            currentRawStreamUrl = liveData.stream_url;
-            if (liveData.title) {
-              const titleEl = document.querySelector('.player-stream-title');
-              if (titleEl) titleEl.textContent = liveData.title;
-            }
-          }
-          heroPlayer.src({
-            src: getPlaybackUrl(currentRawStreamUrl, useProxy),
-            type: 'application/x-mpegURL'
-          });
-          heroPlayer.play().catch(err => {
-            console.log('[StreamBox] Autoplay was deferred by browser policy:', err);
-          });
-        })
-        .catch(() => {
-          heroPlayer.src({
-            src: getPlaybackUrl(currentRawStreamUrl, useProxy),
-            type: 'application/x-mpegURL'
-          });
-          heroPlayer.play().catch(err => {
-            console.log('[StreamBox] Autoplay was deferred by browser policy:', err);
-          });
-        });
-    });
-  }
 
   // --- Toast Notification Helper ---
   function showToast(message, type = 'info') {
@@ -195,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3500);
   }
 
-// --- YouTube Watch View Interface Controller (YouTube UI) ---
+  // --- YouTube Watch View Interface Controller (YouTube UI) ---
   const youtubeWatchView = document.getElementById('youtubeWatchView');
   const ytBackBtn = document.getElementById('ytBackBtn');
   const ytCloseBtn = document.getElementById('ytCloseBtn');
@@ -280,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!ytCommentsFeed) return;
     if (ytCommentsCount) ytCommentsCount.textContent = (SAMPLE_COMMENTS.length + 2840).toLocaleString();
     ytCommentsFeed.innerHTML = '';
-    
+
     SAMPLE_COMMENTS.forEach(c => {
       const item = document.createElement('div');
       item.className = 'yt-comment-item';
@@ -327,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isCurrent = currentWatchChannel && currentWatchChannel.url === ch.url;
       const item = document.createElement('div');
       item.className = `yt-related-item ${isCurrent ? 'playing-now' : ''}`;
-      
+
       const initials = (ch.name || 'TV').split(' ').map(w => w[0]).filter(Boolean).slice(0, 2).join('').toUpperCase();
       const thumbContent = ch.logo
         ? `<img src="${ch.logo}" alt="${ch.name}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'channel-placeholder-logo\'><span class=\'channel-initials\'>${initials}</span></div>';">`
@@ -416,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Channel profile & initials
     if (ytChannelName) {
-      ytChannelName.textContent = targetChannel.broadcast_channel || 
+      ytChannelName.textContent = targetChannel.broadcast_channel ||
         (targetChannel.category ? `Sony ${targetChannel.category.toUpperCase()} Live` : 'Sony LIV Sports');
     }
 
@@ -470,57 +385,21 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = 'hidden';
     youtubeWatchView.scrollTop = 0;
 
-    // Load Video.js player in YouTube cinema stage
-    if (modalVideoEl && typeof videojs !== 'undefined') {
-      if (!modalPlayer) {
-        modalPlayer = videojs(modalVideoEl, {
-          autoplay: true,
-          controls: true,
-          preload: 'auto',
-          fluid: true,
-          liveui: true,
-          playbackRates: [0.5, 1, 1.25, 1.5, 2],
-          html5: {
-            vhs: {
-              overrideNative: true,
-              handlePartialData: true,
-              experimentalBufferBasedABR: true
-            }
-          }
-        });
+    // Pause hero background player to prevent overlapping audio
+    if (heroPlayerFrame && heroPlayerFrame.contentWindow) {
+      heroPlayerFrame.contentWindow.postMessage({ action: 'pause' }, '*');
+    }
 
-        if (typeof modalPlayer.qualityLevels === 'function') {
-          modalPlayer.qualityLevels();
-        }
-        if (typeof modalPlayer.httpSourceSelector === 'function') {
-          modalPlayer.httpSourceSelector({ default: 'auto' });
-        }
+    const modalFrame = document.getElementById('modalPlayerFrame');
+    const targetUrl = targetChannel.url || currentRawStreamUrl;
 
-        modalPlayer.on('error', () => {
-          console.warn('[StreamBox YouTube Player Error] Loading proxy fallback...');
-          showToast(`Token refreshed for "${targetChannel.name}". Auto-syncing...`);
-          fetch(`/api/stream/live?t=${Date.now()}`, { cache: 'no-store' })
-            .then(r => r.json())
-            .then(data => {
-              if (data && data.stream_url) {
-                modalPlayer.src({
-                  src: getPlaybackUrl(data.stream_url, useProxy),
-                  type: 'application/x-mpegURL'
-                });
-                modalPlayer.play().catch(e => console.log('Autoplay deferred:', e));
-              }
-            });
-        });
-      }
-
-      const targetUrl = targetChannel.url || currentRawStreamUrl;
-      modalPlayer.src({
-        src: getPlaybackUrl(targetUrl, useProxy),
-        type: 'application/x-mpegURL'
-      });
-      modalPlayer.play().catch(e => {
-        console.log('[StreamBox YouTube Autoplay Deferred]', e);
-      });
+    if (modalFrame && modalFrame.contentWindow) {
+      modalFrame.contentWindow.postMessage({
+        action: 'load',
+        url: targetUrl,
+        autoplay: true,
+        muted: false
+      }, '*');
     }
 
     showToast(`Streaming: ${targetChannel.name}`);
@@ -531,10 +410,14 @@ document.addEventListener('DOMContentLoaded', () => {
     youtubeWatchView.classList.remove('open');
     youtubeWatchView.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    if (modalPlayer) {
-      modalPlayer.pause();
+    const modalFrame = document.getElementById('modalPlayerFrame');
+    if (modalFrame && modalFrame.contentWindow) {
+      modalFrame.contentWindow.postMessage({ action: 'pause' }, '*');
     }
-    document.title = 'StreamBox - Live Video Streaming Platform';
+    if (heroPlayerFrame && heroPlayerFrame.contentWindow) {
+      heroPlayerFrame.contentWindow.postMessage({ action: 'play' }, '*');
+    }
+    document.title = 'StreamBox — Live Video Streaming Platform';
   }
 
   // Aliases for backward compatibility
@@ -940,11 +823,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!currentSearchQuery) return true;
       const q = currentSearchQuery.toLowerCase();
       return (ch.name || '').toLowerCase().includes(q) ||
-             (ch.raw_name || '').toLowerCase().includes(q) ||
-             (ch.category || '').toLowerCase().includes(q) ||
-             (ch.language || '').toLowerCase().includes(q) ||
-             (ch.broadcast_channel || '').toLowerCase().includes(q) ||
-             (ch.group || '').toLowerCase().includes(q);
+        (ch.raw_name || '').toLowerCase().includes(q) ||
+        (ch.category || '').toLowerCase().includes(q) ||
+        (ch.language || '').toLowerCase().includes(q) ||
+        (ch.broadcast_channel || '').toLowerCase().includes(q) ||
+        (ch.group || '').toLowerCase().includes(q);
     });
 
     if (totalCountEl) totalCountEl.textContent = filteredChannels.length;

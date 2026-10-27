@@ -170,16 +170,16 @@
         <div class="hero-player-wrap">
           <div class="player-card">
             
-            <!-- Video Stage with Prebuilt ImageKit Video.js UI -->
-            <div class="player-video-stage" id="heroPlayerContainer" style="aspect-ratio: 16/9; position: relative;">
-              <video
-                id="heroVideoPlayer"
-                class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid"
-                controls
-                preload="auto"
-                playsinline
-                poster="/static/images/cyberpunk_street.jpg">
-              </video>
+            <!-- Video Stage with Prebuilt ImageKit Video.js UI (Sandboxed for Origin: null bypass) -->
+            <div class="player-video-stage" id="heroPlayerContainer" style="aspect-ratio: 16/9; position: relative; width: 100%; border-radius: 12px; overflow: hidden; background: #000;">
+              <iframe
+                id="heroPlayerFrame"
+                class="streambox-frame-player"
+                sandbox="allow-scripts allow-fullscreen allow-autoplay"
+                allow="autoplay; fullscreen"
+                src="/static/player.html?autoplay=1&muted=1"
+                style="width: 100%; height: 100%; border: none; position: absolute; top: 0; left: 0;">
+              </iframe>
             </div>
 
             <!-- Player Meta Panel -->
@@ -383,14 +383,15 @@
           <!-- Cinema Stage with Ambient Glow Effect -->
           <div class="yt-player-stage" id="ytPlayerStage">
             <div class="yt-ambient-glow" id="ytAmbientGlow"></div>
-            <div class="yt-video-wrapper">
-              <video
-                id="modalVideoPlayer"
-                class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid"
-                controls
-                preload="auto"
-                playsinline>
-              </video>
+            <div class="yt-video-wrapper" style="aspect-ratio: 16/9; position: relative; width: 100%; border-radius: 12px; overflow: hidden; background: #000;">
+              <iframe
+                id="modalPlayerFrame"
+                class="streambox-frame-player"
+                sandbox="allow-scripts allow-fullscreen allow-autoplay"
+                allow="autoplay; fullscreen"
+                src="/static/player.html?autoplay=1"
+                style="width: 100%; height: 100%; border: none; position: absolute; top: 0; left: 0;">
+              </iframe>
             </div>
           </div>
 
